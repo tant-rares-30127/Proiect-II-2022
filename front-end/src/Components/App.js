@@ -6,6 +6,7 @@ function App() {
     <>
       <h1>Welcome to IShop!</h1>
       <h2>We need your money!</h2>
+      <h3>Rares a fost aici</h3>
     </>
   )
 }
