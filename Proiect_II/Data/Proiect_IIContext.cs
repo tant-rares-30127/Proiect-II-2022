@@ -17,5 +17,7 @@ namespace Proiect_II.Data
         public DbSet<Proiect_II.Models.User> User { get; set; }
 
         public DbSet<Proiect_II.Models.Address> Address { get; set; }
+
+        public DbSet<Proiect_II.Models.Supplier> Supplier { get; set; }
     }
 }
