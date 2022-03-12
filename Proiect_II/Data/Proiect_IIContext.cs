@@ -23,5 +23,7 @@ namespace Proiect_II.Data
         public DbSet<Proiect_II.Models.ProductType> ProductType { get; set; }
 
         public DbSet<Proiect_II.Models.Product> Product { get; set; }
+
+        public DbSet<Proiect_II.Models.Review> Review { get; set; }
     }
 }
