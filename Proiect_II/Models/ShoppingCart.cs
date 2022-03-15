@@ -8,7 +8,7 @@ namespace Proiect_II.Models
     public class ShoppingCart
     {
         public int Id { get; set; }
-        public User User { get; set; }
         public DateTime DateTime { get; set; }
+        public virtual User User { get; set; }
     }
 }
