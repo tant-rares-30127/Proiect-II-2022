@@ -7,12 +7,12 @@ export default function NavBar() {
     <header className='Header'>
         <img 
             className='Logo'
-            src='D:\FACULTATE\An 3\Informatica industriala\Proiect-II-2022\front-end\Images\Logo.jpg'
-            alt='Logo'></img>
+            src='C:\Users\iusti\OneDrive\Pictures\Wallpapers\poza.jpg'
+            alt='Logo'/>
         <SearchBar />
-        <MenuOption />
-        <MenuOption />
-        <MenuOption />
+        <MenuOption OptionName={'Account'}/>
+        <MenuOption OptionName={'Favorites'}/>
+        <MenuOption OptionName={'My Products'}/>
     </header>
   )
 }

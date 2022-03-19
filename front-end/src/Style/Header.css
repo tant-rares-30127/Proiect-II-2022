@@ -12,4 +12,15 @@
     width: 300px;
     border: solid black 0.3px;
     background-color: #F69852;
+    align-items: center;
+}
+
+.MenuOption {
+    padding: 5px;
+    border-radius: 10px;
+}
+
+.MenuOption:hover {
+    background-color: rgb(172, 104, 53);
+    color: aliceblue;
 }
