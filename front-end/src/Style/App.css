@@ -4,3 +4,10 @@
  with the following line of code:
  @import 'file_name.css'
 **/
+
+@import './Header.css';
+
+body {
+    margin: 0;
+    padding: 0;
+}

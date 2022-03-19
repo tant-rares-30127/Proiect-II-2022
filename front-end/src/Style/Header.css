@@ -1,0 +1,15 @@
+.Header {
+    background-color: #F69852;
+    display: flex;
+    display: flexbox;
+    justify-content: space-between;
+    padding: 1rem;
+}
+
+.SearchBar {
+    border-radius: 9px;
+    height: 23px;
+    width: 300px;
+    border: solid black 0.3px;
+    background-color: #F69852;
+}
