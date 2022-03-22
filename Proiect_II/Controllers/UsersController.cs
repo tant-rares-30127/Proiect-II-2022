@@ -7,17 +7,29 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Proiect_II.Data;
 using Proiect_II.Models;
+using Proiect_II.Services;
 
 namespace Proiect_II.Controllers
 {
     public class UsersController : Controller
     {
         private readonly Proiect_IIContext _context;
+        ProductsServices productServices;
+
 
         public UsersController(Proiect_IIContext context)
         {
             _context = context;
+            this.productServices = new ProductsServices();
         }
+
+        [HttpGet]
+        public List<Product> SearchBarClick()
+        {
+            List<Product> productsList = _context.Product.ToList();
+            return this.productServices.TopProducts(productsList); 
+        }
+
 
         // GET: Users
         public async Task<IActionResult> Index()
