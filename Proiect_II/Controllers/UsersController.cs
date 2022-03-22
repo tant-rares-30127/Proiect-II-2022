@@ -30,6 +30,13 @@ namespace Proiect_II.Controllers
             return this.productServices.TopProducts(productsList); 
         }
 
+        [HttpGet]
+        public List<ProductType> ProductsType()
+        {
+            List<ProductType> productTypesList = _context.ProductType.ToList();
+            return productTypesList;
+        }
+
 
         // GET: Users
         public async Task<IActionResult> Index()
