@@ -11,6 +11,7 @@
     border: solid black 0.3px;
     background-color: #F69852;
     align-items: center;
+    color: rgb(0, 0, 0);
 }
 
 .MenuOption-btn {
@@ -45,4 +46,15 @@
     justify-content: space-around;
     gap: 40px;
     padding-right: 40px;
+}
+
+.SearchResult-container {
+    width: 340px;
+    padding: 5px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    background-color: white;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    z-index: 1;
 }

@@ -6,7 +6,7 @@ import image from '../Images/Logo.jpg';
 export default function NavBar() {
   const menuOptionComponents = menuOptions.map( m => {
     return (<MenuOption OptionName={m}/>)
-})
+  })
 
   return (
     <header className='Header'>
