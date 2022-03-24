@@ -2,10 +2,11 @@ import React from 'react'
 import MenuOption from './MenuOption'
 import SearchBar from './SearchBar'
 import image from '../Images/Logo.jpg';
+import { v4 as uuidv4 } from "uuid";
 
 export default function NavBar() {
   const menuOptionComponents = menuOptions.map( m => {
-    return (<MenuOption OptionName={m}/>)
+    return (<MenuOption key={uuidv4()} OptionName={m}/>)
   })
 
   return (

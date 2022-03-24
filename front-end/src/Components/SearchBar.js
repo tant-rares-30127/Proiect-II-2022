@@ -6,10 +6,10 @@ export default function SearchBar() {
 
   function handleSearch(value) {
     const newSearch = data.filter((d) => d.includes(value));
-    if (value !== "") {
-      setSearch(newSearch);
-    } else {
+    if (value === "" || newSearch.length == 0) {
       setSearch(undefined);
+    } else {
+      setSearch(newSearch);
     }
   }
 
