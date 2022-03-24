@@ -1,18 +1,27 @@
 import React from 'react'
 import MenuOption from './MenuOption'
 import SearchBar from './SearchBar'
+import image from '../Images/Logo.jpg';
 
 export default function NavBar() {
+  const menuOptionComponents = menuOptions.map( m => {
+    return (<MenuOption OptionName={m}/>)
+})
+
   return (
     <header className='Header'>
-        <img 
-            className='Logo'
-            src='C:\Users\iusti\OneDrive\Pictures\Wallpapers\poza.jpg'
-            alt='Logo'/>
-        <SearchBar />
-        <MenuOption OptionName={'Account'}/>
-        <MenuOption OptionName={'Favorites'}/>
-        <MenuOption OptionName={'My Products'}/>
+        <div className='Header-left-container'>
+          <img 
+              className='Logo'
+              src={image}
+              alt='Logo'/>
+          <SearchBar />
+        </div>
+        <div className='Header-right-container'>
+          {menuOptionComponents}
+        </div>
     </header>
   )
 }
+
+const menuOptions = ['Favorites', 'My Products', 'Account'];
