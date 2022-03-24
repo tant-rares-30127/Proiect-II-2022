@@ -1,0 +1,35 @@
+.MenuOption-btn {
+    border: none;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: #F69852;
+}
+
+.MenuOption-btn:hover {
+    background-color: rgb(172, 104, 53);
+    color: aliceblue;
+}
+
+.Options-container {
+    position: absolute;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    display: none;
+    z-index: 1;
+}
+
+.MenuOption-container:hover .Options-container{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.Options-container button{
+    background-color: #ffffff;
+    border: none;
+}
+
+.Options-container button:hover{
+    background-color: rgb(172, 104, 53);
+    color: aliceblue;
+    border: none;
+}

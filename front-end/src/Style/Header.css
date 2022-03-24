@@ -13,12 +13,14 @@
     align-items: center;
 }
 
-.MenuOption {
-    padding: 5px;
+.MenuOption-btn {
+    border: none;
+    padding: 10px;
     border-radius: 10px;
+    background-color: #F69852;
 }
 
-.MenuOption:hover {
+.MenuOption-btn:hover {
     background-color: rgb(172, 104, 53);
     color: aliceblue;
 }
