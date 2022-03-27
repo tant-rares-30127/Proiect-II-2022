@@ -15,11 +15,17 @@ namespace Proiect_II.Services
         public List<Product> TopProducts(List<Product> productsList)
         {
             List<Product> products = new List<Product>();
-            for (int i = 0; i < 4; i++)
+            int i = 1;
+            foreach (Product p in productsList)
             {
-                products.Add(productsList[i]);
+                if (i <= 4)
+                {
+                    products.Add(p);
+                    i++;
+                }
+                else break;
             }
-            return productsList;
+            return products;
         }
     }
 }

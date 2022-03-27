@@ -14,27 +14,11 @@ namespace Proiect_II.Controllers
     public class UsersController : Controller
     {
         private readonly Proiect_IIContext _context;
-        ProductsServices productServices;
 
 
         public UsersController(Proiect_IIContext context)
         {
             _context = context;
-            this.productServices = new ProductsServices();
-        }
-
-        [HttpGet]
-        public List<Product> SearchBarClick()
-        {
-            List<Product> productsList = _context.Product.ToList();
-            return this.productServices.TopProducts(productsList); 
-        }
-
-        [HttpGet]
-        public List<ProductType> ProductsType()
-        {
-            List<ProductType> productTypesList = _context.ProductType.ToList();
-            return productTypesList;
         }
 
 
