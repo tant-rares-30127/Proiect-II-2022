@@ -19,6 +19,14 @@ namespace Proiect_II.Controllers
             _context = context;
         }
 
+        [HttpGet]
+        public List<ProductType> ProductsType()
+        {
+            List<ProductType> productTypesList = _context.ProductType.ToList();
+            return productTypesList;
+        }
+
+
         // GET: ProductTypes
         public async Task<IActionResult> Index()
         {
