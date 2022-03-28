@@ -13,6 +13,7 @@ namespace Proiect_II.Models
         public string Password { get; set; }
         public string Email { get; set; }
         public string Phone { get; set; }
+        public virtual ShoppingCart ShoppingCart { get; set; }
 
     }
 }
