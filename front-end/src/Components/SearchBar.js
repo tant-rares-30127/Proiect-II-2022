@@ -18,6 +18,10 @@ export default function SearchBar() {
     setSearch(data);
   }
 
+  function handleHideResults() {
+    setSearch(undefined);
+  }
+
   return (
     <div>
       <div className="Search-bar-container">
@@ -27,14 +31,13 @@ export default function SearchBar() {
         placeholder="Type to search..."
         onChange={(e) => handleSearch(e.target.value)}
         onClick={(e) => showRecomandations()}
-        onBlur={(e) => setSearch(undefined)}
       ></input>
       <img 
         className="Search-Icon"
         src={searchIcon}
         alt="Search icon"></img>
       </div>
-      {search !== undefined ? <SearchResult data={search} /> : null}
+      {search !== undefined ? <SearchResult data={search} handleHideResults={handleHideResults}/> : null}
     </div>
   );
 }

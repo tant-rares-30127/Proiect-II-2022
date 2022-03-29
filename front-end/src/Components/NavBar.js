@@ -1,7 +1,7 @@
 import React from "react";
 import MenuOption from "./MenuOption";
 import SearchBar from "./SearchBar";
-import logo from '../Images/Logo.jpg';
+import logo from "../Images/Logo.jpg";
 import { v4 as uuidv4 } from "uuid";
 
 export default function NavBar() {
@@ -12,7 +12,9 @@ export default function NavBar() {
   return (
     <header className="Header">
       <div className="Header-left-container">
-        <img className="Logo" src={logo} alt="Logo" />
+        <a href="../../public/index.html">
+          <img className="Logo" src={logo} alt="Logo" />
+        </a>
         <SearchBar />
       </div>
       <div className="Header-right-container">{menuOptionComponents}</div>
