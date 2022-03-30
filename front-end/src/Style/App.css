@@ -7,6 +7,7 @@
 
 @import './Header.css';
 @import './DropDown.css';
+@import './ProductList.css';
 
 body {
     margin: 0;
