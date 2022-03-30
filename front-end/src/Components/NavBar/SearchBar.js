@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import SearchResult from "./SearchResult";
-import searchIcon from "../Images/Search.png"
+import searchIcon from "../../Images/Search.png"
 
 export default function SearchBar() {
   const [search, setSearch] = useState();

@@ -1,13 +1,13 @@
 import React from "react";
 import '../Style/App.css'
-import NavBar from "./NavBar";
-import ProductList from "./ProductList";
+import NavBar from "./NavBar/NavBar";
+import Body from "./BodyApp/Body";
 
 function App() {
   return (
     <>
       <NavBar />
-      <ProductList products={products}/>
+      <Body products={products}/>
     </>
   )
 }

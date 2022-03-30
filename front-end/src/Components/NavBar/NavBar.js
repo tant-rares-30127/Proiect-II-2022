@@ -1,7 +1,7 @@
 import React from "react";
 import MenuOption from "./MenuOption";
 import SearchBar from "./SearchBar";
-import logo from "../Images/Logo.jpg";
+import logo from '../../Images/Logo.jpg'
 import { v4 as uuidv4 } from "uuid";
 
 export default function NavBar() {
