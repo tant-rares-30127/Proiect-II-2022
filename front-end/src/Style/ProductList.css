@@ -2,18 +2,34 @@
     display: flex;
     flex-direction: column;
     gap: 0.6rem;
+    margin: 0;
+    padding: 0;
 }
 
 .Product-list-container li {
+    display: flex;
+    justify-content: flex-start;
     list-style-type: none;
     margin: 0;
     padding: 1rem;
+    margin-left: 1rem;
+    gap: 0.5rem;
+}
+
+.Product-list-container a{
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .Product-list-container li:hover {
-    background-color: rgb(175, 170, 170);
+    background-color: rgb(204, 200, 200);
 }
 
-.Product-list-container h2 {
+.Product-list-container {
     padding-left: 1rem;
+}
+
+.Product-Icon {
+    width: 1rem;
 }
