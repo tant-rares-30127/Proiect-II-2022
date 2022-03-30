@@ -1,13 +1,15 @@
 import React from "react";
-import '../Style/App.css';
-import FooterContainer from './Footer/FooterContainer'
+import '../Style/App.css'
 
 function App() {
   return (
-    <div>
-    <FooterContainer/>
-    </div>
-  );
+    <>
+      <h1>Welcome to IShop!</h1>
+      <h2>We need your money!</h2>
+      <h3>Rares a fost aici</h3>
+      <h3>Si Iustin a fost pe aici!</h3>
+    </>
+  )
 }
 
 export default App;
