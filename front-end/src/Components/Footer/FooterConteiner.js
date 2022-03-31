@@ -1,6 +1,6 @@
 import { toBeRequired } from '@testing-library/jest-dom/dist/matchers';
 import React from 'react';
-import Footer from './Footerindex';
+import Footer from './FooterIndex';
 
 export default function FooterContainer(){
     return(

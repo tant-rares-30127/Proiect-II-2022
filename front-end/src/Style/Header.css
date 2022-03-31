@@ -1,0 +1,71 @@
+.Header {
+    background-color: #F69852;
+    display: flex;
+    justify-content: space-between;   
+}
+
+.SearchBar {
+    border-radius: 10px;
+    height: 36px;
+    width: 350px;
+    border: solid black 0.3px;
+    background-color: #F69852;
+    align-items: center;
+    color: rgb(0, 0, 0);
+}
+
+.MenuOption-btn {
+    border: none;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: #F69852;
+}
+
+.MenuOption-btn:hover {
+    background-color: rgb(172, 104, 53);
+    color: aliceblue;
+}
+
+.Logo {
+    width: 70px;
+    border-radius: 20px;
+}
+
+.Header-left-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 40px;
+    padding-left: 40px;
+}
+
+.Header-right-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    gap: 40px;
+    padding-right: 40px;
+}
+
+.SearchResult-container {
+    width: 340px;
+    padding: 5px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    background-color: white;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    z-index: 1;
+}
+
+.Search-Icon {
+    width: 25px;
+}
+
+.Search-bar-container {
+    display: flex;
+    align-items: center;
+    gap: 5px
+}
+

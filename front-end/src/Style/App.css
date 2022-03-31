@@ -4,3 +4,13 @@
  with the following line of code:
  @import 'file_name.css'
 **/
+
+@import './Header.css';
+@import './DropDown.css';
+@import './ProductList.css';
+@import './Body.css';
+
+body {
+    margin: 0;
+    padding-top: 0px;
+}
