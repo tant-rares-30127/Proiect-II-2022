@@ -1,13 +1,8 @@
 import React from "react";
-import '../Style/App.css';
-import FooterContainer from './Footer/FooterContainer'
+import FooterConteiner from './Footer/FooterConteiner';
 
 function App() {
-  return (
-    <div>
-    <FooterContainer/>
-    </div>
-  );
+  return <FooterConteiner/>
 }
 
 export default App;
