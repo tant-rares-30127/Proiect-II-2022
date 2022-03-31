@@ -1,15 +1,8 @@
 import React from "react";
-import '../Style/App.css'
+import FooterConteiner from './Footer/FooterConteiner';
 
 function App() {
-  return (
-    <>
-      <h1>Welcome to IShop!</h1>
-      <h2>We need your money!</h2>
-      <h3>Rares a fost aici</h3>
-      <h3>Si Iustin a fost pe aici!</h3>
-    </>
-  )
+  return <FooterConteiner/>
 }
 
 export default App;
