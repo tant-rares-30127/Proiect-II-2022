@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Proiect_II.Data;
 using Proiect_II.Models;
+using Proiect_II.Services;
 
 namespace Proiect_II.Controllers
 {
@@ -14,10 +15,12 @@ namespace Proiect_II.Controllers
     {
         private readonly Proiect_IIContext _context;
 
+
         public UsersController(Proiect_IIContext context)
         {
             _context = context;
         }
+
 
         // GET: Users
         public async Task<IActionResult> Index()
