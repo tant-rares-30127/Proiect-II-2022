@@ -12,7 +12,7 @@ export default function NavBar() {
   return (
     <header className="Header">
       <div className="Header-left-container">
-        <a href="../../public/index.html">
+        <a href="../../">
           <img className="Logo" src={logo} alt="Logo" />
         </a>
         <SearchBar />

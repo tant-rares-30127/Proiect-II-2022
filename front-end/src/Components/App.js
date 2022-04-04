@@ -3,15 +3,17 @@ import '../Style/App.css'
 import NavBar from "./NavBar/NavBar";
 import Body from "./BodyApp/Body";
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
+import Dummy from "./Dummy";
+import Dummy2 from "./Dummy2";
 
 function App() {
   return (
     <Router>
       <NavBar />
       <Routes>
-        <Route path="/">
-          <Body products={products}/>
-        </Route>
+        <Route path="/" element={<Body products={products}/>}/>
+        <Route path="/dummy1" element={<Dummy/>}/>
+        <Route path="/dummy2" element={<Dummy2/>}/>
       </Routes>
     </Router>
   )
