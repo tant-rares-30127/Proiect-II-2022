@@ -6,7 +6,7 @@ export default function SearchResult({ data, handleHideResults}) {
     return (
       <a
         key={uuidv4()}
-        href="../../public/index.html"
+        href="../../dummy1"
         rel="noreferrer"
       >
         {d}

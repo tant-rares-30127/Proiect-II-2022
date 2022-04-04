@@ -10,7 +10,7 @@ const productsToDisplay = products.map( p => {
             <img 
                 className='Product-Icon'
                 src={productIcon} alt="Icon"></img>
-            <a href='../../public/index.html'>{p}</a>
+            <a href='../../dummy2'>{p}</a>
         </li>
     )
 }) 
