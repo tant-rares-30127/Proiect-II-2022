@@ -2,11 +2,18 @@
     border: none;
     padding: 0.5rem;
     background-color: #F69852;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+.MenuOption-btn img{
+    display: flex;
+    align-items: center;
 }
 
 .MenuOption-btn:hover {
-    background-color: rgb(172, 104, 53);
-    color: aliceblue;
+    background-color: #a36738;
 }
 
 .Options-container {

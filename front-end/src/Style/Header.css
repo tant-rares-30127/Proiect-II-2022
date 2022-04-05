@@ -19,12 +19,16 @@
     border-radius: 0.9rem;
 }
 
+.NavBar-Icon {
+    width: 1rem;
+}
+
 .Header-left-container {
     display: flex;
     justify-content: space-between;
     align-items: center;
     gap: 1rem;
-    padding-left: 3rem;
+    padding-left: 2rem;
 }
 
 .Image-link-container {
@@ -37,8 +41,8 @@
     flex-direction: row;
     align-items: center;
     justify-content: space-around;
-    gap: 3rem;
-    padding-right: 3rem;
+    gap: 1rem;
+    padding-right: 2rem;
 }
 
 .SearchResult-container {
