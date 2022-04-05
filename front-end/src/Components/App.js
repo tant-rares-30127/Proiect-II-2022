@@ -1,8 +1,8 @@
 import React from "react";
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 import '../Style/App.css'
 import NavBar from "./NavBar/NavBar";
 import Body from "./BodyApp/Body";
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 import Dummy from "./Dummy";
 import Dummy2 from "./Dummy2";
 
@@ -14,7 +14,7 @@ function App() {
         <Route path="/" element={<Body products={products}/>}/>
         <Route path="/dummy1" element={<Dummy/>}/>
         <Route path="/dummy2" element={<Dummy2/>}/>
-      </Routes>
+      </Routes>    
     </Router>
   )
 }

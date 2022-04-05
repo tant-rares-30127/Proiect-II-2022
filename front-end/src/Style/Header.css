@@ -5,25 +5,13 @@
 }
 
 .SearchBar {
-    border-radius: 10px;
-    height: 36px;
-    width: 350px;
-    border: solid black 0.3px;
+    border-radius: 0.5rem;
+    height: 2.3rem;
+    width: 22rem;
+    border: solid black 0.05rem;
     background-color: #F69852;
     align-items: center;
     color: rgb(0, 0, 0);
-}
-
-.MenuOption-btn {
-    border: none;
-    padding: 10px;
-    border-radius: 10px;
-    background-color: #F69852;
-}
-
-.MenuOption-btn:hover {
-    background-color: rgb(172, 104, 53);
-    color: aliceblue;
 }
 
 .Logo {
@@ -49,14 +37,23 @@
 }
 
 .SearchResult-container {
-    width: 340px;
-    padding: 5px;
+    width: 22rem;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     background-color: white;
     position: absolute;
     display: flex;
     flex-direction: column;
     z-index: 1;
+}
+
+.SearchResult-container a {
+    text-decoration: none;
+    color: black;
+    padding: 0.5rem;
+}
+
+.SearchResult-container a:hover {
+    background-color: rgb(204, 200, 200);
 }
 
 .Search-Icon {

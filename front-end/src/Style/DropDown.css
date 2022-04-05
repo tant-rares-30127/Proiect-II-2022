@@ -1,7 +1,6 @@
 .MenuOption-btn {
     border: none;
-    padding: 10px;
-    border-radius: 10px;
+    padding: 0.5rem;
     background-color: #F69852;
 }
 
@@ -21,15 +20,15 @@
     display: flex;
     justify-content: center;
     flex-direction: column;
+    background-color: white;
 }
 
-.Options-container button{
-    background-color: #ffffff;
-    border: none;
+.Options-container a {
+    text-decoration: none;
+    color: black;
+    padding: 0.4rem;
 }
 
-.Options-container button:hover{
-    background-color: rgb(172, 104, 53);
-    color: aliceblue;
-    border: none;
+.Options-container a:hover {
+    background-color: rgb(204, 200, 200);
 }
