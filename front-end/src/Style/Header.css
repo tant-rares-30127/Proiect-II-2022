@@ -27,6 +27,11 @@
     padding-left: 3rem;
 }
 
+.Image-link-container {
+    width: 64px;
+    height: 60.6833px;
+}
+
 .Header-right-container {
     display: flex;
     flex-direction: row;
