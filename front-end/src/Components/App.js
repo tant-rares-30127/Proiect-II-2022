@@ -6,6 +6,7 @@ import Body from "./BodyApp/Body";
 import Dummy from "./Dummy";
 import Dummy2 from "./Dummy2";
 import Login from "./Login/Login";
+import Register from "./Register/Register";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <Route path="/dummy1" element={<Dummy/>}/>
         <Route path="/dummy2" element={<Dummy2/>}/>
         <Route path="/login" element={<Login/>}/>
+        <Route path="/register" element={<Register/>}/>
       </Routes>    
     </Router>
   )
