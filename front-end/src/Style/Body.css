@@ -1,12 +1,10 @@
 .Main-body-container {
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
 }
 
 .Promo-Image{
     padding: 1rem;
-    padding-right: 0;
-    object-fit: contain;
     width: 45rem;
     height: 30rem;
 }
