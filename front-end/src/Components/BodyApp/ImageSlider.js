@@ -11,6 +11,7 @@ export default function ImageSlider() {
   const sliderButtons = images.map((image) => {
     return (
       <SliderButton
+        key={uuidv4()}
         handleClick={handleSliderButtonClick}
         imageKey={image.key}
       />
@@ -23,9 +24,13 @@ export default function ImageSlider() {
   }
 
   return (
-    <div>
-      <img className="Promo-Image" src={imageToShow} alt="Promo" />
-      {sliderButtons}
+    <div className="ImageSlider-container">
+      <div>
+        <img className="Promo-Image" src={imageToShow} alt="Promo" />
+      </div>
+      <div className="SliderButtons-container">
+        {sliderButtons}
+      </div>
     </div>
   );
 }

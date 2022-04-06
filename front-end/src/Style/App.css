@@ -9,6 +9,7 @@
 @import './DropDown.css';
 @import './ProductList.css';
 @import './Body.css';
+@import './ImageSlider.css';
 
 body {
     margin: 0;

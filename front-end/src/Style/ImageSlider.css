@@ -1,0 +1,21 @@
+.ImageSlider-container {
+    padding: 1rem;
+    display: flex;
+    width: 45rem;
+    height: 30rem;
+}
+
+.Promo-Image{
+    position: absolute;
+    width: 45rem;
+    height: 30rem;
+}
+
+.SliderButtons-container {
+    position: absolute;
+    display: flex;
+    z-index: 1;
+    align-self:flex-end;
+    gap: 0.3rem;
+}
+

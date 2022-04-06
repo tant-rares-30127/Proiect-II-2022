@@ -1,10 +1,4 @@
 .Main-body-container {
     display: flex;
-    justify-content: flex-start;
-}
-
-.Promo-Image{
-    padding: 1rem;
-    width: 45rem;
-    height: 30rem;
+    justify-content: space-between;
 }
