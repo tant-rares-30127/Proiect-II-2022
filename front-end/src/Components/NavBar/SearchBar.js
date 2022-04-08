@@ -1,9 +1,29 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 import SearchResult from "./SearchResult";
 import searchIcon from "../../Images/Search.png"
 
 export default function SearchBar() {
   const [search, setSearch] = useState();
+  const [data, setData] = useState(toShowData)
+
+  useEffect(() => {
+    axios
+      .get("https://localhost:5001/Products/SearchBarClick")
+      .then((response) => {
+        return response.data;
+      })
+      .catch((error) => {
+        console.log(error);
+      })
+      .then((data) => {
+        const dataFromApi = data.map(d => {
+          return d.name
+        })
+
+        setData(dataFromApi)
+      });
+  }, [])
 
   function handleSearch(value) {
     const newSearch = data.filter((d) => d.includes(value));
@@ -42,4 +62,4 @@ export default function SearchBar() {
   );
 }
 
-const data = ["Lanterna", "Leptop", "Dulceata", "Tanc rusesc"];
+const toShowData = ["Lanterna", "Leptop", "Dulceata", "Tanc rusesc"];
