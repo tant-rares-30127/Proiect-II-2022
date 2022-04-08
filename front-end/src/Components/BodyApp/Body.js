@@ -6,7 +6,7 @@ export default function Body({ products }) {
   return (
     <div className="Main-body-container">
       <div>
-        <ProductList products={products} />
+        <ProductList />
       </div>
         <ImageSlider />
     </div>

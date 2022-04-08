@@ -10,11 +10,13 @@ import Login from "./Login/Login";
 import Register from "./Register/Register";
 
 function App() {
+
+
   return (
     <Router>
       <NavBar />
       <Routes>
-        <Route path="/" element={<Body products={products}/>}/>
+        <Route path="/" element={<Body/>}/>
         <Route path="/dummy1" element={<Dummy/>}/>
         <Route path="/dummy2" element={<Dummy2/>}/>
         <Route path="/login" element={<Login/>}/>
@@ -27,4 +29,4 @@ function App() {
 
 export default App;
 
-const products = ['Laptop', 'Tablet', 'Phone']
+
