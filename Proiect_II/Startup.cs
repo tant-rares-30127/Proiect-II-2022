@@ -27,6 +27,13 @@ namespace Proiect_II
         {
             services.AddControllersWithViews();
 
+            services.AddCors(options => options.AddPolicy("MyPolicy", builder =>
+            {
+                builder.AllowAnyOrigin()
+                       .AllowAnyMethod()
+                       .AllowAnyHeader();
+            }));
+
             services.AddDbContext<Proiect_IIContext>(options =>
                     options.UseSqlServer(Configuration.GetConnectionString("Proiect_IIContext")));
         }
@@ -46,7 +53,7 @@ namespace Proiect_II
             }
             app.UseHttpsRedirection();
             app.UseStaticFiles();
-
+            app.UseCors("MyPolicy");
             app.UseRouting();
 
             app.UseAuthorization();
