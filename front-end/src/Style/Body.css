@@ -2,11 +2,3 @@
     display: flex;
     justify-content: space-between;
 }
-
-.Promo-Image{
-    padding: 1rem;
-    padding-right: 0;
-    object-fit: contain;
-    width: 70%;
-    height: 70%;
-}

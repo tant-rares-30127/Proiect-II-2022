@@ -9,8 +9,9 @@
 @import './DropDown.css';
 @import './ProductList.css';
 @import './Body.css';
+@import './ImageSlider.css';
 
 body {
     margin: 0;
-    padding-top: 0px;
+    padding-top: 0;
 }

@@ -1,13 +1,25 @@
 import React from 'react'
+import arrowDown from '../../Images/Arrow_down.png'
 
-export default function MenuOption( {OptionName} ) {
+export default function MenuOption( {name, icon}) {
+
   return (
     <div className='MenuOption-container'>
-      <button className='MenuOption-btn'>{OptionName}</button>
+      <button className='MenuOption-btn'>
+        <div>
+          <img className='NavBar-Icon' src={icon} alt="icon"/>
+        </div>
+        <div>
+          {name}
+        </div>
+        <div>
+          <img src={arrowDown} alt="arrow"/>
+        </div>
+      </button>
       <div className='Options-container'>
-        <button>button1</button>
-        <button>button2</button>
-        <button>button3</button>
+        <a href='../../'>Link1</a>
+        <a href='../../'>Link2</a>
+        <a href='../../'>Link3</a>
       </div>
     </div>
   )
