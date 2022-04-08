@@ -10,7 +10,7 @@ export default function ProductList() {
   useEffect(() => {
     let newProducts = [];
     axios
-      .get("https://localhost:5001/Products/SearchBarClick")
+      .get("https://localhost:5001/ProductTypes/ProductsType")
       .then((response) => {
         return response.data;
       })
