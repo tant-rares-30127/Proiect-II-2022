@@ -31,6 +31,14 @@
     column-gap: 1rem;
 }
 
+.Register-input {
+    border-style: none;
+    border-radius: 0.13rem;
+    border: solid #8d8d8d 0.1rem;
+    height: 2rem;
+    text-align:left;
+}
+
 .Auth-btn {
     border: none;
     border-radius: 0.2rem;
@@ -53,3 +61,4 @@
 .Register-title-form-container {
     display: flex;
 }
+
