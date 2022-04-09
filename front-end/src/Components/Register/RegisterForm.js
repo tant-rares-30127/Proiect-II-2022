@@ -1,7 +1,10 @@
-import React from 'react'
+import React from "react";
+import FormFields from "./FormFields";
 
 export default function RegisterForm() {
   return (
-    <div>RegisterForm</div>
-  )
+    <div>
+      <FormFields />
+    </div>
+  );
 }

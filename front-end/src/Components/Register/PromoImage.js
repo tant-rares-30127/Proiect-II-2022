@@ -5,7 +5,7 @@ export default function PromoImage() {
   return (
     <div className='PromoImage-container'>
       <h2>Acces Is Closed. Community Members Only</h2>
-      <img className='Register-promo-image' src={promoImage} alt='Image'/>
+      <img className='Register-promo-image' src={promoImage} alt='Promo'/>
     </div>
   )
 }
