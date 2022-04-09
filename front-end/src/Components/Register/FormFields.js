@@ -25,6 +25,7 @@ export default function FormFields() {
           <input type="checkbox" />
           <label>I agree to the processing of my personal data</label>
         </span>
+        <button>Register</button>
       </form>
   )
 }

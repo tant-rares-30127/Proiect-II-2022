@@ -2,8 +2,9 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 2rem
-    
+    gap: 5rem;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
 }
 
 .PromoImage-container {
@@ -11,6 +12,10 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+
+.Register-container {
+    width: 20rem;
 }
 
 .Register-promo-image {
@@ -27,6 +32,9 @@
 .Register-form {
     display: flex;
     flex-direction: column;
-    
     gap: 1rem;
+}
+
+.Register-title-form-container {
+    display: flex;
 }
