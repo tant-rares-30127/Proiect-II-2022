@@ -16,6 +16,8 @@
 
 .Register-container {
     width: 20rem;
+    background-color: #F4F4F4;
+    padding: 1.5rem;
 }
 
 .Register-promo-image {
@@ -27,6 +29,19 @@
     grid-template-columns: auto 1fr;
     row-gap: 1rem;
     column-gap: 1rem;
+}
+
+.Auth-btn {
+    border: none;
+    border-radius: 0.2rem;
+    background-color: #E55241;
+    color: white;
+    height: 3rem;
+    font-size: 1rem;
+}
+
+.Auth-btn:hover {
+    background-color: #b44134;
 }
 
 .Register-form {
