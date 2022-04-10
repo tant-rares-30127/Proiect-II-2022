@@ -1,0 +1,86 @@
+.Login-body-container {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+}
+
+.Forget-pass {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #E55241;
+}
+
+.Login-text {
+
+  text-align:justify;
+  text-size-adjust: 5rm;
+}
+
+.Login-title-form-container {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+
+}
+
+.Login-content-text{
+  display: flex;
+  justify-content: center;
+  align-content: center;
+}
+
+.Authentif-btn {
+  
+  border-radius: 0.2rem;
+  border: solid #E55241 0.1rem;
+  color: #E55241;
+  background-color: white;
+  height: 3rem;
+  font-size: 1rem;
+}
+
+.Authentif-btn:hover {
+  background-color: rgb(241, 234, 234);
+}
+
+.Login-form {
+  display: grid;
+  gap: 2rem;
+}
+
+.Login-input-container { 
+  display: grid;
+  row-gap: 1.5rem;
+}
+
+.Login-input { 
+  border-style: none;
+  border-radius: 0.13rem;
+  border: solid #8d8d8d 0.1rem;
+  height: 2rem;
+  text-align:left;
+} 
+
+.Login-btn {
+  border: none;
+  border-radius: 0.2rem;
+  background-color: #E55241;
+  color: white;
+  height: 3rem;
+  font-size: 1rem;
+}
+
+.Login-btn:hover {
+  background-color: #b44134;
+}
+
+
+
+
+
+
+

@@ -10,6 +10,7 @@
 @import './ProductList.css';
 @import './Body.css';
 @import './ImageSlider.css';
+@import './Login.css';
 
 body {
     margin: 0;
