@@ -12,6 +12,23 @@ namespace Proiect_II.Services
         {
         }
 
+        public List<Product> RecommandatedProducts(List<Product> productsList)
+        {
+            List<Product> products = new List<Product>();
+            productsList = Enumerable.Reverse(productsList).ToList();
+            int i = 1;
+            foreach (Product p in productsList)
+            {
+                if (i <= 4)
+                {
+                    products.Add(p);
+                    i++;
+                }
+                else break;
+            }
+            return products;
+        }
+
         public List<Product> SearchedProducts(List<Product> productsList, string text)
         {
             List<Product> products = new List<Product>();

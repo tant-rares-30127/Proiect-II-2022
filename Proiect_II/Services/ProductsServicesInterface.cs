@@ -11,5 +11,7 @@ namespace Proiect_II.Services
         public List<Product> TopProducts(List<Product> productsList);
 
         public List<Product> SearchedProducts(List<Product> productsList, string text);
+
+        public List<Product> RecommandatedProducts(List<Product> productsLst);
     }
 }
