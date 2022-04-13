@@ -62,3 +62,20 @@
     display: flex;
 }
 
+
+.UsersNumber-container {
+    padding-bottom: 1rem;
+    padding-left: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.2rem;
+    font-size: smaller;
+    font-weight: bold;
+}
+
+.UsersNumber {
+    color: rebeccapurple;
+    font-size: smaller;
+    color: #E55241;
+}
+

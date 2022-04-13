@@ -13,10 +13,13 @@ export default function RegisterForm() {
         Get professional advice, news, strategies about out products and also
         see other people's opinion about them.
       </p>
-      <p>
-        We are already so many!
-      </p>
+      <div className="UsersNumber-container">
+        <span>We are already -</span>
+        <span className="UsersNumber">55574</span>
+        <span>people(s)</span>
+      </div>
       <FormFields />
     </div>
   );
 }
+
