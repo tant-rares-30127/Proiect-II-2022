@@ -12,6 +12,25 @@ namespace Proiect_II.Services
         {
         }
 
+        public List<Product> SearchedProducts(List<Product> productsList, string text)
+        {
+            List<Product> products = new List<Product>();
+            int i = 1;
+            foreach (Product p in productsList)
+            {
+                if (i <= 4)
+                {
+                    if (p.Name.Contains(text))
+                    {
+                        products.Add(p);
+                        i++;
+                    }
+                }
+                else break;
+            }
+            return products;
+        }
+
         public List<Product> TopProducts(List<Product> productsList)
         {
             List<Product> products = new List<Product>();

@@ -9,5 +9,7 @@ namespace Proiect_II.Services
     interface ProductsServicesInterface
     {
         public List<Product> TopProducts(List<Product> productsList);
+
+        public List<Product> SearchedProducts(List<Product> productsList, string text);
     }
 }
