@@ -21,7 +21,7 @@ export default function FormFields() {
             placeholder="Answer"
           />
         </div>
-        <span className='Register-checkBox-container'>
+        <span className='Form-important-text'>
           <input type="checkbox" />
           <label>I agree to the processing of my personal data</label>
         </span>

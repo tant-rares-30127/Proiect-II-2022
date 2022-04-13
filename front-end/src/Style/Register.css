@@ -62,26 +62,22 @@
     display: flex;
 }
 
+.Form-important-text {
+    font-size: smaller;
+    font-weight: bold;
+    padding-left: 0.5rem;
+}
 
 .UsersNumber-container {
     padding-bottom: 1rem;
-    padding-left: 0.5rem;
     display: flex;
     align-items: center;
     gap: 0.2rem;
-    font-size: smaller;
-    font-weight: bold;
 }
 
 .UsersNumber {
-    color: rebeccapurple;
     font-size: smaller;
     color: #E55241;
 }
 
-.Register-checkBox-container {
-    font-size: smaller;
-    font-weight: bold;
-    padding-left: 0.5rem;
-}
 
