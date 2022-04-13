@@ -26,20 +26,40 @@
 }
 
 .Register-promo-image {
-    width: 25rem;
-    height: 15rem;
+    width: 28rem;
+    height: 18rem;
 }
 
 .PromoImage-elements-container {
     position: absolute;
-    width: 25rem;
-    height: 15rem;
+    width: 28rem;
+    height: 18rem;
     display: flex;
-    flex-direction: row-reverse;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
-.Promo-Logo {
-    align-self: flex-start;
+.InsidePromo-logo-container {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.InsidePromo-text-container {
+    background-color: rgba(141, 141, 141, 0.6);
+    padding: 0.8rem;
+    padding-bottom: 1.7rem;
+    color: white;
+}
+
+.InsidePromo-text-container h3 {
+    margin: 0;
+}
+
+.InsidePromo-text-container a {
+    color: white;
+    text-decoration: none;
+    font-size: 0.8rem;
+    padding-left: 1.2rem;
 }
 
 .Register-input-container {

@@ -5,11 +5,17 @@ import logo from '../../Images/Logo_transparent.png'
 export default function PromoImage() {
   return (
     <div className='PromoImage-container'>
-      <h2>Acces Is Closed. Community Members Only</h2>
+      <h1>Acces Is Closed. Community Members Only</h1>
         <div className='PromoImage-aux-container'>
           <img className='Register-promo-image' src={promoImage} alt='Promo'/>
           <div className='PromoImage-elements-container'>
-            <img className='Logo Promo-Logo' src={logo} alt="Logo"/>
+            <div className='InsidePromo-logo-container'>
+              <img className='Logo Promo-Logo' src={logo} alt="Logo"/>
+            </div>
+            <div className='InsidePromo-text-container'>
+              <h3>Informations about our company</h3>
+              <a href="/">Get in touch...</a>
+            </div>
           </div>
       </div>
     </div>
