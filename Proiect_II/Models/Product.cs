@@ -14,5 +14,6 @@ namespace Proiect_II.Models
         public string Description { get; set; }
         public int Stock { get; set; }
         public double Price { get; set; }
+        public string ImageAdress { get; set; }
     }
 }
