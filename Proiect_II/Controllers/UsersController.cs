@@ -15,12 +15,21 @@ namespace Proiect_II.Controllers
     {
         private readonly Proiect_IIContext _context;
 
+        private UsersServices usersServices;
 
         public UsersController(Proiect_IIContext context)
         {
             _context = context;
+            this.usersServices = new UsersServices();
         }
 
+        [HttpPost]
+        public string LoginAccess([FromBody] string email, [FromBody] string password)
+        {
+            List<User> users = new List<User>();
+            users = _context.User.ToList();
+            return usersServices.VerifyUser(users, email, password);
+        }
 
         // GET: Users
         public async Task<IActionResult> Index()
