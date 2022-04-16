@@ -7,7 +7,7 @@ namespace Proiect_II.Models
 {
     public class User
     {
-        public int Id { get; set; }
+        public int? Id { get; set; }
         public Address Address { get; set; }
         public string Username { get; set; }
         public string Password { get; set; }
