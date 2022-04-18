@@ -48,4 +48,8 @@ export const Title=styled.div`
     color: #fff;
     margin-bottom: 12%;
     font-weight: bold;
+
+ `
+export const Images=styled.div`
+
  `
