@@ -1,0 +1,121 @@
+.Register-body-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5rem;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+}
+
+.PromoImage-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.PromoImage-aux-container {
+    background-color: #E6E6E6;
+    display: flex;
+}
+
+.Register-container {
+    width: 20rem;
+    background-color: #F4F4F4;
+    padding: 1.5rem;
+}
+
+.Register-promo-image {
+    width: 28rem;
+    height: 18rem;
+}
+
+.PromoImage-elements-container {
+    position: absolute;
+    width: 28rem;
+    height: 18rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.InsidePromo-logo-container {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.InsidePromo-text-container {
+    background-color: rgba(141, 141, 141, 0.6);
+    padding: 0.8rem;
+    padding-bottom: 1.7rem;
+    color: white;
+}
+
+.InsidePromo-text-container h3 {
+    margin: 0;
+}
+
+.InsidePromo-text-container a {
+    color: white;
+    text-decoration: none;
+    font-size: 0.8rem;
+    padding-left: 1.2rem;
+}
+
+.Register-input-container {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    row-gap: 1rem;
+    column-gap: 1rem;
+}
+
+.Register-input {
+    border-style: none;
+    border-radius: 0.13rem;
+    border: solid #8d8d8d 0.1rem;
+    height: 2rem;
+    text-align:left;
+}
+
+.Auth-btn {
+    border: none;
+    border-radius: 0.2rem;
+    background-color: #E55241;
+    color: white;
+    height: 3rem;
+    font-size: 1rem;
+}
+
+.Auth-btn:hover {
+    background-color: #b44134;
+}
+
+.Register-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.Register-title-form-container {
+    display: flex;
+}
+
+.Form-important-text {
+    font-size: smaller;
+    font-weight: bold;
+    padding-left: 0.5rem;
+}
+
+.UsersNumber-container {
+    padding-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.2rem;
+}
+
+.UsersNumber {
+    font-size: smaller;
+    color: #E55241;
+}
+
+

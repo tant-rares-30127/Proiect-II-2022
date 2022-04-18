@@ -1,7 +1,8 @@
 .Header {
     background-color: #F69852;
     display: flex;
-    justify-content: space-between;   
+    justify-content: center;   
+    gap: 7rem;
 }
 
 .SearchBar {
@@ -28,7 +29,6 @@
     justify-content: space-between;
     align-items: center;
     gap: 1rem;
-    padding-left: 2rem;
 }
 
 .Image-link-container {
@@ -42,7 +42,6 @@
     align-items: center;
     justify-content: space-around;
     gap: 1rem;
-    padding-right: 2rem;
 }
 
 .SearchResult-container {

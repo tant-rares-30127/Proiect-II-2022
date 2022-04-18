@@ -25,12 +25,12 @@ export default function ImageSlider() {
 
   return (
     <div className="ImageSlider-container">
-      <div>
         <a href="/register">
           <img className="Promo-Image" src={imageToShow} alt="Promo" />
         </a>
-      </div>
-      <div className="SliderButtons-container">{sliderButtons}</div>
+        <div className="OverPromoImage-container">
+          <div className="SliderButtons-container">{sliderButtons}</div>
+        </div>
     </div>
   );
 }
