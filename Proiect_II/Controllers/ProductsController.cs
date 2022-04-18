@@ -28,6 +28,20 @@ namespace Proiect_II.Controllers
             return this.productServices.TopProducts(productsList);
         }
 
+        [HttpGet]
+        public List<Product> SearchBarType([FromBody] string text)
+        {
+            List<Product> productsList = _context.Product.Include(n => n.ProductType).ToList();
+            return this.productServices.SearchedProducts(productsList, text);
+        }
+
+        [HttpGet]
+        public List<Product> RecommandatedProducts()
+        {
+            List<Product> productsList = _context.Product.Include(n => n.ProductType).ToList();
+            return this.productServices.RecommandatedProducts(productsList);
+        }
+
         // GET: Products
         public async Task<IActionResult> Index()
         {

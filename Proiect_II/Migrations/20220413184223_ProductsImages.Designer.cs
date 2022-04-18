@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Proiect_II.Data;
 
 namespace Proiect_II.Migrations
 {
     [DbContext(typeof(Proiect_IIContext))]
-    partial class Proiect_IIContextModelSnapshot : ModelSnapshot
+    [Migration("20220413184223_ProductsImages")]
+    partial class ProductsImages
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -194,7 +196,7 @@ namespace Proiect_II.Migrations
 
             modelBuilder.Entity("Proiect_II.Models.User", b =>
                 {
-                    b.Property<int?>("Id")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);

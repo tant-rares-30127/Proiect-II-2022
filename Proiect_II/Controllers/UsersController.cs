@@ -15,12 +15,36 @@ namespace Proiect_II.Controllers
     {
         private readonly Proiect_IIContext _context;
 
+        private UsersServices usersServices;
 
         public UsersController(Proiect_IIContext context)
         {
             _context = context;
+            this.usersServices = new UsersServices();
         }
 
+        [HttpPost]
+        public string LoginAccess([FromBody] string email, [FromBody] string password)
+        {
+            List<User> users = new List<User>();
+            users = _context.User.ToList();
+            return usersServices.VerifyUser(users, email, password);
+        }
+
+        [HttpGet]
+        public User GetUser()
+        {
+            return _context.User.ToList()[0];
+        }
+
+        [HttpPost]
+        public string RegisterUser([FromBody] User user)
+        {
+            user.Id = null;
+            _context.User.Add(user);
+            _context.SaveChanges();
+            return "Use added succseful";
+        }
 
         // GET: Users
         public async Task<IActionResult> Index()
@@ -87,7 +111,7 @@ namespace Proiect_II.Controllers
         // POST: Users/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
+/*        [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("Id,Username,Password,Email,Phone")] User user)
         {
@@ -117,7 +141,7 @@ namespace Proiect_II.Controllers
                 return RedirectToAction(nameof(Index));
             }
             return View(user);
-        }
+        }*/
 
         // GET: Users/Delete/5
         public async Task<IActionResult> Delete(int? id)
