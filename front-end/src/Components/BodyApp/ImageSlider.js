@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useMemo } from "react";
 import SliderButton from "./SliderButton";
 import { v4 as uuidv4 } from "uuid";
 import promoImage from "../../Images/Happy_customer_online_shopping.png";
@@ -8,15 +8,19 @@ import promo2Image from "../../Images/slider2.jpg";
 export default function ImageSlider() {
   const [imageToShow, setImageToShow] = useState(images[0].image);
 
-  const sliderButtons = images.map((image) => {
-    return (
-      <SliderButton
-        key={uuidv4()}
-        handleClick={handleSliderButtonClick}
-        imageKey={image.key}
-      />
-    );
-  });
+  const buttonsContainer = useMemo(() => (
+    <div className="SliderButtons-container">
+      {images.map((image) => {
+        return (
+          <SliderButton
+            key={uuidv4()}
+            handleClick={handleSliderButtonClick}
+            imageKey={image.key}
+          />
+        );
+      })}
+    </div>
+  ), [images])
 
   function handleSliderButtonClick(key) {
     let newImage = images.filter((element) => element.key === key);
@@ -25,12 +29,10 @@ export default function ImageSlider() {
 
   return (
     <div className="ImageSlider-container">
-        <a href="/register">
-          <img className="Promo-Image" src={imageToShow} alt="Promo" />
-        </a>
-        <div className="OverPromoImage-container">
-          <div className="SliderButtons-container">{sliderButtons}</div>
-        </div>
+      <a href="/register">
+        <img className="Promo-Image" src={imageToShow} alt="Promo" />
+      </a>
+      <div className="OverPromoImage-container">{buttonsContainer}</div>
     </div>
   );
 }
