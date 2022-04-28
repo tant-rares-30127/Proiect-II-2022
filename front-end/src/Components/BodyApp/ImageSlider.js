@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from "react";
+import React, { useState, useMemo, useEffect } from "react";
 import SliderButton from "./SliderButton";
 import { v4 as uuidv4 } from "uuid";
 import promoImage from "../../Images/Happy_customer_online_shopping.png";
@@ -8,19 +8,24 @@ import promo2Image from "../../Images/slider2.jpg";
 export default function ImageSlider() {
   const [imageToShow, setImageToShow] = useState(images[0].image);
 
-  const buttonsContainer = useMemo(() => (
-    <div className="SliderButtons-container">
-      {images.map((image) => {
-        return (
-          <SliderButton
-            key={uuidv4()}
-            handleClick={handleSliderButtonClick}
-            imageKey={image.key}
-          />
-        );
-      })}
-    </div>
-  ), [images])
+  const buttonsContainer =  (
+      <div className="SliderButtons-container">
+        {images.map((image) => {
+          let isChecked = false
+          if (image.image === imageToShow) {
+            isChecked = true
+          }
+          return (
+            <SliderButton
+              key={uuidv4()}
+              handleClick={handleSliderButtonClick}
+              imageKey={image.key}
+              isChecked={isChecked}
+            />
+          );
+        })}
+      </div>
+    )
 
   function handleSliderButtonClick(key) {
     let newImage = images.filter((element) => element.key === key);
