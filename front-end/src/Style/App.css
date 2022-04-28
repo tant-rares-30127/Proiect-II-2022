@@ -11,6 +11,7 @@
 @import './Body.css';
 @import './ImageSlider.css';
 @import './Register.css';
+@import './ProductDetails.css';
 
 body {
     margin: 0;

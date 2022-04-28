@@ -8,6 +8,7 @@ import Dummy from "./Dummy";
 import Dummy2 from "./Dummy2";
 import Login from "./Login/Login";
 import Register from "./Register/Register";
+import ProductDetails from "./ProductDetails/ProductDetails";
 
 function App() {
 
@@ -21,6 +22,7 @@ function App() {
         <Route path="/dummy2" element={<Dummy2/>}/>
         <Route path="/login" element={<Login/>}/>
         <Route path="/register" element={<Register/>}/>
+        <Route path="/productDetails" element={<ProductDetails/>}/>
       </Routes> 
       <FooterConteiner/>   
     </Router>
