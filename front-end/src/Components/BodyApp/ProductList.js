@@ -21,7 +21,6 @@ export default function ProductList() {
         newProducts = data;
 
         const productsToDisplay = newProducts.map((p) => {
-          console.log(p.imageAdress)
           return (
             <li key={uuidv4()}>
               <a href="../../dummy2">
