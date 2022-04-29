@@ -1,14 +1,36 @@
 import React from "react";
+import axios from "axios";
 import FormFieldsLogin from "./FormFieldsLogin";
 
 export default function Login() {
+
+  function handleLogIn(user) {
+    console.log(user)
+    // axios.post(
+    //   "https://localhost:5001/Users/LoginAccess",
+    //   `email=${user.email}&password=${user.password}`
+    // ).then((response) => response.data)
+    // .then((data) => {
+    //   console.log(data)
+    // })
+    axios({
+      method: 'post',
+      url: "https://localhost:5001/Users/LoginAccess",
+      headers: {}, 
+      data: {
+        email: user.email,
+        password: user.password
+      }
+    }).then((response) => response.data)
+    .then((data) => {
+      alert(data)
+    })
+  }
+
   return (
     <div className="Login-body-container-main">
       <div className="Login-body-container">
-        <FormFieldsLogin />
-        <a className="Login-input-container" href="/">
-          <button className="Login-btn">Log in</button>
-        </a>
+        <FormFieldsLogin handleLogIn={handleLogIn}/>
         <span className="Forget-pass">
           <a href="/register">Forogot the password?</a>
         </span>

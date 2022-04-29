@@ -24,11 +24,11 @@ namespace Proiect_II.Controllers
         }
 
         [HttpPost]
-        public string LoginAccess([FromBody] string email, [FromBody] string password)
+        public string LoginAccess([FromBody] User user)
         {
             List<User> users = new List<User>();
             users = _context.User.ToList();
-            return usersServices.VerifyUser(users, email, password);
+            return usersServices.VerifyUser(users, user.Email, user.Password);
         }
 
         [HttpGet]
