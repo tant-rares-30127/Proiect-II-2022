@@ -1,8 +1,29 @@
 import React from "react";
+import axios from "axios";
 import FormFields from "./FormFields";
 import Logo from "../../Images/Logo_transparent.png"
 
 export default function RegisterForm() {
+
+  function handleRegister(user) {
+    console.log(user)
+    axios({
+      method: 'post',
+      url: "https://localhost:5001/Users/RegisterUser",
+      headers: {}, 
+      data: {
+        id: 2,
+        username: user.username,
+        email: user.email,
+        password: user.password,
+        phone: user.phone
+      }
+    }).then((response) => response.data)
+    .then((data) => {
+      alert(data)
+    })
+  }
+
   return (
     <div className="Register-container">
       <div className="Register-title-form-container">
@@ -18,7 +39,7 @@ export default function RegisterForm() {
         <span className="UsersNumber">55574</span>
         <span>people(s)</span>
       </div>
-      <FormFields />
+      <FormFields handleRegister={handleRegister}/>
     </div>
   );
 }
