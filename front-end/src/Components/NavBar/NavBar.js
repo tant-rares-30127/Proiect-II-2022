@@ -12,8 +12,6 @@ export default function NavBar() {
     return <MenuOption key={uuidv4()} {...menuOptions} />;
   });
 
-  console.log(menuOptions)
-
   return (
     <header className="Header">
       <div className="Header-left-container">

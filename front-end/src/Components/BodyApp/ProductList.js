@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { v4 as uuidv4 } from "uuid";
-import productIcon from "../../Images/Laptop.png";
 import h2ProductsIcon from "../../Images/List.png";
 
 export default function ProductList() {

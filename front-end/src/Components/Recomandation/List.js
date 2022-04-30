@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import Recomandation_products from "./Recomandation_Products";
 import Recomandation from "./RecomandationIndex";
 
 export default function List() {
@@ -16,7 +15,6 @@ export default function List() {
         console.log(error);
       })
       .then((data) => {
-        console.log(data);
         setRecomandationData(data)
       });
   }, []);
