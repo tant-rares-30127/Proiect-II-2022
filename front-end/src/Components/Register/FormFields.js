@@ -1,67 +1,71 @@
-import React from "react";
+import React, { useState } from "react";
 
 export default function FormFields({ handleRegister }) {
-  let user = {
-    id: 1,
+  const [user, setUser] = useState({
     username: "",
     email: "",
     password: "",
     phone: "",
-  };
+  });
 
-  function handleFullName(fullName) {
-    user.username = fullName;
+  let isAgreementChecked = false;
+
+  function handleInput(input) {
+    setUser(prevUser => {
+      return {...prevUser, ...input}
+    })
   }
 
-  function handleEmail(email) {
-    user.email = email;
-  }
-
-  function handlePassword(password) {
-    user.password = password;
-  }
-
-  function handlePhoneNumber(phone) {
-    user.phone = phone;
+  function handlePreRegister() {
+    if (isAgreementChecked) {
+      handleRegister(user)
+      return
+    }
+    alert("Please agree to our terms and conditions!")
   }
 
   return (
     <>
-      <form className="Register-form">
+      <div className="Register-form">
         <div className="Register-input-container">
           <input
-            onChange={(e) => handleFullName(e.target.value)}
+            value={user.username}
+            onChange={(e) => handleInput({ username: e.target.value })}
             className="Register-input"
             type="text"
             placeholder="Full Name"
           />
           <input
-            onChange={(e) => handleEmail(e.target.value)}
+            value={user.email}
+            onChange={(e) => handleInput({ email: e.target.value })}
             className="Register-input"
             type="text"
             placeholder="E-mail"
           />
           <input
-            onChange={(e) => handlePassword(e.target.value)}
+            value={user.password}
+            onChange={(e) => handleInput({ password: e.target.value })}
             className="Register-input"
             type="password"
             placeholder="Password"
           />
           <input
-            onChange={(e) => handlePhoneNumber(e.target.value)}
+            value={user.phone}
+            onChange={(e) => handleInput({ phone: e.target.value })}
             className="Register-input"
             type="text"
             placeholder="Phone number"
           />
         </div>
         <span className="Form-important-text">
-          <input type="checkbox" />
+          <input onChange={(e) => {isAgreementChecked = e.target.checked}}
+          type="checkbox"/>
           <label>I agree to the processing of my personal data</label>
         </span>
-      </form>
-      <button onClick={() => handleRegister(user)} className="Auth-btn">
-        Register
-      </button>
+        <button onClick={() => handlePreRegister(user)} className="Auth-btn">
+          Register
+        </button>
+      </div>
     </>
   );
 }
