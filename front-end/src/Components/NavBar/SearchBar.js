@@ -5,7 +5,7 @@ import searchIcon from "../../Images/Search.png"
 
 export default function SearchBar() {
   const [search, setSearch] = useState();
-  const [data, setData] = useState(toShowData)
+  const [data, setData] = useState([])
 
   useEffect(() => {
     axios
@@ -62,4 +62,3 @@ export default function SearchBar() {
   );
 }
 
-const toShowData = ["Lanterna", "Leptop", "Dulceata", "Tanc rusesc"];

@@ -10,6 +10,8 @@ import Login from "./Login/Login";
 import Register from "./Register/Register";
 import RecomandationContainer from "./Recomandation/RecomandationContainer";
 import SpaceContainer from "./Space/SpaceContainer";
+import ProductDetails from "./ProductDetails/ProductDetails";
+
 function App() {
   return (
     <Router>
@@ -20,6 +22,7 @@ function App() {
         <Route path="/dummy2" element={<Dummy2 />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
+        <Route path="/productDetails" element={<ProductDetails/>}/>
       </Routes>
       <SpaceContainer />
       <RecomandationContainer />

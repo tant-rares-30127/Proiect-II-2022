@@ -1,0 +1,134 @@
+.White-space {
+    padding: 0.7rem
+}
+
+.Product-details-title-container {
+    padding: 1rem;
+    background-image: linear-gradient(to right, #F9F0D1, #F8DAB0);
+    display: flex;
+    justify-content: center;
+}
+
+.Main-details-container {
+    padding: 2rem;
+    display: flex;
+    justify-content: center;
+}
+
+.Product-details-title-container h2 {
+    padding-right: 50rem;
+}
+
+.Product-details-container {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    box-shadow: 0px 3px 10px -2px #585858;
+}
+
+.Product-image-container {
+    height: 30rem;
+    width: 30rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.Product-elemnents-container {
+    padding: 2.5rem;
+    height: 25rem;
+    width: 25rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+}
+
+.Product-elemnents-container p{
+    text-align: justify;
+}
+
+.Product-name-container {
+    width: 15rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+}
+.Product-name-container h2{
+    margin: 0;
+    text-align: center;
+}
+
+.Details-buttons-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.Buy-product-btn {
+    background-color: #E55241;
+    border: 0;
+    border-radius: 0.15rem;
+    color: white;
+    width: 4rem;
+    height: 1.5rem;
+}
+
+.Buy-product-btn:hover {
+    background-color: #b44134;
+}
+
+.Fav-product-btn {
+    background-color: #F69852;
+    color: white;
+    width: 8rem;
+    height: 1.5rem;
+    border: 0;
+    border-radius: 0.15rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.25rem;
+}
+
+.Fav-product-btn:hover {
+    background-color: #b8723d
+}
+
+.Price-detail-container {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+}
+ 
+.Product-tab-container {
+    background-color: #F9F0D1;
+}
+
+.Product-tab-btn {
+    background-color: #F9F0D1;
+    border: none;
+    height: 4rem;
+    width: 9rem;
+    font-size: larger;
+}
+
+.Tab-main-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #F9F0D1;
+}
+
+.Tab-aux-container {
+    width: 63rem;
+}
+
+.Product-info-container {
+    padding: 3rem;
+    background-color: #FCF9EB;
+}
+

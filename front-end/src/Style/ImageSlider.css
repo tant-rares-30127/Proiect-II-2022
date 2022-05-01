@@ -3,6 +3,7 @@
     display: flex;
     width: 45rem;
     height: 30rem;
+    flex-direction: column-reverse;
 }
 
 .Promo-Image{
@@ -12,18 +13,32 @@
 
 .OverPromoImage-container {
     position: absolute;
-    width: 45rem;
-    height: 30rem;
     display: flex;
     justify-content: center;
-    align-items: flex-end;
+    align-self: center;
 }
 
 .SliderButtons-container {
     display: flex;
-    padding-bottom: 0.3rem;
-    gap: 0.3rem;
+    padding-bottom: 0.5rem;
+    gap: 0.5rem;
 }
 
+input[type="radio"] {
+    appearance: none;
+    background-color: #fff;
+    margin: 0;
+    font: inherit;
+    color: #F69852;
+    width: 0.8rem;
+    height: 0.8rem;
+    border-radius: 50%;
+}
 
+input[type="radio"]:hover {
+    border: 0.15rem solid #F69852;
+}
 
+input[type="radio"]:checked {
+    background-color: #F69852;
+}
