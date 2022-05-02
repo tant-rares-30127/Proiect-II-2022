@@ -1,5 +1,8 @@
 import React from "react";
 import CartProduct from "./CartProduct";
+import img1 from "../../Images/products/telefon_mobil.png"
+import img2 from "../../Images/products/telefon_mobil_apple.png"
+import img3 from "../../Images/products/telefon_mobil_samsung.png"
 
 export default function CartBody() {
   return (
@@ -11,7 +14,7 @@ export default function CartBody() {
           <div className="Bar-item">Price</div>
         </div>
       </div>
-
+        <CartProduct data={productsData[0]}/>
       <div className="Total-price-bar">
         <div>Total price:</div>
         <div>{8.067} Lei</div>
@@ -26,17 +29,20 @@ const productsData = [
     description: "iPhone 11, 64 GB, Black",
     price: 2.689,
     amount: 1,
+    image: img1
   },
   {
     name: "Telefon mobul Apple",
     description: "iPhone 11, 64 GB, Black",
     price: 2.689,
     amount: 1,
+    image: img2
   },
   {
     name: "Telefon mobul Apple",
     description: "iPhone 11, 64 GB, Black",
     price: 2.689,
     amount: 1,
+    image: img3
   },
 ];
