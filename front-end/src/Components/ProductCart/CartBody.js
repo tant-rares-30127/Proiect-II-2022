@@ -12,7 +12,10 @@ export default function CartBody() {
         </div>
       </div>
 
-      
+      <div className="Total-price-bar">
+        <div>Total price:</div>
+        <div>{8.067} Lei</div>
+      </div>
     </div>
   );
 }

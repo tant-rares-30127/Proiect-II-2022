@@ -54,3 +54,12 @@
     padding-left: 2rem;
     padding-right: 2rem;
 }
+
+.Total-price-bar {
+    background-color: #F8F8F8;
+    display: flex;
+    justify-content: flex-end;
+    padding: 0.1rem;
+    padding-right: 3rem;
+    gap: 10rem;
+}
