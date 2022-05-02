@@ -34,3 +34,23 @@
 .Cart-products-number {
     color: #7A7A8E;
 }
+
+.Cart-details-bar {
+    display: flex;
+    justify-content: space-between;
+    width: 59rem;
+    background-color: #C4C4C4;
+    padding: 0.09rem;
+    border-radius: 2rem;
+}
+
+.Amount-price-container {
+    display: flex;
+    gap: 5rem;
+    padding-right: 5rem;
+}
+
+.Bar-item {
+    padding-left: 2rem;
+    padding-right: 2rem;
+}
