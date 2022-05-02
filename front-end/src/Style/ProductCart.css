@@ -163,4 +163,19 @@
 .Remove-btn:hover {
     color: #E55241;
     cursor: pointer;
+} 
+
+.Send-order-btn {
+    border: 0;
+    background-color: #F69852;
+    border-radius: 0.2rem;
+    color: white;
+    padding: 0.5rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+.Send-order-btn:hover {
+    cursor: pointer;
+    background-color: #b8723d;
 }

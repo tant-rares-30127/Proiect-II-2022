@@ -1,10 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import CartProduct from "./CartProduct";
-import img1 from "../../Images/products/telefon_mobil.png"
-import img2 from "../../Images/products/telefon_mobil_apple.png"
-import img3 from "../../Images/products/telefon_mobil_samsung.png"
 
-export default function CartBody() {
+export default function CartBody({data}) {
+  const [products, setProducts] = useState(data);   
+  const productsToDisplay = products.map(p => {
+      return (
+          <CartProduct key={p.id} data={p}/>
+      )
+  })
+
   return (
     <div>
       <div className="Cart-details-bar">
@@ -14,7 +18,7 @@ export default function CartBody() {
           <div className="Bar-item">Price</div>
         </div>
       </div>
-        <CartProduct data={productsData[0]}/>
+      {productsToDisplay}
       <div className="Total-price-bar">
         <div>Total price:</div>
         <div>{8.067} Lei</div>
@@ -23,26 +27,3 @@ export default function CartBody() {
   );
 }
 
-const productsData = [
-  {
-    name: "Telefon mobul Apple",
-    description: "iPhone 11, 64 GB, Black",
-    price: 2.689,
-    amount: 1,
-    image: img1
-  },
-  {
-    name: "Telefon mobul Apple",
-    description: "iPhone 11, 64 GB, Black",
-    price: 2.689,
-    amount: 1,
-    image: img2
-  },
-  {
-    name: "Telefon mobul Apple",
-    description: "iPhone 11, 64 GB, Black",
-    price: 2.689,
-    amount: 1,
-    image: img3
-  },
-];
