@@ -46,8 +46,8 @@
 
 .Amount-price-container {
     display: flex;
-    gap: 5rem;
-    padding-right: 5rem;
+    gap: 6.6rem;
+    padding-right: 2.8rem;
 }
 
 .Bar-item {
@@ -97,4 +97,70 @@
 .ProductCart-price {
     font-weight: bolder;
     text-align: right;
+}
+
+.ProductCart-amount-price-container {
+    display: flex;
+    border-left: 0.1rem solid black;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+}
+
+.Amount-controller-container {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding-left: 3rem;
+    padding-right: 3rem;
+}
+
+.Amount-controller {
+    display: flex;
+    gap: 0.8rem;
+    align-items: center;
+} 
+
+.ProductCart-price-container {
+    display: flex;
+    align-items: center;
+    border-left: 0.1rem solid black;
+    padding-left: 3rem;
+    padding-right: 3rem;
+}
+
+.Amount-btn {
+    border-radius: 50%;
+    width: 1.5rem;
+    height: 1.5rem;
+    background-color: white;
+}
+
+.Red-btn {
+    border: 0.1rem solid #FAA9A3;
+    color: #C8372D;
+}
+
+.Green-btn {
+    border: 0.1rem solid #A9D3AB;
+    color: #37833B;
+}
+
+.Green-btn:hover {
+    background-color: #A9D3AB;
+    cursor: pointer;
+}
+
+.Red-btn:hover {
+    background-color: #FAA9A3;
+    cursor: pointer;
+}
+
+.Remove-btn {
+    border: none;
+    background-color: #F8F8F8;
+}
+
+.Remove-btn:hover {
+    color: #E55241;
+    cursor: pointer;
 }

@@ -12,17 +12,17 @@ export default function CartProduct({ data }) {
           <div className="ProductCart-price">{data.price} Lei</div>
         </div>
       </div>
-      <div>
-        <div>
-          <div>
-            <button>-</button>
+      <div className="ProductCart-amount-price-container">
+        <div className="Amount-controller-container">
+          <div className="Amount-controller">
+            <button className="Red-btn Amount-btn">-</button>
             <div>{data.amount}</div>
-            <button>+</button>
+            <button className="Green-btn Amount-btn">+</button>
           </div>
-          <button>Remove</button>
+          <button className="Remove-btn">Remove</button>
         </div>
-        <div>
-          <div>{data.price}</div>
+        <div className="ProductCart-price-container">
+          <div>{data.price} Lei</div>
         </div>
       </div>
     </div>
