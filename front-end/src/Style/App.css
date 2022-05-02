@@ -13,6 +13,7 @@
 @import './Login.css';
 @import './Register.css';
 @import './ProductDetails.css';
+@import './ProductCart.css';
 
 body {
     margin: 0;
