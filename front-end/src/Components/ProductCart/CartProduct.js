@@ -24,7 +24,7 @@ export default function CartProduct({ data }) {
           <button onClick={() => handleRemoveProduct(data.id)} className="Remove-btn">Remove</button>
         </div>
         <div className="ProductCart-price-container">
-          <div className="Price-value-container">{data.price} Lei</div>
+          <div className="Price-value-container">{data.price*data.amount} Lei</div>
         </div>
       </div>
     </div>

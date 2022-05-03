@@ -63,7 +63,7 @@ const productsData = [
     name: "Telefon mobul Apple",
     description: "iPhone 11, 64 GB, Black",
     price: 2.689,
-    amount: 99,
+    amount: 2,
     image: img1,
   },
   {

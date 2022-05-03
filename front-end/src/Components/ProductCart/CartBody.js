@@ -15,7 +15,7 @@ export default function CartBody({ data }) {
   function getFinalPrice() {
     let totalPrice = 0;
     products.map((p) => {
-      totalPrice += p.price
+      totalPrice += p.price * p.amount
     })
     return totalPrice
   }
