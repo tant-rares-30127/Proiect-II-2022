@@ -1,13 +1,28 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import CartProduct from "./CartProduct";
 
-export default function CartBody({data}) {
-  const [products, setProducts] = useState(data);   
+export default function CartBody({ data }) {
+  const [products, setProducts] = useState([]);   
+
   const productsToDisplay = products.map(p => {
       return (
           <CartProduct key={p.id} data={p}/>
       )
   })
+
+  const finalPrice = getFinalPrice()
+
+  function getFinalPrice() {
+    let totalPrice = 0;
+    products.map((p) => {
+      totalPrice += p.price
+    })
+    return totalPrice
+  }
+
+  useEffect(() => {
+    setProducts(data)
+  }, [data])
 
   return (
     <div>
@@ -21,7 +36,7 @@ export default function CartBody({data}) {
       {productsToDisplay}
       <div className="Total-price-bar">
         <div>Total price:</div>
-        <div>{8.067} Lei</div>
+        <div>{finalPrice} Lei</div>
       </div>
     </div>
   );

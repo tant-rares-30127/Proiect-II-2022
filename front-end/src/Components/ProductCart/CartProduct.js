@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useContext } from "react";
+import { ProductCartContext } from "./ProductCart";
 
 export default function CartProduct({ data }) {
-  console.log(data);
+  const {handleAmountVariation, handleRemoveProduct} = useContext(ProductCartContext)
+
   return (
     <div className="ProductCart-container">
       <div className="ProductCart-image-details-container">
@@ -15,11 +17,11 @@ export default function CartProduct({ data }) {
       <div className="ProductCart-amount-price-container">
         <div className="Amount-controller-container">
           <div className="Amount-controller">
-            <button className="Red-btn Amount-btn">-</button>
+            <button onClick={() => handleAmountVariation(data.id, -1)} className="Red-btn Amount-btn">-</button>
             <div>{data.amount}</div>
-            <button className="Green-btn Amount-btn">+</button>
+            <button onClick={() => handleAmountVariation(data.id, 1)} className="Green-btn Amount-btn">+</button>
           </div>
-          <button className="Remove-btn">Remove</button>
+          <button onClick={() => handleRemoveProduct(data.id)} className="Remove-btn">Remove</button>
         </div>
         <div className="ProductCart-price-container">
           <div>{data.price} Lei</div>
