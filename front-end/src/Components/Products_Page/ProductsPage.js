@@ -8,10 +8,15 @@ export default function ProductsPage() {
   return (
     <div className="products_container">
       <div className="dropdown_filters">
+        <div className="name">Options</div>
         <Dropdown selected={selected} setIsSelected={setIsSelected} />
         <Dropdown selected={selected} setIsSelected={setIsSelected} />
       </div>
       <div className="list_products">
+        <div className="title">
+          <div className="name">Phones</div>
+          <div className="results">(134 results)</div>
+        </div>
         <Products></Products>
       </div>
     </div>

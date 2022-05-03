@@ -18,7 +18,7 @@ function App() {
       <NavBar />
       <Routes>
         <Route path="/" element={<Body />} />
-        <Route path="/dummy1" element={<Dummy />} />
+        <Route path="/dummy1" element={<Dummy2 />} />
         <Route path="/dummy2" element={<Dummy />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />

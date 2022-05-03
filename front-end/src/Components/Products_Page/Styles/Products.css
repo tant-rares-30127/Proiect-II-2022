@@ -1,0 +1,107 @@
+.Wrapper{
+  grid-area: products;
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+  grid-gap: 3%;
+  padding: 2%;
+}
+
+.Wrapper .Card {
+  padding: 0 9%;
+  border-radius: 10%;
+  transition: all 0.3s ease-in-out;
+  background: rgba(255, 255, 255, 1) 100%;
+}
+
+.Wrapper .Card:hover{
+ background: rgb(236, 180, 60) 100%;
+ box-shadow: 13px 18px 42px -20px rgb(7, 4, 4, .75);
+  color:aliceblue;
+} 
+
+.Wrapper .Card:hover> .card_img{
+  top:-40px;
+}
+
+.Wrapper .Card:hover> .card_img::after{
+    bottom: -20px;;
+}
+.Wrapper .Card:hover> .card_img img{
+  transform: translate(1.2);
+}
+.Wrapper .Card:hover> .card_body .Button{
+  color: aliceblue;
+  background-color:rgba(229, 82, 65, 1) 100%;
+}
+.Wrapper .Card .card_img {
+    
+    margin-left: auto;
+    margin-right: auto;
+    transition: all 0.3s ease-in-out;
+  }
+
+  
+  .Wrapper .Card .card_img img {
+    border-radius: 15px;
+    width: 100%;
+    transform: scale(1);
+    transition: all 0.3s ease-in-out;
+
+  }
+
+  .Wrapper .Card .card_img img:hover {
+    width: 110%;
+    height: 110%;
+  }
+
+  .Wrapper .Card .Card_body {
+    display: grid;
+    width: 100%;
+    align-items: stretch;
+    
+}
+.Wrapper .Card .Card_body h2 {
+    font-family: "Roboto", cursive;
+    text-align: center;
+    font-weight: normal;
+    text-transform: uppercase;
+    margin: 10px 0;
+    letter-spacing: 2px;
+    font-size: 12px;
+  }
+  .Wrapper .Card .Card_body p {
+    text-align: center;
+    align-items: center;
+    font-size: 13px;
+    line-height: 1.5;
+    margin-bottom: 5%;
+  }
+
+  .Wrapper .Card .Card_body .Price_section{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.Wrapper .Card .Card_body .Price{
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  font-size: 15px;
+}
+.Wrapper .Card .Card_body .Button {
+  margin-bottom: 6%;
+  width: 100%;
+  height: 70%;
+  border: 0.2rem solid   rgb(5, 2, 1) ;
+  text-align: center;
+  border-radius: 10px;
+  background: rgba(229, 82, 65, 1) 100% ;
+  font-weight: bold;
+  color:rgba(255, 255, 255, 1);
+
+}
+.Wrapper .Card .Card_body .Button:hover {
+    text-transform: uppercase;
+    height: 100%;
+  }

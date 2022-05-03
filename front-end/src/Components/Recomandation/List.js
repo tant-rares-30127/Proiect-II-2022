@@ -15,7 +15,7 @@ export default function List() {
         console.log(error);
       })
       .then((data) => {
-        setRecomandationData(data)
+        setRecomandationData(data);
       });
   }, []);
 
