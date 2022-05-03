@@ -75,6 +75,13 @@
     border: solid #8d8d8d 0.1rem;
     height: 2rem;
     text-align:left;
+    width: 100%;
+}
+
+.Input-aux {
+    display: flex;
+    flex-direction: column;
+    justify-content:  flex-end;
 }
 
 .Auth-btn {
@@ -116,6 +123,12 @@
 .UsersNumber {
     font-size: smaller;
     color: #E55241;
+}
+
+.Register-input-error {
+    color: #E55241;
+    font-size: smaller;
+    font-weight: bolder;
 }
 
 
