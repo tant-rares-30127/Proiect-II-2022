@@ -18,13 +18,13 @@ export default function CartProduct({ data }) {
         <div className="Amount-controller-container">
           <div className="Amount-controller">
             <button onClick={() => handleAmountVariation(data.id, -1)} className="Red-btn Amount-btn">-</button>
-            <div>{data.amount}</div>
+            <div className="Amount-value-container">{data.amount}</div>
             <button onClick={() => handleAmountVariation(data.id, 1)} className="Green-btn Amount-btn">+</button>
           </div>
           <button onClick={() => handleRemoveProduct(data.id)} className="Remove-btn">Remove</button>
         </div>
         <div className="ProductCart-price-container">
-          <div>{data.price} Lei</div>
+          <div className="Price-value-container">{data.price} Lei</div>
         </div>
       </div>
     </div>
