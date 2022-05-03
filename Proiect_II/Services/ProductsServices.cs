@@ -29,6 +29,20 @@ namespace Proiect_II.Services
             return products;
         }
 
+        public Product SearchedProduct(List<Product> productsList, string text)
+        {
+            Product product = new Product();
+            foreach (Product p in productsList)
+            {
+                if (p.Name.Equals(text))
+                {
+                    product = p;
+                    break;
+                }
+            }
+            return product;
+        }
+
         public List<Product> SearchedProducts(List<Product> productsList, string text)
         {
             List<Product> products = new List<Product>();
