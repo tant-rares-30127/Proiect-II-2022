@@ -1,0 +1,11 @@
+.dropdown_filters{ grid-area: dropdown;}
+.list_products{ grid-area: products;}
+
+.products_container{
+    display: grid;
+    grid-template-areas: 'dropdown products products products products';
+    padding-top: 4%;
+    padding-bottom: 4%;
+    padding-left: 2%;
+    padding-right: 5%;
+}

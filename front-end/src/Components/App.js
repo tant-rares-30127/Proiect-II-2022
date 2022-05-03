@@ -19,10 +19,10 @@ function App() {
       <Routes>
         <Route path="/" element={<Body />} />
         <Route path="/dummy1" element={<Dummy />} />
-        <Route path="/dummy2" element={<Dummy2 />} />
+        <Route path="/dummy2" element={<Dummy />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
-        <Route path="/productDetails" element={<ProductDetails/>}/>
+        <Route path="/productDetails" element={<ProductDetails />} />
       </Routes>
       <SpaceContainer />
       <RecomandationContainer />

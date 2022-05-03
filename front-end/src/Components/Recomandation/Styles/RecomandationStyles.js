@@ -5,8 +5,8 @@ export const Container = styled.div`
   justify-content: center;
   padding-top: 4%;
   padding-bottom: 4%;
-  padding-left: 5%;
-  padding-right: 5%;
+  padding-left: 15%;
+  padding-right: 15%;
   background: linear-gradient(0.25turn, #ebf8e1, #f69d3c);
 `;
 
@@ -36,7 +36,7 @@ export const Row = styled.div`
 
 export const Card = styled.div`
   width: 100%;
-  position: relativve;
+  position: relative;
   border-radius: 10px;
   transition: all 0.3s ease-in-out;
   background: rgba(255, 255, 255, 1) 100%;
