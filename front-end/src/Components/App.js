@@ -12,6 +12,7 @@ import RecomandationContainer from "./Recomandation/RecomandationContainer";
 import SpaceContainer from "./Space/SpaceContainer";
 import ProductDetails from "./ProductDetails/ProductDetails";
 import ProductCart from "./ProductCart/ProductCart";
+import Recomandations from "./Recomandation/Recomandations";
 
 function App() {
   return (
@@ -19,20 +20,14 @@ function App() {
       <NavBar />
       <Routes>
         <Route path="/" element={<Body />} />
-        <Route path="/dummy1" element={<Dummy />} />
-        <Route path="/dummy2" element={<Dummy2 />} />
+        <Route path="/dummy1" element={<Dummy2 />} />
+        <Route path="/dummy2" element={<Dummy />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/productDetails" element={<ProductDetails />} />
         <Route path="/productCart" element={<ProductCart />} />
       </Routes>
-      <SpaceContainer />
-      <RecomandationContainer />
-      <SpaceContainer />
-      <RecomandationContainer />
-      <SpaceContainer />
-      <RecomandationContainer />
-      <SpaceContainer />
+      <Recomandations></Recomandations>
       <FooterConteiner />
     </Router>
   );

@@ -1,0 +1,43 @@
+.dropdown_filters{ grid-area: dropdown;}
+.list_products{ grid-area: products;}
+.dropdown_filters .name{
+    padding: 9% 9%;
+    background: #fff;
+    box-shadow: 3px 3px 10px 6px rgba(0, 0, 0, 0.06 );
+    font-weight: bold;
+    color: #333;
+    justify-content:center;
+    border-radius: 3px;
+    align-items: center;
+}
+.list_products .title{
+    display: flex;
+    align-items: centerc ;
+    padding: 6%;
+    column-gap: 25%;
+}
+
+.list_products .title .name{
+    margin-left: 6%;
+    color: black;
+    font-family: "Roboto", cursive;
+    text-transform: uppercase;
+    font-size: 18px;
+}
+.list_products .title .results{
+    
+    color: #333;
+    font-family: "Roboto", cursive;
+    text-transform: uppercase;
+    font-size: 12px;
+}
+
+.products_container{
+    display: grid;
+    grid-template-areas: 'dropdown products';
+    grid-template-columns: 18% auto ;
+    padding-top: 4%;
+    padding-bottom: 4%;
+    padding-left: 2%;
+    padding-right: 2%;
+}
