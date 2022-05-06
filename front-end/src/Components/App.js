@@ -11,6 +11,7 @@ import Register from "./Register/Register";
 import RecomandationContainer from "./Recomandation/RecomandationContainer";
 import SpaceContainer from "./Space/SpaceContainer";
 import ProductDetails from "./ProductDetails/ProductDetails";
+import Recomandations from "./Recomandation/Recomandations";
 
 function App() {
   return (
@@ -24,13 +25,7 @@ function App() {
         <Route path="/register" element={<Register />} />
         <Route path="/productDetails" element={<ProductDetails />} />
       </Routes>
-      <SpaceContainer />
-      <RecomandationContainer />
-      <SpaceContainer />
-      <RecomandationContainer />
-      <SpaceContainer />
-      <RecomandationContainer />
-      <SpaceContainer />
+      <Recomandations></Recomandations>
       <FooterConteiner />
     </Router>
   );
