@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import FormField from "./FormField";
 
 export default function FormFields({ handleRegister }) {
   const [user, setUser] = useState({
@@ -8,7 +9,7 @@ export default function FormFields({ handleRegister }) {
     phone: "",
   });
 
-  const [error, setError] = useState(errorCodes)
+  const [error, setError] = useState(errorCodes);
 
   let isAgreementChecked = false;
 
@@ -18,78 +19,28 @@ export default function FormFields({ handleRegister }) {
     });
   }
 
-  function handlePreRegister() {
-
-    let currentError = error.map(e => e)
-    if (user.username.length === 0) {
-      currentError[0] = { ...currentError[0], ...{active: true} }
-    }
-
-    if (user.email.length === 0) {
-      currentError[1] = { ...currentError[1], ...{active: true} }
-    }
-
-    if (user.password.length === 0) {
-      currentError[2] = { ...currentError[2], ...{active: true} }
-    }
-
-    if (user.phone.length === 0) {
-      currentError[3] = { ...currentError[3], ...{active: true} }
-    }
-
-    if (isAgreementChecked == false) {
-      currentError[4] = { ...currentError[4], ...{active: true} }
-    }
-
-    setError(currentError)
-  }
+  const formFields = formInputs.map((i) => {
+    return (
+      <FormField
+        placeholder={i.placeholder}
+        data={user[i.key]}
+        error={i.error}
+        type={i.type}
+        handleInput={handleInput}
+        name={i.name}
+      />
+    );
+  });
 
   return (
     <>
       <div className="Register-form">
         <div className="Register-input-container">
-          <div className="Input-aux">
-            {error[0].active ? <div className="Register-input-error">{error[0].error}</div> : null}
-            <input
-              value={user.username}
-              onChange={(e) => handleInput({ username: e.target.value })}
-              className="Register-input"
-              type="text"
-              placeholder="Full Name"
-            />
-          </div>
-          <div className="Input-aux">
-          {error[1].active ? <div className="Register-input-error">{error[1].error}</div> : null}
-            <input
-              value={user.email}
-              onChange={(e) => handleInput({ email: e.target.value })}
-              className="Register-input"
-              type="text"
-              placeholder="E-mail"
-            />
-          </div>
-          <div className="Input-aux">
-          {error[2].active ? <div className="Register-input-error">{error[1].error}</div> : null}
-            <input
-              value={user.password}
-              onChange={(e) => handleInput({ password: e.target.value })}
-              className="Register-input"
-              type="password"
-              placeholder="Password"
-            />
-          </div>
-          <div className="Input-aux">
-          {error[3].active ? <div className="Register-input-error">{error[3].error}</div> : null}
-            <input
-              value={user.phone}
-              onChange={(e) => handleInput({ phone: e.target.value })}
-              className="Register-input"
-              type="text"
-              placeholder="Phone number"
-            />
-          </div>
+          {formFields}
         </div>
-        {error[4].active ? <div className="Register-input-error">{error[4].error}</div> : null}
+        {error[4].active ? (
+          <div className="Register-input-error">{error[4].error}</div>
+        ) : null}
         <span className="Form-important-text">
           <input
             onChange={(e) => {
@@ -99,7 +50,7 @@ export default function FormFields({ handleRegister }) {
           />
           <label>I agree to the processing of my personal data</label>
         </span>
-        <button onClick={() => handlePreRegister(user)} className="Auth-btn">
+        <button onClick={() => handleRegister(user)} className="Auth-btn">
           Register
         </button>
       </div>
@@ -107,31 +58,57 @@ export default function FormFields({ handleRegister }) {
   );
 }
 
+const formInputs = [
+  {
+    name: "username",
+    placeholder: "Username",
+    type: "text",
+    error: "- Enter a valid username",
+  },
+  {
+    name: "email",
+    placeholder: "E-mail",
+    type: "text",
+    error: "- Enter a valid e-mail",
+  },
+  {
+    name: "password",
+    placeholder: "Password",
+    type: "password",
+    error: "- Enter a valid password",
+  },
+  {
+    name: "phone",
+    placeholder: "Phone number",
+    type: "text",
+    error: "- Enter a valid phone number",
+  },
+];
 
 const errorCodes = [
   {
     type: "username",
     error: "- Enter a valid username",
-    active: false
-  }, 
+    active: false,
+  },
   {
     type: "email",
     error: "- Enter an valid email",
-    active: false
-  }, 
+    active: false,
+  },
   {
     type: "password",
     error: "- Enter a valid password",
-    active: false
+    active: false,
   },
   {
     type: "phone",
     error: "- Enter a valid phone number",
-    active: false
+    active: false,
   },
   {
     type: "terms",
     error: "- Please agree to our terms and conditions!",
-    active: false
-  }
-]
+    active: false,
+  },
+];
