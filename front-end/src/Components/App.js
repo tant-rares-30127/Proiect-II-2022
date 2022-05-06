@@ -19,7 +19,14 @@ function App() {
     <Router>
       <NavBar />
       <Routes>
-        <Route path="/" element={<Body />} />
+        <Route
+          path="/"
+          element={
+            <>
+              <Body /> <Recomandations />
+            </>
+          }
+        />
         <Route path="/dummy1" element={<Dummy2 />} />
         <Route path="/dummy2" element={<Dummy />} />
         <Route path="/login" element={<Login />} />
@@ -27,7 +34,7 @@ function App() {
         <Route path="/productDetails" element={<ProductDetails />} />
         <Route path="/productCart" element={<ProductCart />} />
       </Routes>
-      <Recomandations></Recomandations>
+
       <FooterConteiner />
     </Router>
   );
