@@ -19,11 +19,29 @@ export default function FormFields({ handleRegister }) {
   }
 
   function handlePreRegister() {
-    if (isAgreementChecked) {
-      handleRegister(user);
-      return;
+
+    let currentError = error.map(e => e)
+    if (user.username.length === 0) {
+      currentError[0] = { ...currentError[0], ...{active: true} }
     }
-    alert("Please agree to our terms and conditions!");
+
+    if (user.email.length === 0) {
+      currentError[1] = { ...currentError[1], ...{active: true} }
+    }
+
+    if (user.password.length === 0) {
+      currentError[2] = { ...currentError[2], ...{active: true} }
+    }
+
+    if (user.phone.length === 0) {
+      currentError[3] = { ...currentError[3], ...{active: true} }
+    }
+
+    if (isAgreementChecked == false) {
+      currentError[4] = { ...currentError[4], ...{active: true} }
+    }
+
+    setError(currentError)
   }
 
   return (
@@ -41,7 +59,7 @@ export default function FormFields({ handleRegister }) {
             />
           </div>
           <div className="Input-aux">
-          {error[1].active ? <div>{error[1].error}</div> : null}
+          {error[1].active ? <div className="Register-input-error">{error[1].error}</div> : null}
             <input
               value={user.email}
               onChange={(e) => handleInput({ email: e.target.value })}
@@ -51,7 +69,7 @@ export default function FormFields({ handleRegister }) {
             />
           </div>
           <div className="Input-aux">
-          {error[2].active ? <div>{error[1].error}</div> : null}
+          {error[2].active ? <div className="Register-input-error">{error[1].error}</div> : null}
             <input
               value={user.password}
               onChange={(e) => handleInput({ password: e.target.value })}
@@ -61,7 +79,7 @@ export default function FormFields({ handleRegister }) {
             />
           </div>
           <div className="Input-aux">
-          {error[3].active ? <div>{error[3].error}</div> : null}
+          {error[3].active ? <div className="Register-input-error">{error[3].error}</div> : null}
             <input
               value={user.phone}
               onChange={(e) => handleInput({ phone: e.target.value })}
@@ -71,6 +89,7 @@ export default function FormFields({ handleRegister }) {
             />
           </div>
         </div>
+        {error[4].active ? <div className="Register-input-error">{error[4].error}</div> : null}
         <span className="Form-important-text">
           <input
             onChange={(e) => {
@@ -92,22 +111,27 @@ export default function FormFields({ handleRegister }) {
 const errorCodes = [
   {
     type: "username",
-    error: "- Enter a username",
-    active: true
+    error: "- Enter a valid username",
+    active: false
   }, 
   {
     type: "email",
-    error: "- Enter an email",
+    error: "- Enter an valid email",
     active: false
   }, 
   {
     type: "password",
-    error: "- Enter a password",
+    error: "- Enter a valid password",
     active: false
   },
   {
     type: "phone",
-    error: "- Enter a phone number",
+    error: "- Enter a valid phone number",
+    active: false
+  },
+  {
+    type: "terms",
+    error: "- Please agree to our terms and conditions!",
     active: false
   }
 ]
