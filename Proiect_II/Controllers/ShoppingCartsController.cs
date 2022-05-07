@@ -7,16 +7,33 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Proiect_II.Data;
 using Proiect_II.Models;
+using Proiect_II.Services;
 
 namespace Proiect_II.Controllers
 {
     public class ShoppingCartsController : Controller
     {
         private readonly Proiect_IIContext _context;
+        ProductsServices productServices;
 
         public ShoppingCartsController(Proiect_IIContext context)
         {
             _context = context;
+            this.productServices = new ProductsServices();
+        }
+
+        [HttpPost]
+        public void AddProductToCart(string productName, [FromBody] User user)
+        {
+            ShoppingCartProduct shoppingCartProduct = new ShoppingCartProduct();
+            shoppingCartProduct.Id = null;
+            List<Product> productsList = _context.Product.Include(n => n.ProductType).ToList();
+            shoppingCartProduct.Product = productServices.SearchedProduct(productsList, productName);
+            shoppingCartProduct.Quantity = 1;
+            shoppingCartProduct.ShoppingCart = user.ShoppingCart;
+            _context.ShoppingCartProduct.Add(shoppingCartProduct);
+            _context.SaveChanges();
+
         }
 
         // GET: ShoppingCarts
