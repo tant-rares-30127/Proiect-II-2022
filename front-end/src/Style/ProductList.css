@@ -2,7 +2,6 @@
     display: flex;
     flex-direction: column;
     margin: 0;
-    margin-left: 1rem;
     padding: 0;
 }
 
@@ -10,7 +9,13 @@
     display: flex;
     justify-content: flex-start;
     align-items: center;
+    padding-left: 1rem;
+    padding-right: 1rem;
     gap: 0.9rem;
+}
+
+.Product-list-container hr {
+    margin: 0;
 }
 
 .Product-Menu-Icon {
@@ -20,20 +25,14 @@
 
 .Product-list-container li {
     display: flex;
-    justify-content: flex-start;
     align-items: center;
-    list-style-type: none;
-    margin: 0;
+    gap: 0.5rem;
 }
 
 .Product-list-container a{
-    display: flex;
-    justify-content: center;
-    align-items: center;
     text-decoration: none;
     color: black;
     padding: 0.8rem;
-    gap: 0.8rem;
 }
 
 .Product-list-container a:hover {
@@ -41,7 +40,9 @@
 }
 
 .Product-list-container {
-    padding-left: 1rem;
+    box-shadow: 0 0 0.4rem;
+    border-radius: 1rem;
+    width: 15rem;
 }
 
 .Product-Icon {

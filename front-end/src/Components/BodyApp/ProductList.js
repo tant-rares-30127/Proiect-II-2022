@@ -21,16 +21,16 @@ export default function ProductList() {
 
         const productsToDisplay = newProducts.map((p) => {
           return (
-            <li key={uuidv4()}>
-              <a href="../../dummy2">
+            <a href="../../dummy2">
+              <li key={uuidv4()}>
                 <img
                   className="Product-Icon"
                   src={p.imageAdress}
                   alt="Icon"
                 ></img>
                 <span>{p.name}</span>
-              </a>
-            </li>
+              </li>
+            </a>
           );
         });
 
@@ -48,6 +48,7 @@ export default function ProductList() {
         ></img>
         <h2>Products</h2>
       </span>
+      <hr></hr>
       <ul>{products}</ul>
     </div>
   );

@@ -46,7 +46,7 @@ const reviews = [
   {
     name: "Sebastian Daulalopata",
     mark: 1,
-    message: "I sold my house so that i can afford to buy this phone."
+    message: "I sold my house so that I could afford to buy this phone."
   },
   {
     name: "Dragos Lovescu",
