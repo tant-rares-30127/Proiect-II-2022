@@ -16,8 +16,8 @@ export default function ProductCart() {
   };
 
   useEffect(() => {
-    setProducts(productsData)
-  }, [])
+    setProducts(productsData);
+  }, []);
 
   function handleRemoveProduct(id) {
     const newProducts = products.filter((p) => {
@@ -28,7 +28,7 @@ export default function ProductCart() {
   }
 
   function handleAmountVariation(id, increment) {
-    let newProducts = products.map((p) => p)
+    let newProducts = products.map((p) => p);
     newProducts.map((p) => {
       if (p.id === id && p.amount + increment >= 1 && p.amount < 98) {
         p.amount = p.amount + increment;
@@ -38,20 +38,30 @@ export default function ProductCart() {
     setProducts(newProducts);
   }
 
-  console.log(products.length)
+  console.log(products.length);
 
   return (
     <ProductCartContext.Provider value={productCartContextValue}>
-      <div className="Cart-container">
-        <div className="Cart-header-container">
-          <div className="Cart-header">
-            <h2>Your bin</h2>
-            <h2 className="Cart-products-number">{products.length} products</h2>
+      <div className="Cart-container-border">
+        <div className="Cart-container">
+          <div className="Cart-header-container">
+            <div className="Cart-header">
+              <h2>Your bin</h2>
+              <h2 className="Cart-products-number">
+                {products.length} products
+              </h2>
+            </div>
+            <hr></hr>
           </div>
-          <hr></hr>
+          {products.length === 0 ? (
+            <div>Your cart is empty! Add somethinkg in it!</div>
+          ) : (
+            <CartBody data={products} />
+          )}
+          {products.length === 0 ? null : (
+            <button className="Send-order-btn">Send the order</button>
+          )}
         </div>
-        {products.length === 0 ? <div>Your cart is empty! Add somethinkg in it!</div> : <CartBody data={products} />}
-        {products.length === 0 ? null : <button className="Send-order-btn">Send the order</button>}
       </div>
     </ProductCartContext.Provider>
   );
@@ -70,7 +80,7 @@ const productsData = [
     id: uuidv4(),
     name: "Telefon mobul Apple",
     description: "iPhone 11, 64 GB, Black",
-    price: 1.000,
+    price: 1.0,
     amount: 1,
     image: img2,
   },

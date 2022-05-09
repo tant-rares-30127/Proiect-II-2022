@@ -3,8 +3,20 @@
     flex-direction: column;
     align-items: center;
     gap: 2rem;
-    padding-top: 2rem;
-    padding-bottom: 5rem;
+    padding: 2rem;
+    box-shadow: 0 0 1rem -0.5rem;
+    border-radius: 1rem;
+}
+
+.Cart-container-border {
+    display: flex;
+    justify-content: center;
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+}
+
+.Cart-header h2 {
+    margin-top: 0;
 }
 
 .Cart-header-container {
@@ -188,9 +200,8 @@
     background-color: #F69852;
     border-radius: 0.2rem;
     color: white;
-    padding: 0.5rem;
-    padding-left: 1rem;
-    padding-right: 1rem;
+    padding: 0.7rem 1.25rem; 
+    font-size: large;
 }
 
 .Send-order-btn:hover {
