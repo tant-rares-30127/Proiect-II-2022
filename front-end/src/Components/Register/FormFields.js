@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import FormField from "./FormField";
+import { v4 as uuidv4 } from "uuid";
 
 export default function FormFields({ handleRegister }) {
   const [user, setUser] = useState({
@@ -8,10 +9,8 @@ export default function FormFields({ handleRegister }) {
     password: "",
     phone: "",
   });
-
-  const [error, setError] = useState(errorCodes);
-
-  let isAgreementChecked = false;
+  const [isAgreementChecked, setIsAgreementChecked] = useState(false);
+  const [agreementErr, setAgreementErr] = useState(false);
 
   function handleInput(input) {
     setUser((prevUser) => {
@@ -22,6 +21,7 @@ export default function FormFields({ handleRegister }) {
   const formFields = formInputs.map((i) => {
     return (
       <FormField
+        key={i.key}
         placeholder={i.placeholder}
         data={user[i.key]}
         error={i.error}
@@ -35,16 +35,16 @@ export default function FormFields({ handleRegister }) {
   return (
     <>
       <div className="Register-form">
-        <div className="Register-input-container">
-          {formFields}
-        </div>
-        {error[4].active ? (
-          <div className="Register-input-error">{error[4].error}</div>
+        <div className="Register-input-container">{formFields}</div>
+        {agreementErr ? (
+          <div className="Register-input-error">
+            - Please agree to our terms and conditions!
+          </div>
         ) : null}
         <span className="Form-important-text">
           <input
             onChange={(e) => {
-              isAgreementChecked = e.target.checked;
+              setIsAgreementChecked(e.target.checked);
             }}
             type="checkbox"
           />
@@ -60,55 +60,31 @@ export default function FormFields({ handleRegister }) {
 
 const formInputs = [
   {
+    key: uuidv4(),
     name: "username",
     placeholder: "Username",
     type: "text",
     error: "- Enter a valid username",
   },
   {
+    key: uuidv4(),
     name: "email",
     placeholder: "E-mail",
     type: "text",
     error: "- Enter a valid e-mail",
   },
   {
+    key: uuidv4(),
     name: "password",
     placeholder: "Password",
     type: "password",
     error: "- Enter a valid password",
   },
   {
+    key: uuidv4(),
     name: "phone",
     placeholder: "Phone number",
     type: "text",
     error: "- Enter a valid phone number",
-  },
-];
-
-const errorCodes = [
-  {
-    type: "username",
-    error: "- Enter a valid username",
-    active: false,
-  },
-  {
-    type: "email",
-    error: "- Enter an valid email",
-    active: false,
-  },
-  {
-    type: "password",
-    error: "- Enter a valid password",
-    active: false,
-  },
-  {
-    type: "phone",
-    error: "- Enter a valid phone number",
-    active: false,
-  },
-  {
-    type: "terms",
-    error: "- Please agree to our terms and conditions!",
-    active: false,
   },
 ];
