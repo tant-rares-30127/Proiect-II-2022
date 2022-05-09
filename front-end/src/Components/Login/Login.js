@@ -1,6 +1,7 @@
 import React from "react";
 import axios from "axios";
 import FormFieldsLogin from "./FormFieldsLogin";
+import logo from "../../Images/Logo_transparent.png"
 
 export default function Login() {
 
@@ -29,10 +30,19 @@ export default function Login() {
 
   return (
     <div className="Login-body-container-main">
+      <div className="Login-header-container">
+      <div className="Register-title-form-container">
+        <img className="Logo" src={logo} alt="Logo"/>
+        <h2>iShop</h2>
+      </div>
+        <span>
+          <h3>Log in and go shopping!</h3>
+        </span>
+      </div>
       <div className="Login-body-container">
         <FormFieldsLogin handleLogIn={handleLogIn}/>
         <span className="Forget-pass">
-          <a href="/register">Forogot the password?</a>
+          <a href="/register">Forgot the password?</a>
         </span>
       </div>
       <div className="Rectangle-shape" />

@@ -1,7 +1,7 @@
 import React from "react";
 import axios from "axios";
 import FormFields from "./FormFields";
-import Logo from "../../Images/Logo_transparent.png"
+import logo from "../../Images/Logo_transparent.png"
 
 export default function RegisterForm() {
 
@@ -27,7 +27,7 @@ export default function RegisterForm() {
   return (
     <div className="Register-container">
       <div className="Register-title-form-container">
-        <img className="Logo" src={Logo} alt="Logo"/>
+        <img className="Logo" src={logo} alt="Logo"/>
         <h3>iShop</h3>
       </div>
       <p>
