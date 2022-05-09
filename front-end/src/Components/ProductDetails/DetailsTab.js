@@ -4,7 +4,8 @@ import Details from "./Details";
 
 export default function DetailsTab() {
   const [curentTab, setCurrentTab] = useState(1);
-  let details = "";
+  let details = {}
+
 
   const tab = tabInfo.map((t) => {
     let isActive = false;
@@ -41,20 +42,34 @@ export default function DetailsTab() {
   );
 }
 
+const reviews = [
+  {
+    name: "Sebastian Daulalopata",
+    mark: 1,
+    message: "I sold my house so that i can afford to buy this phone."
+  },
+  {
+    name: "Dragos Lovescu",
+    mark: 4,
+    message: "Great product to leave on the shelf"
+  }
+]
+
 const tabInfo = [
   {
     id: 1,
     name: "Description",
-    info: "The iPhone 13 is too expensive.",
+    info: {text: "The iPhone 13 is too expensive."}
   },
   {
     id: 2,
     name: "Aditional Info",
-    info: "The iPhone 13 is too cheap.",
+    info: {text: "The iPhone 13 is too cheap."}
   },
   {
     id: 3,
     name: "Reviews",
-    info: "The iPhone 13 is not",
+    info: {reviews: reviews}
   },
 ];
+

@@ -1,6 +1,7 @@
 import React from "react";
 import productImage from "../../Images/Someting_new.png";
 import heartIcon from "../../Images/Heart.png";
+import starIcon from "../../Images/fullStar.png"
 
 export default function Product() {
   return (
@@ -12,7 +13,7 @@ export default function Product() {
         <div className="Product-elemnents-container">
           <div className="Product-name-container">
             <h2>Telefon mobil Apple iPhone 13</h2>
-            <div>4.6/5</div>
+            <div>4.6 <img className="NavBar-Icon" src={starIcon} alt="starIcon" /></div>
             <div className="Price-detail-container">
               <div>2.689.00</div>
               <div>Lei</div>
