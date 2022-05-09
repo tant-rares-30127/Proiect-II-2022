@@ -1,7 +1,6 @@
-import React from 'react'
+import React from "react";
+import ClientType from "./CheckOut/ClientType";
 
 export default function Dummy2() {
-  return (
-    <div>Dummy2</div>
-  )
+  return <ClientType></ClientType>;
 }

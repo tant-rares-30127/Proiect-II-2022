@@ -27,8 +27,8 @@ function App() {
             </>
           }
         />
-        <Route path="/dummy1" element={<Dummy2 />} />
-        <Route path="/dummy2" element={<Dummy />} />
+        <Route path="/dummy2" element={<Dummy2 />} />
+        <Route path="/dummy" element={<Dummy />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/productDetails" element={<ProductDetails />} />
