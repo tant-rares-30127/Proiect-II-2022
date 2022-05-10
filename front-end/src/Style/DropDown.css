@@ -5,6 +5,9 @@
     display: flex;
     align-items: center;
     gap: 0.4rem;
+    font-size: 1rem;
+    border: 0.1rem solid;
+    border-color: #F69852;
 }
 
 .MenuOption-btn img{
@@ -13,19 +16,27 @@
 }
 
 .MenuOption-btn:hover {
-    background-color: #a36738;
+    border-color: black;
+    border-radius: 1rem;
 }
 
 .Options-container {
-    position: absolute;
+    position:absolute;
     box-shadow: 0 8px 16px 0px rgba(0, 0, 0, 0.288);
     display: none;
     z-index: 1;
 }
 
+.MenuOption-container {
+    display: flex;
+    flex-direction:column;
+    justify-content: center;
+}
+
 .MenuOption-container:hover .Options-container{
     display: flex;
-    justify-content: center;
+    flex-direction: row-reverse;
+    justify-content: flex-end;
     flex-direction: column;
     background-color: white;
 }
