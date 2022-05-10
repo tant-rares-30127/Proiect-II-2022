@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "./Styles/ClientType.css";
-class ClientType extends Component {
+class GenderType extends Component {
   constructor() {
     super();
     this.state = {
@@ -25,26 +25,26 @@ class ClientType extends Component {
     return (
       <div className="demo2">
         <form onSubmit={this.formSubmit}>
-          <span className="radio">
+          <span className="radio1">
             <label>
               <input
                 type="radio"
-                value="New_Client"
-                checked={this.state.selectedOption === "New_Client"}
+                value="Mr"
+                checked={this.state.selectedOption === "Mr"}
                 onChange={this.onValueChange}
               />
-              New Client
+              Mr.
             </label>
           </span>
-          <span className="radio">
+          <span className="radio1">
             <label>
               <input
                 type="radio"
-                value="Already_Client"
-                checked={this.state.selectedOption === "Already_Client"}
+                value="Mrs."
+                checked={this.state.selectedOption === "Mrs."}
                 onChange={this.onValueChange}
               />
-              Already Client
+              Mrs.
             </label>
           </span>
         </form>
@@ -53,4 +53,4 @@ class ClientType extends Component {
   }
 }
 
-export default ClientType;
+export default GenderType;
