@@ -62,11 +62,6 @@ const tabInfo = [
     info: {text: "The iPhone 13 is too expensive."}
   },
   {
-    id: 2,
-    name: "Aditional Info",
-    info: {text: "The iPhone 13 is too cheap."}
-  },
-  {
     id: 3,
     name: "Reviews",
     info: {reviews: reviews}
