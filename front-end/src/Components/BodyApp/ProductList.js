@@ -21,7 +21,7 @@ export default function ProductList() {
 
         const productsToDisplay = newProducts.map((p) => {
           return (
-            <a href="../../dummy2">
+            <a key={uuidv4()} href="../../dummy2">
               <li key={uuidv4()}>
                 <img
                   className="Product-Icon"
