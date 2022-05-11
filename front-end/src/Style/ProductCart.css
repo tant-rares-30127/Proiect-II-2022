@@ -84,6 +84,12 @@
     text-align: right;
 }
 
+.Sexy-border {
+    border: 0.09rem solid;
+    border-radius: 0.3rem;
+    border-color: #C4C4C4;
+}
+
 .ProductCart-container {
     background-color: #F8F8F8;
     margin-top: 1rem;

@@ -34,7 +34,7 @@ export default function CartBody({ data }) {
         </div>
       </div>
       {productsToDisplay}
-      <div className="Total-price-bar">
+      <div className="Total-price-bar Sexy-border">
         <div>Total price:</div>
         <div className="Final-price-value">{finalPrice} Lei</div>
       </div>
