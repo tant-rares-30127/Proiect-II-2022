@@ -1,7 +1,16 @@
-import React from "react";
+import React, { useEffect, useContext } from "react";
 import image from "../../Images/products/telefon_mobil.png";
+import { MenuOptionsContext } from "./MenuOptions";
 
 export default function DropDownElement({ product }) {
+  const handleHideAll = useContext(MenuOptionsContext)
+
+  useEffect(()=> {
+    document.body.addEventListener("click", handleHideAll)
+
+    return () => {document.body.removeEventListener("click", handleHideAll)}
+  }, [])
+
   return (
     <div className="DropDownElement-container Sexy-border">
       <img className="DropDown-image" src={image} />
