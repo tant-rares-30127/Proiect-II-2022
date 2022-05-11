@@ -3,7 +3,8 @@ import TabButton from "./TabButton";
 import Details from "./Details";
 
 export default function DetailsTab() {
-  const [curentTab, setCurrentTab] = useState(1);
+  const [curentTab, setCurrentTab] = useState(1)
+  const [isSameTab, setIsSameTab] = useState(false)
   let details = {}
 
 
@@ -20,15 +21,18 @@ export default function DetailsTab() {
         id={t.id}
         isActive={isActive}
         handleClick={handleClick}
+        isSameTab = {isSameTab}
       />
     );
   });
 
   function handleClick(id) {
     if (curentTab === id) {
+      setIsSameTab(true)
       setCurrentTab(0);
       return;
     }
+    setIsSameTab(false)
     setCurrentTab(id);
   }
 
@@ -62,7 +66,7 @@ const tabInfo = [
     info: {text: "The iPhone 13 is too expensive."}
   },
   {
-    id: 3,
+    id: 2,
     name: "Reviews",
     info: {reviews: reviews}
   },

@@ -120,6 +120,7 @@
  
 .Product-tab-container {
     background-color: #F9F0D1;
+    border-radius: 1rem;
 }
 
 .Product-tab-btn {
@@ -135,6 +136,7 @@
     flex-direction: column;
     align-items: center;
     background-color: #F9F0D1;
+    border-radius: 1rem;
 }
 
 .Tab-aux-container {
@@ -146,6 +148,8 @@
 .Product-info-container {
     padding: 3rem;
     background-color: #FCF9EB;
+    border-bottom-right-radius: 1rem;
+    border-bottom-left-radius: 1rem;
 }
 
 .Review-container {
@@ -161,4 +165,7 @@
     padding-bottom: 0.3rem;
 }
 
+#Description {
+    border-top-left-radius: 1rem;
+}
 
