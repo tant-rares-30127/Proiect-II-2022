@@ -96,6 +96,7 @@
 .ProductCart-image-details-container {
     display: flex;
     gap: 2rem;
+    mix-blend-mode: multiply;
 }
 
 .ProductCart-image-details-container img {

@@ -40,6 +40,7 @@
 .DropDown-image {
     aspect-ratio: 2/1.5;
     width: 5rem;
+    mix-blend-mode: multiply;
 }
 
 .DropDownElement-container {
@@ -48,11 +49,19 @@
     justify-content: space-between;
     gap: 1rem;
     background-color: #F4F4F4;
-    padding: 0.4rem;
+    padding-top: 0.4rem;
+    padding-left: 0.8rem;
+    padding-right: 0.8rem;
+    padding-bottom: 0.4rem;
+}
+
+.DropDownElement-container:hover {
+    background-color: #d1d1d1;
 }
 
 .DropDown-container {
-    padding: 0.7rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
     background-color: white;
     box-shadow: 0 0.2rem 1rem -0.1px rgba(0, 0, 0, 0.288);
     display: flex;
