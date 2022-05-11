@@ -2,11 +2,23 @@ import React, { useState } from "react";
 import TabButton from "./TabButton";
 import Details from "./Details";
 
-export default function DetailsTab() {
+export default function DetailsTab({ description }) {
   const [curentTab, setCurrentTab] = useState(1)
   const [isSameTab, setIsSameTab] = useState(false)
   let details = {}
 
+  const tabInfo = [
+    {
+      id: 1,
+      name: "Description",
+      info: {text: description}
+    },
+    {
+      id: 2,
+      name: "Reviews",
+      info: {reviews: reviews}
+    },
+  ];
 
   const tab = tabInfo.map((t) => {
     let isActive = false;
@@ -59,16 +71,5 @@ const reviews = [
   }
 ]
 
-const tabInfo = [
-  {
-    id: 1,
-    name: "Description",
-    info: {text: "The iPhone 13 is too expensive."}
-  },
-  {
-    id: 2,
-    name: "Reviews",
-    info: {reviews: reviews}
-  },
-];
+
 
