@@ -13,5 +13,7 @@ namespace Proiect_II.Services
         public List<Product> SearchedProducts(List<Product> productsList, string text);
 
         public List<Product> RecommandatedProducts(List<Product> productsLst);
+
+        public Product SearchedProduct(List<Product> productsList, string text);
     }
 }

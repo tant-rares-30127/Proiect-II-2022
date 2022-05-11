@@ -19,7 +19,7 @@ namespace Proiect_II.Controllers
             _context = context;
         }
 
-        // GET: ShoppingCartProducts
+  /*      // GET: ShoppingCartProducts
         public async Task<IActionResult> Index()
         {
             return View(await _context.ShoppingCartProduct.ToListAsync());
@@ -148,6 +148,6 @@ namespace Proiect_II.Controllers
         private bool ShoppingCartProductExists(int id)
         {
             return _context.ShoppingCartProduct.Any(e => e.Id == id);
-        }
+        }*/
     }
 }

@@ -129,27 +129,19 @@ namespace Proiect_II.Migrations
             modelBuilder.Entity("Proiect_II.Models.ShoppingCart", b =>
                 {
                     b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .HasColumnType("int");
 
                     b.Property<DateTime>("DateTime")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("UserId")
-                        .HasColumnType("int");
-
                     b.HasKey("Id");
-
-                    b.HasIndex("UserId")
-                        .IsUnique();
 
                     b.ToTable("ShoppingCart");
                 });
 
             modelBuilder.Entity("Proiect_II.Models.ShoppingCartProduct", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int?>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
@@ -255,7 +247,7 @@ namespace Proiect_II.Migrations
                 {
                     b.HasOne("Proiect_II.Models.User", "User")
                         .WithOne("ShoppingCart")
-                        .HasForeignKey("Proiect_II.Models.ShoppingCart", "UserId")
+                        .HasForeignKey("Proiect_II.Models.ShoppingCart", "Id")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 

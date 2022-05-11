@@ -10,8 +10,8 @@ using Proiect_II.Data;
 namespace Proiect_II.Migrations
 {
     [DbContext(typeof(Proiect_IIContext))]
-    [Migration("20220315173056_User_ShoppingCart_1to1")]
-    partial class User_ShoppingCart_1to1
+    [Migration("20220507151413_Database remake")]
+    partial class Databaseremake
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -52,6 +52,9 @@ namespace Proiect_II.Migrations
                     b.Property<string>("Description")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("ImageAdress")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
@@ -82,6 +85,9 @@ namespace Proiect_II.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("ImageAdress")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
@@ -125,27 +131,19 @@ namespace Proiect_II.Migrations
             modelBuilder.Entity("Proiect_II.Models.ShoppingCart", b =>
                 {
                     b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .HasColumnType("int");
 
                     b.Property<DateTime>("DateTime")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("UserId")
-                        .HasColumnType("int");
-
                     b.HasKey("Id");
-
-                    b.HasIndex("UserId")
-                        .IsUnique();
 
                     b.ToTable("ShoppingCart");
                 });
 
             modelBuilder.Entity("Proiect_II.Models.ShoppingCartProduct", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int?>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
@@ -190,7 +188,7 @@ namespace Proiect_II.Migrations
 
             modelBuilder.Entity("Proiect_II.Models.User", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int?>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
@@ -251,7 +249,7 @@ namespace Proiect_II.Migrations
                 {
                     b.HasOne("Proiect_II.Models.User", "User")
                         .WithOne("ShoppingCart")
-                        .HasForeignKey("Proiect_II.Models.ShoppingCart", "UserId")
+                        .HasForeignKey("Proiect_II.Models.ShoppingCart", "Id")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
