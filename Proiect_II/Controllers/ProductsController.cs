@@ -22,6 +22,13 @@ namespace Proiect_II.Controllers
         }
 
         [HttpGet]
+        public Product ReturnProduct(string productName)
+        {
+            List<Product> productsList = _context.Product.Include(n => n.ProductType ).ToList();
+            return this.productServices.SearchedProduct(productsList, productName);
+        }
+
+        [HttpGet]
         public List<Product> SearchBarClick()
         {
             List<Product> productsList = _context.Product.Include(n => n.ProductType).ToList();
@@ -29,7 +36,7 @@ namespace Proiect_II.Controllers
         }
 
         [HttpGet]
-        public List<Product> SearchBarType([FromBody] string text)
+        public List<Product> SearchBarType(string text)
         {
             List<Product> productsList = _context.Product.Include(n => n.ProductType).ToList();
             return this.productServices.SearchedProducts(productsList, text);
