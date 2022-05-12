@@ -38,6 +38,8 @@ namespace Proiect_II.Controllers
             ShoppingCart shoppingCart = new ShoppingCart();
             shoppingCart.DateTime = DateTime.Now;
             user.ShoppingCart = shoppingCart;
+            user.AddressId = user.Address.Id;
+            user.Address = null;
             _context.User.Add(user);
             _context.SaveChanges();
             return "Use added succseful";
