@@ -8,18 +8,19 @@ namespace Proiect_II.Services
 {
     public class UsersServices : UsersServicesInterface
     {
-        public string VerifyUser(List<User> users, string email, string password)
+        public User VerifyUser(List<User> users, string email, string password)
         {
-            string message= "Failed authentification!";
+            User user1 = new User();
             foreach (User user in users)
             {
                 if (user.Email.Equals(email) && user.Password.Equals(password))
                 {
-                    message = "Succesful authentification!";
+                    user1 = user;
+                    user1.ShoppingCart.User = null;
                     break;
                 }
             }
-            return message;
+            return user1;
         }
     }
 }

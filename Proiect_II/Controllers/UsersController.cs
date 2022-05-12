@@ -23,24 +23,21 @@ namespace Proiect_II.Controllers
             this.usersServices = new UsersServices();
         }
 
-        [HttpPost]
-        public string LoginAccess([FromBody] User user)
+        [HttpGet]
+        public User LoginAccess([FromBody] User user)
         {
             List<User> users = new List<User>();
-            users = _context.User.ToList();
+            users = _context.User.Include(n => n.ShoppingCart).Include(n => n.Address).ToList();
             return usersServices.VerifyUser(users, user.Email, user.Password);
-        }
-
-        [HttpGet]
-        public User GetUser()
-        {
-            return _context.User.ToList()[0];
         }
 
         [HttpPost]
         public string RegisterUser([FromBody] User user)
         {
             user.Id = null;
+            ShoppingCart shoppingCart = new ShoppingCart();
+            shoppingCart.DateTime = DateTime.Now;
+            user.ShoppingCart = shoppingCart;
             _context.User.Add(user);
             _context.SaveChanges();
             return "Use added succseful";
