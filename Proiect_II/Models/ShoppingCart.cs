@@ -9,7 +9,7 @@ namespace Proiect_II.Models
     public class ShoppingCart
     {
         [ForeignKey("User")]
-        public int Id { get; set; }
+        public int? Id { get; set; }
         public DateTime DateTime { get; set; }
         public virtual User User { get; set; }
     }

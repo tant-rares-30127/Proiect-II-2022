@@ -23,20 +23,19 @@ namespace Proiect_II.Controllers
         }
 
         [HttpPost]
-        public void AddProductToCart(string productName, [FromBody] User user)
+        public void AddProductToCart(int id, [FromBody] User user)
         {
             ShoppingCartProduct shoppingCartProduct = new ShoppingCartProduct();
             shoppingCartProduct.Id = null;
             List<Product> productsList = _context.Product.Include(n => n.ProductType).ToList();
-            shoppingCartProduct.Product = productServices.SearchedProduct(productsList, productName);
+            shoppingCartProduct.Product = productsList.Where( n => n.Id==id).First();
             shoppingCartProduct.Quantity = 1;
-            shoppingCartProduct.ShoppingCart = user.ShoppingCart;
+            shoppingCartProduct.ShoppingCartId = user.ShoppingCart.Id;
             _context.ShoppingCartProduct.Add(shoppingCartProduct);
             _context.SaveChanges();
-
         }
 
-        // GET: ShoppingCarts
+ /*       // GET: ShoppingCarts
         public async Task<IActionResult> Index()
         {
             return View(await _context.ShoppingCart.ToListAsync());
@@ -165,6 +164,6 @@ namespace Proiect_II.Controllers
         private bool ShoppingCartExists(int id)
         {
             return _context.ShoppingCart.Any(e => e.Id == id);
-        }
+        }*/
     }
 }

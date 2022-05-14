@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Proiect_II.Data;
 
 namespace Proiect_II.Migrations
 {
     [DbContext(typeof(Proiect_IIContext))]
-    partial class Proiect_IIContextModelSnapshot : ModelSnapshot
+    [Migration("20220512205220_ShoppingCartProduct-update")]
+    partial class ShoppingCartProductupdate
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
