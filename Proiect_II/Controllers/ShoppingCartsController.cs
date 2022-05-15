@@ -35,6 +35,16 @@ namespace Proiect_II.Controllers
             _context.SaveChanges();
         }
 
+        [HttpGet]
+        public List<ShoppingCartProduct> ProductsCart([FromBody] User user)
+        {
+            int? shoppingCartId = user.ShoppingCart.Id;
+            List<ShoppingCartProduct> shoppingCartProducts = new List<ShoppingCartProduct>();
+            shoppingCartProducts = _context.ShoppingCartProduct.Include(n => n.Product).ToList();
+            shoppingCartProducts = shoppingCartProducts.Where(n => n.ShoppingCartId == shoppingCartId).ToList();
+            return shoppingCartProducts;
+        }
+
  /*       // GET: ShoppingCarts
         public async Task<IActionResult> Index()
         {
