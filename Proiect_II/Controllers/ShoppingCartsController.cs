@@ -35,6 +35,13 @@ namespace Proiect_II.Controllers
             _context.SaveChanges();
         }
 
+        [HttpPost]
+        public void RaiseProductQuantity([FromBody] ShoppingCartProduct product)
+        {
+            product.Quantity++;
+            _context.ShoppingCartProduct.Update(product);
+            _context.SaveChanges();
+        }
  /*       // GET: ShoppingCarts
         public async Task<IActionResult> Index()
         {
