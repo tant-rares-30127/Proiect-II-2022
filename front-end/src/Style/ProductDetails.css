@@ -172,3 +172,24 @@
     border-top-left-radius: 1rem;
 }
 
+.Review-text-area-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.Review-text-area {
+    height: 5rem;
+}
+
+.Submit-review-btn {
+    background-color: #E55241;
+    border: 0;
+    border-radius: 0.2rem;
+    color: white;
+    width: 7rem;
+    height: 1.5rem;
+}
+
+.Submit-review-btn:hover {
+    background-color: #b44134;
+}
