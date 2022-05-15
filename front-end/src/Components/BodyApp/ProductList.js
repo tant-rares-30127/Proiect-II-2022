@@ -20,8 +20,13 @@ export default function ProductList() {
         newProducts = data;
 
         const productsToDisplay = newProducts.map((p) => {
+          let name = null
+          if (newProducts.indexOf(p) === newProducts.length - 1) {
+            name = "Lastlink"
+          }
+          
           return (
-            <a key={uuidv4()} href="../../dummy2">
+            <a id={name} key={uuidv4()} href="../../dummy2">
               <li key={uuidv4()}>
                 <img
                   className="Product-Icon"
