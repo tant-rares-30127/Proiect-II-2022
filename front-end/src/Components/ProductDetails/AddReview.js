@@ -1,7 +1,7 @@
 import React from 'react'
 import ReviewStars from './ReviewStars'
 
-export default function AddReview() {
+export default function AddReview({ handleAddReview }) {
   return (
     <div>
         <h2>Add review</h2>
@@ -10,7 +10,7 @@ export default function AddReview() {
         <div className='Review-text-area-container'>
             <textarea className='Review-text-area'/>
         </div>
-        <button className='Submit-review-btn'>Submit</button>
+        <button onClick={handleAddReview} className='Submit-review-btn'>Submit</button>
     </div>
   )
 }

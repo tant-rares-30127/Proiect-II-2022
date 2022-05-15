@@ -21,7 +21,7 @@ export default function Reviews({ details }) {
     <>
       {reviews}
       {(addReview) ? (
-        <AddReview />
+        <AddReview handleAddReview={handleAddReview}/>
       ) : (
         <button className="Submit-review-btn" onClick={() => handleAddReview()}>
           Add Review
