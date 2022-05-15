@@ -25,14 +25,28 @@ namespace Proiect_II.Controllers
         [HttpPost]
         public void AddProductToCart(int id, [FromBody] User user)
         {
-            ShoppingCartProduct shoppingCartProduct = new ShoppingCartProduct();
-            shoppingCartProduct.Id = null;
-            List<Product> productsList = _context.Product.Include(n => n.ProductType).ToList();
-            shoppingCartProduct.Product = productsList.Where( n => n.Id==id).First();
-            shoppingCartProduct.Quantity = 1;
-            shoppingCartProduct.ShoppingCartId = user.ShoppingCart.Id;
-            _context.ShoppingCartProduct.Add(shoppingCartProduct);
-            _context.SaveChanges();
+            List <ShoppingCartProduct> shoppingCartProductList = _context.ShoppingCartProduct.Include(n => n.Product).ToList();
+            ShoppingCartProduct shoppingCartProductExistent = shoppingCartProductList.Where(n => n.Product.Id == id).First();
+            if (shoppingCartProductExistent != null)
+            {
+                shoppingCartProductExistent.Quantity++;
+                _context.ShoppingCartProduct.Update(shoppingCartProductExistent);
+                _context.SaveChanges();
+                return;
+            }
+            else
+            {
+                ShoppingCartProduct shoppingCartProduct = new ShoppingCartProduct();
+                shoppingCartProduct.Id = null;
+                List<Product> productsList = _context.Product.Include(n => n.ProductType).ToList();
+                shoppingCartProduct.Product = productsList.Where(n => n.Id == id).First();
+                shoppingCartProduct.Quantity = 1;
+                shoppingCartProduct.ShoppingCartId = user.ShoppingCart.Id;
+                _context.ShoppingCartProduct.Add(shoppingCartProduct);
+                _context.SaveChanges();
+                return;
+            }
+            
         }
 
         [HttpPost]
