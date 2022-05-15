@@ -68,6 +68,7 @@
     flex-direction: column;
     gap: 0.5rem;
     border-radius: 1rem;
+    transform: translate(-30%);
 }
 
 .DropDown-title-container {
@@ -99,6 +100,7 @@
     color: white;
     padding: 0.7rem 1.4rem;
     border-radius: 0.2rem;
+    text-decoration: none;
 }
 
 .Page-link:hover {
@@ -109,4 +111,10 @@
 .DropwDown-link-container {
     display: flex;
     justify-content: center;
+    gap: 2rem;
+    align-items: center;
+}
+
+.logout_btn {
+    border: none;
 }
