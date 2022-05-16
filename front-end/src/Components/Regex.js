@@ -4,7 +4,7 @@ const phoneNumberRegex =
 const emailRegex =
   /(?<!.)(\w|\.|!){5,15}@(gmail|yahoo|student.utlcuj|).(com|org|ro|en)(?!.)/;
 
-const usernameRegex = /(?<!.)([a-zA-Z]|[0-9]){5,15}(?!.)/;
+const usernameRegex = /(?<!.)([a-zA-Z]|[0-9]){5,20}(?!.)/;
 
 const passwordRegex = /(?<!.)([\w]|[0-9]|!|@|#|\$|%|\^|&|\*){8,20}(?!.)/;
 
