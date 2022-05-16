@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import FormField from "./FormField";
 import { v4 as uuidv4 } from "uuid";
+import regex from "./Regex";
 
 export default function FormFields({ handleRegister }) {
   const [user, setUser] = useState({
@@ -12,12 +13,6 @@ export default function FormFields({ handleRegister }) {
   const [isAgreementChecked, setIsAgreementChecked] = useState(false);
   const [agreementErr, setAgreementErr] = useState(false);
 
-  function handleInput(input) {
-    setUser((prevUser) => {
-      return { ...prevUser, ...input };
-    });
-  }
-
   const formFields = formInputs.map((i) => {
     return (
       <FormField
@@ -28,9 +23,34 @@ export default function FormFields({ handleRegister }) {
         type={i.type}
         handleInput={handleInput}
         name={i.name}
+        regex={i.regex}
       />
     );
   });
+
+  function handleInput(input) {
+    console.log(user);
+    setUser((prevUser) => {
+      return { ...prevUser, ...input };
+    });
+  }
+
+  function handlePreRegister() {
+    if (isAgreementChecked === false) {
+      setAgreementErr(true)
+      return;
+    }
+    if (
+      user.email === "" ||
+      user.username === "" ||
+      user.password === "" ||
+      user.phone === "" 
+    ) {
+      console.log("Nasol frate");
+      return;
+    }
+    handleRegister(user);
+  }
 
   return (
     <>
@@ -45,12 +65,13 @@ export default function FormFields({ handleRegister }) {
           <input
             onChange={(e) => {
               setIsAgreementChecked(e.target.checked);
+              if (e.target.checked === true) setAgreementErr(false)
             }}
             type="checkbox"
           />
           <label>I agree to the processing of my personal data</label>
         </span>
-        <button onClick={() => handleRegister(user)} className="Auth-btn">
+        <button onClick={handlePreRegister} className="Auth-btn">
           Register
         </button>
       </div>
@@ -65,6 +86,7 @@ const formInputs = [
     placeholder: "Username",
     type: "text",
     error: "- Enter a valid username",
+    regex: regex.usernameRegex,
   },
   {
     key: uuidv4(),
@@ -72,6 +94,7 @@ const formInputs = [
     placeholder: "E-mail",
     type: "text",
     error: "- Enter a valid e-mail",
+    regex: regex.emailRegex,
   },
   {
     key: uuidv4(),
@@ -79,6 +102,7 @@ const formInputs = [
     placeholder: "Password",
     type: "password",
     error: "- Enter a valid password",
+    regex: regex.passwordRegex,
   },
   {
     key: uuidv4(),
@@ -86,5 +110,6 @@ const formInputs = [
     placeholder: "Phone number",
     type: "text",
     error: "- Enter a valid phone number",
+    regex: regex.phoneNumberRegex,
   },
 ];

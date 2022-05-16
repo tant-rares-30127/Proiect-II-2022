@@ -12,7 +12,7 @@ export default function ImageSlider() {
   const [auto, setAuto] = useState(false)
 
   useEffect(() => {
-    setTimeout(powerAutoslider, 6000)
+    setTimeout(powerAutoslider, 3000)
     setTimeout(() => setAuto(true), 1000)
   }, [])
 
@@ -45,7 +45,7 @@ export default function ImageSlider() {
     if (auto === false) {
       setAuto(prev => !prev)
     }
-    setTimeout(powerAutoslider, 6000)
+    setTimeout(powerAutoslider, 3000)
   }
 
   function autoSlider() {

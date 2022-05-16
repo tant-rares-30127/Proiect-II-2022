@@ -1,15 +1,17 @@
 import React, { useState } from "react";
 
 export default function FormField(props) {
-  const { placeholder, data, error, type, handleInput, name } = props;
+  const { placeholder, data, error, type, handleInput, name, regex } = props;
   const [isValid, setIsValid] = useState(true);
 
+  console.log(name + " " + regex);
+
   function checkIfValid(input) {
-      if (input === "") {
-          setIsValid(false)
-          return
-      }
-      setIsValid(true)
+    if (input.match(regex) === null) {
+      setIsValid(false);
+      return;
+    }
+    setIsValid(true);
   }
 
   return (
@@ -21,8 +23,10 @@ export default function FormField(props) {
         type={type}
         placeholder={placeholder}
         onChange={(e) => {
-            handleInput({ [name]: e.target.value })
-            checkIfValid(e.target.value)
+          e.target.value.match(regex) === null
+            ? handleInput({ [name]: "" })
+            : handleInput({ [name]: e.target.value });
+          checkIfValid(e.target.value);
         }}
       />
     </div>
