@@ -9,6 +9,28 @@ class Cities extends React.Component {
       selectedCity: "City",
       selectedPlace: "Place",
     };
+    this.changeCity = this.changeCity.bind(this);
+    this.changePlace = this.changePlace.bind(this);
+  }
+
+  componentDidMount() {
+    //https://reactjs.org/docs/react-component.html#componentdidmount
+    this.setState({
+      cities: [
+        { name: "Bucuresti", places: ["domnesti", "jilava", "moara vlasiei"] },
+      ],
+    });
+  }
+  changeCity(event) {
+    this.setState({ selectedCity: event.target.value });
+    this.setState({
+      places: this.state.cities.find(
+        (cntry) => cntry.name === event.target.value
+      ).places,
+    });
+  }
+  changePlace(event) {
+    this.setState({ selectedPlace: event.target.value });
   }
 
   render() {
@@ -18,14 +40,30 @@ class Cities extends React.Component {
           <div className="row">
             <div className="form-group">
               <label style={styles.lbl}>City</label>
-              <select className="form-select" placeholder="City">
-                <option>Bucuresti</option>
+              <select
+                className="form-select"
+                placeholder="City"
+                value={this.state.selectedCity}
+                onChange={this.changeCity}
+              >
+                <option>City</option>
+                {this.state.cities.map((e, key) => {
+                  return <option key={key}> {e.nume}</option>;
+                })}
               </select>
             </div>
             <div className="form-group">
               <label style={styles.lbl}>Place</label>
-              <select className="form-select" placeholder="Place">
-                <option>Bucuresti</option>
+              <select
+                className="form-select"
+                placeholder="Place"
+                value={this.state.selectedPlace}
+                onChange={this.changePlace}
+              >
+                <option>Place</option>
+                {this.state.cities.map((e, key) => {
+                  return <option key={key}> {e.nume}</option>;
+                })}
               </select>
             </div>
           </div>
