@@ -21,7 +21,7 @@ export default function TheBillContainer() {
         <GenderType></GenderType>
       </div>
       <div>
-        <span>First Name</span>
+        <span>First Name </span>
         <span>
           <input
             onChange={handleFirstNameInputChange}
@@ -32,7 +32,7 @@ export default function TheBillContainer() {
         </span>
       </div>
       <div>
-        <span>Last Name</span>
+        <span>Last Name </span>
         <span>
           <input
             onChange={handleLastNameInputChange}
