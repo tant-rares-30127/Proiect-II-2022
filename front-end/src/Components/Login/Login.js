@@ -7,6 +7,10 @@ export default function Login() {
 
   function handleLogIn(user) {
     console.log(user)
+    if (user.email === '' || user.password === '') {
+      alert("Invalid credentials")
+      return
+    }
     axios({
       method: 'post',
       url: "https://localhost:5001/Users/LoginAccess",
@@ -17,7 +21,7 @@ export default function Login() {
       }
     }).then((response) => response.data)
     .then((data) => {
-      alert(data)
+    
     }).catch((err) => console.log(err))
     .catch((err) => console.log(err))
   }

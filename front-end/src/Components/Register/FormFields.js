@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import FormField from "./FormField";
 import { v4 as uuidv4 } from "uuid";
-import regex from "./Regex";
+import regex from "../Regex";
 
 export default function FormFields({ handleRegister }) {
   const [user, setUser] = useState({
