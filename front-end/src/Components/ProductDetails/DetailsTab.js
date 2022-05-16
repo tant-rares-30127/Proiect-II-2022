@@ -2,9 +2,23 @@ import React, { useState } from "react";
 import TabButton from "./TabButton";
 import Details from "./Details";
 
-export default function DetailsTab() {
-  const [curentTab, setCurrentTab] = useState(1);
-  let details = "";
+export default function DetailsTab({ description }) {
+  const [curentTab, setCurrentTab] = useState(1)
+  const [isSameTab, setIsSameTab] = useState(false)
+  let details = {}
+
+  const tabInfo = [
+    {
+      id: 1,
+      name: "Description",
+      info: {text: description}
+    },
+    {
+      id: 2,
+      name: "Reviews",
+      info: {reviews: reviews}
+    },
+  ];
 
   const tab = tabInfo.map((t) => {
     let isActive = false;
@@ -19,15 +33,18 @@ export default function DetailsTab() {
         id={t.id}
         isActive={isActive}
         handleClick={handleClick}
+        isSameTab = {isSameTab}
       />
     );
   });
 
   function handleClick(id) {
     if (curentTab === id) {
+      setIsSameTab(true)
       setCurrentTab(0);
       return;
     }
+    setIsSameTab(false)
     setCurrentTab(id);
   }
 
@@ -41,20 +58,18 @@ export default function DetailsTab() {
   );
 }
 
-const tabInfo = [
+const reviews = [
   {
-    id: 1,
-    name: "Description",
-    info: "The iPhone 13 is too expensive.",
+    name: "Sebastian Daulalopata",
+    mark: 1,
+    message: "I sold my house so that I could afford to buy this phone."
   },
   {
-    id: 2,
-    name: "Aditional Info",
-    info: "The iPhone 13 is too cheap.",
-  },
-  {
-    id: 3,
-    name: "Reviews",
-    info: "The iPhone 13 is not",
-  },
-];
+    name: "Dragos Lovescu",
+    mark: 4,
+    message: "Great product to leave on the shelf"
+  }
+]
+
+
+

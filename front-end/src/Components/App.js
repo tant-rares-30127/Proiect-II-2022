@@ -23,7 +23,8 @@ function App() {
           path="/"
           element={
             <>
-              <Body /> <Recomandations />
+              <Body />
+              <Recomandations />
             </>
           }
         />

@@ -4,7 +4,7 @@
   justify-content: center;
   align-items: center;
   gap: 2rem;
-  padding-top: 6rem;
+  padding-top: 1rem;
   padding-bottom: 4rem; 
   border: 0;
 
@@ -114,5 +114,15 @@
   height: 0.3rem;
   background: rgb(165, 162, 162);
   margin-left: 0;
+}
+
+.Login-header-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.Login-header-container h3 {
+  margin: 0;
 }
 

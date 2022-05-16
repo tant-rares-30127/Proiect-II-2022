@@ -5,7 +5,7 @@ export default function CartProduct({ data }) {
   const {handleAmountVariation, handleRemoveProduct} = useContext(ProductCartContext)
 
   return (
-    <div className="ProductCart-container">
+    <div className="ProductCart-container Sexy-border">
       <div className="ProductCart-image-details-container">
         <img src={data.image} alt="prod-img"></img>
         <div className="ProductCart-details-container">

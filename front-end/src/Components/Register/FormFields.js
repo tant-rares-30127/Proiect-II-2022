@@ -1,4 +1,7 @@
 import React, { useState } from "react";
+import FormField from "./FormField";
+import { v4 as uuidv4 } from "uuid";
+import regex from "./Regex";
 
 export default function FormFields({ handleRegister }) {
   const [user, setUser] = useState({
@@ -7,99 +10,71 @@ export default function FormFields({ handleRegister }) {
     password: "",
     phone: "",
   });
+  const [isAgreementChecked, setIsAgreementChecked] = useState(false);
+  const [agreementErr, setAgreementErr] = useState(false);
 
-  const [error, setError] = useState(errorCodes)
-
-  let isAgreementChecked = false;
+  const formFields = formInputs.map((i) => {
+    return (
+      <FormField
+        key={i.key}
+        placeholder={i.placeholder}
+        data={user[i.key]}
+        error={i.error}
+        type={i.type}
+        handleInput={handleInput}
+        name={i.name}
+        regex={i.regex}
+      />
+    );
+  });
 
   function handleInput(input) {
+    console.log(user);
     setUser((prevUser) => {
       return { ...prevUser, ...input };
     });
   }
 
   function handlePreRegister() {
-
-    let currentError = error.map(e => e)
-    if (user.username.length === 0) {
-      currentError[0] = { ...currentError[0], ...{active: true} }
+    if (isAgreementChecked === false) {
+      setAgreementErr(true)
+      alert("Your request does not meet the specified requirements.\nTry again!")
+      return;
     }
-
-    if (user.email.length === 0) {
-      currentError[1] = { ...currentError[1], ...{active: true} }
+    if (
+      user.email === "" ||
+      user.username === "" ||
+      user.password === "" ||
+      user.phone === "" 
+    ) {
+      console.log("Nasol frate");
+      alert("Your request does not meet the specified requirements.\nTry again!")
+      return;
     }
-
-    if (user.password.length === 0) {
-      currentError[2] = { ...currentError[2], ...{active: true} }
-    }
-
-    if (user.phone.length === 0) {
-      currentError[3] = { ...currentError[3], ...{active: true} }
-    }
-
-    if (isAgreementChecked == false) {
-      currentError[4] = { ...currentError[4], ...{active: true} }
-    }
-
-    setError(currentError)
+    handleRegister(user);
   }
 
   return (
     <>
       <div className="Register-form">
-        <div className="Register-input-container">
-          <div className="Input-aux">
-            {error[0].active ? <div className="Register-input-error">{error[0].error}</div> : null}
-            <input
-              value={user.username}
-              onChange={(e) => handleInput({ username: e.target.value })}
-              className="Register-input"
-              type="text"
-              placeholder="Full Name"
-            />
+        <div className="Register-input-container">{formFields}</div>
+        {agreementErr ? (
+          <div className="Register-input-error">
+            - Please agree to our terms and conditions!
           </div>
-          <div className="Input-aux">
-          {error[1].active ? <div className="Register-input-error">{error[1].error}</div> : null}
-            <input
-              value={user.email}
-              onChange={(e) => handleInput({ email: e.target.value })}
-              className="Register-input"
-              type="text"
-              placeholder="E-mail"
-            />
-          </div>
-          <div className="Input-aux">
-          {error[2].active ? <div className="Register-input-error">{error[1].error}</div> : null}
-            <input
-              value={user.password}
-              onChange={(e) => handleInput({ password: e.target.value })}
-              className="Register-input"
-              type="password"
-              placeholder="Password"
-            />
-          </div>
-          <div className="Input-aux">
-          {error[3].active ? <div className="Register-input-error">{error[3].error}</div> : null}
-            <input
-              value={user.phone}
-              onChange={(e) => handleInput({ phone: e.target.value })}
-              className="Register-input"
-              type="text"
-              placeholder="Phone number"
-            />
-          </div>
-        </div>
-        {error[4].active ? <div className="Register-input-error">{error[4].error}</div> : null}
+        ) : null}
         <span className="Form-important-text">
           <input
             onChange={(e) => {
-              isAgreementChecked = e.target.checked;
+              setIsAgreementChecked(e.target.checked);
+              if (e.target.checked === true) setAgreementErr(false)
+              else setAgreementErr(true)
             }}
             type="checkbox"
           />
           <label>I agree to the processing of my personal data</label>
         </span>
-        <button onClick={() => handlePreRegister(user)} className="Auth-btn">
+        <button onClick={handlePreRegister} className="Auth-btn">
           Register
         </button>
       </div>
@@ -107,31 +82,37 @@ export default function FormFields({ handleRegister }) {
   );
 }
 
-
-const errorCodes = [
+const formInputs = [
   {
-    type: "username",
+    key: uuidv4(),
+    name: "username",
+    placeholder: "Username",
+    type: "text",
     error: "- Enter a valid username",
-    active: false
-  }, 
+    regex: regex.usernameRegex,
+  },
   {
-    type: "email",
-    error: "- Enter an valid email",
-    active: false
-  }, 
+    key: uuidv4(),
+    name: "email",
+    placeholder: "E-mail",
+    type: "text",
+    error: "- Enter a valid e-mail",
+    regex: regex.emailRegex,
+  },
   {
+    key: uuidv4(),
+    name: "password",
+    placeholder: "Password",
     type: "password",
     error: "- Enter a valid password",
-    active: false
+    regex: regex.passwordRegex,
   },
   {
-    type: "phone",
+    key: uuidv4(),
+    name: "phone",
+    placeholder: "Phone number",
+    type: "text",
     error: "- Enter a valid phone number",
-    active: false
+    regex: regex.phoneNumberRegex,
   },
-  {
-    type: "terms",
-    error: "- Please agree to our terms and conditions!",
-    active: false
-  }
-]
+];
