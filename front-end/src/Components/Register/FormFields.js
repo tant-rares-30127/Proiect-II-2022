@@ -38,7 +38,7 @@ export default function FormFields({ handleRegister }) {
   function handlePreRegister() {
     if (isAgreementChecked === false) {
       setAgreementErr(true)
-      //alert("Your request does not meet the specified requirements.\nTry again!")
+      alert("Your request does not meet the specified requirements.\nTry again!")
       return;
     }
     if (
@@ -68,6 +68,7 @@ export default function FormFields({ handleRegister }) {
             onChange={(e) => {
               setIsAgreementChecked(e.target.checked);
               if (e.target.checked === true) setAgreementErr(false)
+              else setAgreementErr(true)
             }}
             type="checkbox"
           />
