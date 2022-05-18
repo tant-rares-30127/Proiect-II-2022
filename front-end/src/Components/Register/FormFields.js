@@ -38,7 +38,7 @@ export default function FormFields({ handleRegister }) {
   function handlePreRegister() {
     if (isAgreementChecked === false) {
       setAgreementErr(true)
-      alert("Your request does not meet the specified requirements.\nTry again!")
+      alert("Required fields! You must complete all the fileds!")
       return;
     }
     if (
@@ -48,7 +48,7 @@ export default function FormFields({ handleRegister }) {
       user.phone === "" 
     ) {
       console.log("Nasol frate");
-      alert("Your request does not meet the specified requirements.\nTry again!")
+      alert("Required fields! You must complete all the fileds!")
       return;
     }
     handleRegister(user);

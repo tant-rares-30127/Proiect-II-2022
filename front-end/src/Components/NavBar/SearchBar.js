@@ -1,13 +1,40 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import SearchResult from "./SearchResult";
-import searchIcon from "../../Images/Search.png"
+import searchIcon from "../../Images/Search.png";
 
 export default function SearchBar() {
   const [search, setSearch] = useState();
-  const [data, setData] = useState([])
 
-  useEffect(() => {
+  function handleSearch(value) {
+    if (value === '') {
+      setSearch(undefined)
+      return
+    }
+    axios
+      .get("https://localhost:5001/Products/SearchBarType?text=" + value)
+      .then((response) => {
+        return response.data;
+      })
+      .catch((error) => {
+        console.log(error);
+      })
+      .then((data) => {
+        console.log(data);
+        const dataFromApi = data.map((d) => {
+          return d.name;
+        });
+        const newSearch = dataFromApi.filter((d) => d.includes(value));
+        if (value === "" || newSearch.length === 0) {
+          setSearch(undefined);
+        } else {
+          setSearch(newSearch);
+        }
+      })
+      .catch((error) => console.log(error));
+  }
+
+  function showRecomandations() {
     axios
       .get("https://localhost:5001/Products/SearchBarClick")
       .then((response) => {
@@ -17,25 +44,12 @@ export default function SearchBar() {
         console.log(error);
       })
       .then((data) => {
-        const dataFromApi = data.map(d => {
-          return d.name
-        })
-
-        setData(dataFromApi)
-      });
-  }, [])
-
-  function handleSearch(value) {
-    const newSearch = data.filter((d) => d.includes(value));
-    if (value === "" || newSearch.length === 0) {
-      setSearch(undefined);
-    } else {
-      setSearch(newSearch);
-    }
-  }
-
-  function showRecomandations() {
-    setSearch(data);
+        const dataFromApi = data.map((d) => {
+          return d.name;
+        });
+        setSearch(dataFromApi);
+      })
+      .catch((error) => console.log(error));
   }
 
   function handleHideResults() {
@@ -45,20 +59,18 @@ export default function SearchBar() {
   return (
     <div>
       <div className="Search-bar-container">
-      <input
-        className="SearchBar"
-        type="search"
-        placeholder="Type to search..."
-        onChange={(e) => handleSearch(e.target.value)}
-        onClick={(e) => showRecomandations()}
-      ></input>
-      <img 
-        className="Search-Icon"
-        src={searchIcon}
-        alt="Search icon"></img>
+        <input
+          className="SearchBar"
+          type="search"
+          placeholder="Type to search..."
+          onChange={(e) => handleSearch(e.target.value)}
+          onClick={(e) => showRecomandations()}
+        ></input>
+        <img className="Search-Icon" src={searchIcon} alt="Search icon"></img>
       </div>
-      {search !== undefined ? <SearchResult data={search} handleHideResults={handleHideResults}/> : null}
+      {search !== undefined ? (
+        <SearchResult data={search} handleHideResults={handleHideResults} />
+      ) : null}
     </div>
   );
 }
-
