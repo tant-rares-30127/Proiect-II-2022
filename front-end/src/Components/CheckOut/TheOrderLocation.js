@@ -26,6 +26,7 @@ export default function TheOrderLocation() {
               value={values.adress}
               type="text"
               name="adress"
+              placeholder="Adress"
             ></input>
           </span>
         </div>
@@ -37,6 +38,7 @@ export default function TheOrderLocation() {
               value={values.postalCode}
               type="text"
               name="podtalCode"
+              placeholder="Postal code"
             ></input>
           </span>
         </div>

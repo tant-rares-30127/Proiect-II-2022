@@ -35,6 +35,12 @@ body{
     padding-bottom: 3%;
 }
 
+.demo3{
+    padding-top: 3%;
+}
+.radio2{
+    padding-bottom: 3%;
+}
 .checkoutContainer{
     padding: 3%;
     align-self: right;
@@ -65,5 +71,42 @@ body{
 
 .adress{
     padding-top: 5%;
-    padding-left: 7.3%;
+    padding-left: 4.8%;
 }
+.fill{
+    border-radius: 20px;
+    box-shadow: #4d0803;
+}
+
+input[type=text],select {
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+  
+input[type=text] {
+    border: 3px solid rgba(252, 252, 252, 0.4);
+    background-color: rgba(252, 252, 252, 0.2);
+    border-radius: 10px;
+    font-family: "Source Sans Pro", sans-serif;
+
+    display: inline-block;
+    text-align: center;
+    font-size: 19px;
+    color: white;
+    font-weight: 300;
+  }
+  
+  button {
+    appearance: none;
+    outline: 0;
+    background-color: white;
+    border: 0;
+    padding: 10px 15px;
+    color: #4d0803;
+    border-radius: 3px;
+    width: 250px;
+    font-size: 18px;
+  }

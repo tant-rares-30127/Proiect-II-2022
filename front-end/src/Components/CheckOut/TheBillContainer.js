@@ -28,6 +28,7 @@ export default function TheBillContainer() {
             value={values.firstName}
             type="text"
             name="firstName"
+            placeholder="First Name"
           ></input>
         </span>
       </div>
@@ -39,6 +40,7 @@ export default function TheBillContainer() {
             value={values.lastName}
             type="text"
             name="lastName"
+            placeholder="Last Name"
           ></input>
         </span>
       </div>

@@ -1,5 +1,6 @@
 import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
+
 class Cities extends React.Component {
   constructor(props) {
     super(props);
@@ -7,10 +8,10 @@ class Cities extends React.Component {
       cities: [],
       places: [],
       selectedCity: "City",
-      selectedPlace: "Place",
+      // selectedPlace: "Place",
     };
     this.changeCity = this.changeCity.bind(this);
-    this.changePlace = this.changePlace.bind(this);
+    //this.changePlace = this.changePlace.bind(this);
   }
 
   componentDidMount() {
@@ -18,6 +19,17 @@ class Cities extends React.Component {
     this.setState({
       cities: [
         { name: "Bucuresti", places: ["domnesti", "jilava", "moara vlasiei"] },
+        {
+          name: "Suceava",
+          places: [
+            "horodnic de sus",
+            "vicov",
+            "burla",
+            "arbore",
+            "radauti",
+            "milisauti",
+          ],
+        },
       ],
     });
   }
@@ -25,13 +37,13 @@ class Cities extends React.Component {
     this.setState({ selectedCity: event.target.value });
     this.setState({
       places: this.state.cities.find(
-        (cntry) => cntry.name === event.target.value
+        (entry) => entry.name == event.target.value
       ).places,
     });
   }
-  changePlace(event) {
-    this.setState({ selectedPlace: event.target.value });
-  }
+  //changePlace(event) {
+  //  this.setState({ selectedPlace: event.target.value });
+  // }
 
   render() {
     return (
@@ -57,12 +69,12 @@ class Cities extends React.Component {
               <select
                 className="form-select"
                 placeholder="Place"
-                value={this.state.selectedPlace}
-                onChange={this.changePlace}
+                //value={this.state.selectedPlace}
+                //onChange={this.changePlace}
               >
                 <option>Place</option>
-                {this.state.cities.map((e, key) => {
-                  return <option key={key}> {e.nume}</option>;
+                {this.state.places.map((e, key) => {
+                  return <option key={key}> {e}</option>;
                 })}
               </select>
             </div>
