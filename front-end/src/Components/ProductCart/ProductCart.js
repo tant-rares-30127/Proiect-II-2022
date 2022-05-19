@@ -26,6 +26,12 @@ export default function ProductCart() {
   }, []);
 
   function handleRemoveProduct(shoppingCart) {
+    axios({
+      method: "delete",
+      url: "https://localhost:5001/ShoppingCarts/RemoveProductShoppingCart",
+      headers: {},
+      data: shoppingCart
+    }).catch(err => console.log(err))
     const newProducts = products.filter((p) => {
       return p.id !== shoppingCart.id;
     });
