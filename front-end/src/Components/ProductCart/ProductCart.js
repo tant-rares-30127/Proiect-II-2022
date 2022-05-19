@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import axios from "axios";
 import CartBody from "./CartBody";
 import { v4 as uuidv4 } from "uuid";
 import img1 from "../../Images/products/telefon_mobil.png";
@@ -8,7 +9,7 @@ import img3 from "../../Images/products/telefon_mobil_samsung.png";
 export const ProductCartContext = React.createContext();
 
 export default function ProductCart() {
-  const [products, setProducts] = useState([]);
+  const [products, setProducts] = useState(productsData);
 
   const productCartContextValue = {
     handleAmountVariation: handleAmountVariation,
@@ -16,7 +17,18 @@ export default function ProductCart() {
   };
 
   useEffect(() => {
-    setProducts(productsData);
+    axios({
+      method: "get",
+      url: "https://localhost:5001/ShoppingCarts/ProductsCart",
+      headers: {},
+      data: {
+        user: user
+      },
+    })
+      .then((response) => response.data)
+      .then((data) => {
+        console.log(data)
+      });
   }, []);
 
   function handleRemoveProduct(id) {
@@ -37,8 +49,6 @@ export default function ProductCart() {
 
     setProducts(newProducts);
   }
-
-  console.log(products.length);
 
   return (
     <ProductCartContext.Provider value={productCartContextValue}>
@@ -66,6 +76,25 @@ export default function ProductCart() {
     </ProductCartContext.Provider>
   );
 }
+
+const user = {
+  id: 1,
+  address: {
+    id: 1,
+    country: "Romania",
+    city: "Sighisoara",
+    details: "La sefi",
+  },
+  username: "Rares",
+  password: "Rares",
+  email: "rares",
+  phone: "rares",
+  shoppingCart: {
+    id: 1,
+    dateTime: "2022-05-01T00:00:00",
+    user: null,
+  },
+};
 
 const productsData = [
   {

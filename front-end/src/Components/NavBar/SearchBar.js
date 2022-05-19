@@ -20,7 +20,6 @@ export default function SearchBar() {
         console.log(error);
       })
       .then((data) => {
-        console.log(data);
         const dataFromApi = data.map((d) => {
           return d.name;
         });
