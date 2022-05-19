@@ -25,145 +25,63 @@ namespace Proiect_II.Controllers
         [HttpPost]
         public void AddProductToCart(int id, [FromBody] User user)
         {
-            ShoppingCartProduct shoppingCartProduct = new ShoppingCartProduct();
-            shoppingCartProduct.Id = null;
-            List<Product> productsList = _context.Product.Include(n => n.ProductType).ToList();
-            shoppingCartProduct.Product = productsList.Where( n => n.Id==id).First();
-            shoppingCartProduct.Quantity = 1;
-            shoppingCartProduct.ShoppingCartId = user.ShoppingCart.Id;
-            _context.ShoppingCartProduct.Add(shoppingCartProduct);
+            List <ShoppingCartProduct> shoppingCartProductList = _context.ShoppingCartProduct.Include(n => n.Product).ToList();
+            ShoppingCartProduct shoppingCartProductExistent = shoppingCartProductList.Where(n => n.Product.Id == id).First();
+            if (shoppingCartProductExistent != null)
+            {
+                shoppingCartProductExistent.Quantity++;
+                _context.ShoppingCartProduct.Update(shoppingCartProductExistent);
+                _context.SaveChanges();
+                return;
+            }
+            else
+            {
+                ShoppingCartProduct shoppingCartProduct = new ShoppingCartProduct();
+                shoppingCartProduct.Id = null;
+                List<Product> productsList = _context.Product.Include(n => n.ProductType).ToList();
+                shoppingCartProduct.Product = productsList.Where(n => n.Id == id).First();
+                shoppingCartProduct.Quantity = 1;
+                shoppingCartProduct.ShoppingCartId = user.ShoppingCart.Id;
+                _context.ShoppingCartProduct.Add(shoppingCartProduct);
+                _context.SaveChanges();
+                return;
+            }
+            
+        }
+
+        [HttpPost]
+        public void RaiseProductQuantity([FromBody] ShoppingCartProduct product)
+        {
+            product.Quantity++;
+            _context.ShoppingCartProduct.Update(product);
             _context.SaveChanges();
         }
 
- /*       // GET: ShoppingCarts
-        public async Task<IActionResult> Index()
-        {
-            return View(await _context.ShoppingCart.ToListAsync());
-        }
-
-        // GET: ShoppingCarts/Details/5
-        public async Task<IActionResult> Details(int? id)
-        {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
-            var shoppingCart = await _context.ShoppingCart
-                .FirstOrDefaultAsync(m => m.Id == id);
-            if (shoppingCart == null)
-            {
-                return NotFound();
-            }
-
-            return View(shoppingCart);
-        }
-
-        // GET: ShoppingCarts/Create
-        public IActionResult Create()
-        {
-            return View();
-        }
-
-        // POST: ShoppingCarts/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,DateTime")] ShoppingCart shoppingCart)
+        public void DecreaseProductQuantity([FromBody] ShoppingCartProduct product)
         {
-            if (ModelState.IsValid)
+            if (product.Quantity == 1)
             {
-                _context.Add(shoppingCart);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                _context.ShoppingCartProduct.Remove(product);
+                _context.SaveChanges();
             }
-            return View(shoppingCart);
+            else
+            {
+                product.Quantity--;
+                _context.ShoppingCartProduct.Update(product);
+                _context.SaveChanges();
+            }
         }
 
-        // GET: ShoppingCarts/Edit/5
-        public async Task<IActionResult> Edit(int? id)
+        [HttpGet]
+        public List<ShoppingCartProduct> ProductsCart([FromBody] User user)
         {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
-            var shoppingCart = await _context.ShoppingCart.FindAsync(id);
-            if (shoppingCart == null)
-            {
-                return NotFound();
-            }
-            return View(shoppingCart);
+            int? shoppingCartId = user.ShoppingCart.Id;
+            List<ShoppingCartProduct> shoppingCartProducts = new List<ShoppingCartProduct>();
+            shoppingCartProducts = _context.ShoppingCartProduct.Include(n => n.Product).ToList();
+            shoppingCartProducts = shoppingCartProducts.Where(n => n.ShoppingCartId == shoppingCartId).ToList();
+            return shoppingCartProducts;
         }
-
-        // POST: ShoppingCarts/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,DateTime")] ShoppingCart shoppingCart)
-        {
-            if (id != shoppingCart.Id)
-            {
-                return NotFound();
-            }
-
-            if (ModelState.IsValid)
-            {
-                try
-                {
-                    _context.Update(shoppingCart);
-                    await _context.SaveChangesAsync();
-                }
-                catch (DbUpdateConcurrencyException)
-                {
-                    if (!ShoppingCartExists(shoppingCart.Id))
-                    {
-                        return NotFound();
-                    }
-                    else
-                    {
-                        throw;
-                    }
-                }
-                return RedirectToAction(nameof(Index));
-            }
-            return View(shoppingCart);
-        }
-
-        // GET: ShoppingCarts/Delete/5
-        public async Task<IActionResult> Delete(int? id)
-        {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
-            var shoppingCart = await _context.ShoppingCart
-                .FirstOrDefaultAsync(m => m.Id == id);
-            if (shoppingCart == null)
-            {
-                return NotFound();
-            }
-
-            return View(shoppingCart);
-        }
-
-        // POST: ShoppingCarts/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(int id)
-        {
-            var shoppingCart = await _context.ShoppingCart.FindAsync(id);
-            _context.ShoppingCart.Remove(shoppingCart);
-            await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
-        }
-
-        private bool ShoppingCartExists(int id)
-        {
-            return _context.ShoppingCart.Any(e => e.Id == id);
-        }*/
+        
     }
 }
