@@ -60,17 +60,16 @@ namespace Proiect_II.Controllers
         [HttpPost]
         public void DecreaseProductQuantity([FromBody] ShoppingCartProduct product)
         {
-            if (product.Quantity == 1)
-            {
-                _context.ShoppingCartProduct.Remove(product);
-                _context.SaveChanges();
-            }
-            else
-            {
-                product.Quantity--;
-                _context.ShoppingCartProduct.Update(product);
-                _context.SaveChanges();
-            }
+            product.Quantity--;
+            _context.ShoppingCartProduct.Update(product);
+            _context.SaveChanges();
+        }
+
+        [HttpDelete]
+        public void RemoveProductShoppingCart([FromBody] ShoppingCartProduct product)
+        {
+            _context.ShoppingCartProduct.Remove(product);
+            _context.SaveChanges();
         }
 
         [HttpPost]
