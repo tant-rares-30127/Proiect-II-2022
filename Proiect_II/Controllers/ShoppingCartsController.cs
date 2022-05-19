@@ -73,7 +73,7 @@ namespace Proiect_II.Controllers
             }
         }
 
-        [HttpGet]
+        [HttpPost]
         public List<ShoppingCartProduct> ProductsCart([FromBody] User user)
         {
             int? shoppingCartId = user.ShoppingCart.Id;

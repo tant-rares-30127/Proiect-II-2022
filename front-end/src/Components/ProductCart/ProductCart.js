@@ -1,15 +1,11 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import CartBody from "./CartBody";
-import { v4 as uuidv4 } from "uuid";
-import img1 from "../../Images/products/telefon_mobil.png";
-import img2 from "../../Images/products/telefon_mobil_apple.png";
-import img3 from "../../Images/products/telefon_mobil_samsung.png";
 
 export const ProductCartContext = React.createContext();
 
 export default function ProductCart() {
-  const [products, setProducts] = useState(productsData);
+  const [products, setProducts] = useState([]);
 
   const productCartContextValue = {
     handleAmountVariation: handleAmountVariation,
@@ -18,35 +14,46 @@ export default function ProductCart() {
 
   useEffect(() => {
     axios({
-      method: "get",
+      method: "post",
       url: "https://localhost:5001/ShoppingCarts/ProductsCart",
       headers: {},
-      data: {
-        user: user
-      },
+      data: user
     })
       .then((response) => response.data)
       .then((data) => {
-        console.log(data)
+        setProducts(data)
       });
   }, []);
 
-  function handleRemoveProduct(id) {
+  function handleRemoveProduct(shoppingCart) {
     const newProducts = products.filter((p) => {
-      return p.id !== id;
+      return p.id !== shoppingCart.id;
     });
+    console.log(newProducts)
 
     setProducts(newProducts);
   }
 
-  function handleAmountVariation(id, increment) {
-    let newProducts = products.map((p) => p);
-    newProducts.map((p) => {
-      if (p.id === id && p.amount + increment >= 1 && p.amount < 98) {
-        p.amount = p.amount + increment;
-      }
-    });
-
+  function handleAmountVariation(increment, shoppingCart) {
+    if (shoppingCart.quantity + increment < 1) return
+    if (increment > 0) {
+      axios({
+        method: "post",
+        url: "https://localhost:5001/ShoppingCarts/RaiseProductQuantity",
+        headers: {},
+        data: shoppingCart
+      }).catch(err => console.log(err))
+    } else {
+      axios({
+        method: "post",
+        url: "https://localhost:5001/ShoppingCarts/DecreaseProductQuantity",
+        headers: {},
+        data: shoppingCart
+      }).catch(err => console.log(err))
+    }
+    shoppingCart.quantity = shoppingCart.quantity + increment
+    let newProducts = products.map(p => p)
+    
     setProducts(newProducts);
   }
 
@@ -58,7 +65,7 @@ export default function ProductCart() {
             <div className="Cart-header">
               <h2>Your bin</h2>
               <h2 className="Cart-products-number">
-                {products.length} products
+                {products.length} {products.length === 1 ? 'product' : 'products'}
               </h2>
             </div>
             <hr></hr>
@@ -95,30 +102,3 @@ const user = {
     user: null,
   },
 };
-
-const productsData = [
-  {
-    id: uuidv4(),
-    name: "Telefon mobul Apple",
-    description: "iPhone 11, 64 GB, Black",
-    price: 2.689,
-    amount: 2,
-    image: img1,
-  },
-  {
-    id: uuidv4(),
-    name: "Telefon mobul Apple",
-    description: "iPhone 11, 64 GB, Black",
-    price: 1.0,
-    amount: 1,
-    image: img2,
-  },
-  {
-    id: uuidv4(),
-    name: "Telefon mobul Apple",
-    description: "iPhone 11, 64 GB, Black",
-    price: 2.689,
-    amount: 1,
-    image: img3,
-  },
-];
