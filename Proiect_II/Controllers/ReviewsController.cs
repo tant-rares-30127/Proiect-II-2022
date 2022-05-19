@@ -22,7 +22,7 @@ namespace Proiect_II.Controllers
         [HttpGet]
         public List<Review> ReturnReviews(int id)
         {
-            List<Review> reviews = _context.Review.Where(n => n.Product.Id == id).ToList();
+            List<Review> reviews = _context.Review.Include(n => n.User).Where(n => n.Product.Id == id).ToList();
             return reviews;
         }
 
