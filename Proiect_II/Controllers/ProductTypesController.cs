@@ -30,7 +30,7 @@ namespace Proiect_II.Controllers
         }
 
         [HttpGet]
-        public List<Product> ProductsForProductType( string text)
+        public List<Product> ProductsForProductType(string text)
         {
             List<Product> productsList = _context.Product.Include(n => n.ProductType).ToList();
             return this.productTypeServices.ListOfProducts(productsList, text);

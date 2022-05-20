@@ -8,6 +8,6 @@ namespace Proiect_II.Services
 {
     interface UsersServicesInterface
     {
-        public string VerifyUser(List<User> users, string email, string password);
+        public User VerifyUser(List<User> users, string email, string password);
     }
 }

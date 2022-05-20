@@ -19,6 +19,13 @@ namespace Proiect_II.Controllers
             _context = context;
         }
 
+        [HttpGet]
+        public List<Review> ReturnReviews(int id)
+        {
+            List<Review> reviews = _context.Review.Include(n => n.User).Where(n => n.Product.Id == id).ToList();
+            return reviews;
+        }
+
         // GET: Reviews
         public async Task<IActionResult> Index()
         {

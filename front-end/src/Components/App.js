@@ -8,8 +8,6 @@ import Dummy from "./Dummy";
 import Dummy2 from "./Dummy2";
 import Login from "./Login/Login";
 import Register from "./Register/Register";
-import RecomandationContainer from "./Recomandation/RecomandationContainer";
-import SpaceContainer from "./Space/SpaceContainer";
 import ProductDetails from "./ProductDetails/ProductDetails";
 import ProductCart from "./ProductCart/ProductCart";
 import Recomandations from "./Recomandation/Recomandations";
@@ -24,7 +22,8 @@ function App() {
           path="/"
           element={
             <>
-              <Body /> <Recomandations />
+              <Body />
+              <Recomandations />
             </>
           }
         />

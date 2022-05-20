@@ -1,9 +1,6 @@
 import React, { useState, useEffect } from "react";
+import axios from "axios";
 import CartBody from "./CartBody";
-import { v4 as uuidv4 } from "uuid";
-import img1 from "../../Images/products/telefon_mobil.png";
-import img2 from "../../Images/products/telefon_mobil_apple.png";
-import img3 from "../../Images/products/telefon_mobil_samsung.png";
 
 export const ProductCartContext = React.createContext();
 
@@ -16,70 +13,98 @@ export default function ProductCart() {
   };
 
   useEffect(() => {
-    setProducts(productsData)
-  }, [])
+    axios({
+      method: "post",
+      url: "https://localhost:5001/ShoppingCarts/ProductsCart",
+      headers: {},
+      data: user
+    })
+      .then((response) => response.data)
+      .then((data) => {
+        setProducts(data)
+      });
+  }, []);
 
-  function handleRemoveProduct(id) {
+  function handleRemoveProduct(shoppingCart) {
+    axios({
+      method: "delete",
+      url: "https://localhost:5001/ShoppingCarts/RemoveProductShoppingCart",
+      headers: {},
+      data: shoppingCart
+    }).catch(err => console.log(err))
     const newProducts = products.filter((p) => {
-      return p.id !== id;
+      return p.id !== shoppingCart.id;
     });
+    console.log(newProducts)
 
     setProducts(newProducts);
   }
 
-  function handleAmountVariation(id, increment) {
-    let newProducts = products.map((p) => p)
-    newProducts.map((p) => {
-      if (p.id === id && p.amount + increment >= 1 && p.amount < 98) {
-        p.amount = p.amount + increment;
-      }
-    });
-
+  function handleAmountVariation(increment, shoppingCart) {
+    if (shoppingCart.quantity + increment < 1) return
+    if (increment > 0) {
+      axios({
+        method: "post",
+        url: "https://localhost:5001/ShoppingCarts/RaiseProductQuantity",
+        headers: {},
+        data: shoppingCart
+      }).catch(err => console.log(err))
+    } else {
+      axios({
+        method: "post",
+        url: "https://localhost:5001/ShoppingCarts/DecreaseProductQuantity",
+        headers: {},
+        data: shoppingCart
+      }).catch(err => console.log(err))
+    }
+    shoppingCart.quantity = shoppingCart.quantity + increment
+    let newProducts = products.map(p => p)
+    
     setProducts(newProducts);
   }
-
-  console.log(products.length)
 
   return (
     <ProductCartContext.Provider value={productCartContextValue}>
-      <div className="Cart-container">
-        <div className="Cart-header-container">
-          <div className="Cart-header">
-            <h2>Your bin</h2>
-            <h2 className="Cart-products-number">{products.length} products</h2>
+      <div className="Cart-container-border">
+        <div className="Cart-container">
+          <div className="Cart-header-container">
+            <div className="Cart-header">
+              <h2>Your bin</h2>
+              <h2 className="Cart-products-number">
+                {products.length} {products.length === 1 ? 'product' : 'products'}
+              </h2>
+            </div>
+            <hr></hr>
           </div>
-          <hr></hr>
+          {products.length === 0 ? (
+            <div>Your cart is empty! Add somethinkg in it!</div>
+          ) : (
+            <CartBody data={products} />
+          )}
+          {products.length === 0 ? null : (
+            <button className="Send-order-btn">Send the order</button>
+          )}
         </div>
-        {products.length === 0 ? <div>Your cart is empty! Add somethinkg in it!</div> : <CartBody data={products} />}
-        {products.length === 0 ? null : <button className="Send-order-btn">Send the order</button>}
       </div>
     </ProductCartContext.Provider>
   );
 }
 
-const productsData = [
-  {
-    id: uuidv4(),
-    name: "Telefon mobul Apple",
-    description: "iPhone 11, 64 GB, Black",
-    price: 2.689,
-    amount: 2,
-    image: img1,
+const user = {
+  id: 1,
+  address: {
+    id: 1,
+    country: "Romania",
+    city: "Sighisoara",
+    details: "La sefi",
   },
-  {
-    id: uuidv4(),
-    name: "Telefon mobul Apple",
-    description: "iPhone 11, 64 GB, Black",
-    price: 1.000,
-    amount: 1,
-    image: img2,
+  username: "Rares",
+  password: "Rares",
+  email: "rares",
+  phone: "rares",
+  shoppingCart: {
+    id: 1,
+    dateTime: "2022-05-01T00:00:00",
+    user: null,
   },
-  {
-    id: uuidv4(),
-    name: "Telefon mobul Apple",
-    description: "iPhone 11, 64 GB, Black",
-    price: 2.689,
-    amount: 1,
-    image: img3,
-  },
-];
+};

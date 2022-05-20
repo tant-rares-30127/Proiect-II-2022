@@ -20,17 +20,22 @@ export default function ProductList() {
         newProducts = data;
 
         const productsToDisplay = newProducts.map((p) => {
+          let name = null
+          if (newProducts.indexOf(p) === newProducts.length - 1) {
+            name = "Lastlink"
+          }
+          
           return (
-            <li key={uuidv4()}>
-              <a href="../../dummy2">
+            <a id={name} key={uuidv4()} href="../../dummy2">
+              <li key={uuidv4()}>
                 <img
                   className="Product-Icon"
                   src={p.imageAdress}
                   alt="Icon"
                 ></img>
                 <span>{p.name}</span>
-              </a>
-            </li>
+              </li>
+            </a>
           );
         });
 
@@ -48,6 +53,7 @@ export default function ProductList() {
         ></img>
         <h2>Products</h2>
       </span>
+      <hr></hr>
       <ul>{products}</ul>
     </div>
   );

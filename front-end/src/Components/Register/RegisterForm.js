@@ -1,33 +1,39 @@
 import React from "react";
 import axios from "axios";
 import FormFields from "./FormFields";
-import Logo from "../../Images/Logo_transparent.png"
+import logo from "../../Images/Logo_transparent.png";
 
 export default function RegisterForm() {
-
   function handleRegister(user) {
-    console.log(user)
+    console.log(user);
     axios({
-      method: 'post',
+      method: "post",
       url: "https://localhost:5001/Users/RegisterUser",
-      headers: {}, 
+      headers: {},
       data: {
         id: 2,
         username: user.username,
         email: user.email,
         password: user.password,
-        phone: user.phone
-      }
-    }).then((response) => response.data)
-    .then((data) => {
-      alert(data)
+        phone: user.phone,
+        address: {
+          id: 1,
+          country: "Romania",
+          city: "Sighisoara",
+          details: "La sefi",
+        },
+      },
     })
+      .then((response) => response.data)
+      .then((data) => {
+        alert(data);
+      });
   }
 
   return (
     <div className="Register-container">
       <div className="Register-title-form-container">
-        <img className="Logo" src={Logo} alt="Logo"/>
+        <img className="Logo" src={logo} alt="Logo" />
         <h3>iShop</h3>
       </div>
       <p>
@@ -39,8 +45,7 @@ export default function RegisterForm() {
         <span className="UsersNumber">55574</span>
         <span>people(s)</span>
       </div>
-      <FormFields handleRegister={handleRegister}/>
+      <FormFields handleRegister={handleRegister} />
     </div>
   );
 }
-

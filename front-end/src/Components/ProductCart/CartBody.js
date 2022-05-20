@@ -14,8 +14,8 @@ export default function CartBody({ data }) {
 
   function getFinalPrice() {
     let totalPrice = 0;
-    products.map((p) => {
-      totalPrice += p.price * p.amount
+    products.forEach((p) => {
+      totalPrice += p.product.price * p.quantity
     })
     return totalPrice
   }
@@ -34,9 +34,9 @@ export default function CartBody({ data }) {
         </div>
       </div>
       {productsToDisplay}
-      <div className="Total-price-bar">
+      <div className="Total-price-bar Sexy-border">
         <div>Total price:</div>
-        <div className="Final-price-value">{finalPrice} Lei</div>
+        <div className="Final-price-value">{finalPrice.toFixed(2)} Lei</div>
       </div>
     </div>
   );

@@ -1,9 +1,11 @@
 import React from 'react'
+import Reviews from './Reviews';
 
-export default function Details({ details }) {
+export default function Details({ details }) { 
+
   return (
     <div className="Product-info-container">
-      <p>{details}</p>
+      {details.text === undefined ? <Reviews details={details}/> : <>{details.text}</>}
     </div>
   )
 }
