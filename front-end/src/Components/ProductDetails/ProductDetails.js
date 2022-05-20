@@ -7,7 +7,7 @@ export default function ProductDetails() {
   const [product, setProduct] = useState()
 
   useEffect(() => {
-    axios.get("https://localhost:5001/Products/ReturnProduct?productName=Laptop MacBook")
+    axios.get("https://localhost:5001/Products/ReturnProduct?productName=Laptop Gaming Acer")
     .then((response) => response.data)
     .then((data) => {
       setProduct(data)

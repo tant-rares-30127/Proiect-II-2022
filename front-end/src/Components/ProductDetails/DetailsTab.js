@@ -10,12 +10,15 @@ export default function DetailsTab({ description }) {
   let details = {}
 
   useEffect(() => {
+    //Get curent product id from local storage
     axios
       .get("https://localhost:5001/Reviews/ReturnReviews?id=1")
       .then((response) => {
         return response.data;
       })
       .then(data => {
+        console.log("====")
+        console.log(data)
         let newReviews = data.map(d => {
           return {name: "Sebastian Daulalopata", mark: d.rating, message: d.comment }
         })

@@ -9,8 +9,6 @@ export default function Reviews({ details, handleAddNewReview }) {
 
   function getReviews() {
     if (details.text !== undefined) return null;
-    console.log("details")
-    console.log(details)
     return details.reviews.map((r) => <Review key={uuidv4()} review={r} />);
   }
 
