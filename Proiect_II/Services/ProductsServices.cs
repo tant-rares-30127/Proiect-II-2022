@@ -72,7 +72,7 @@ namespace Proiect_II.Services
             {
                 if (orderType.Equals("stock")) productsList.OrderBy(n => n.Stock);
                 else if (orderType.Equals("price")) productsList.OrderBy(n => n.Price);
-                else
+                /*else*/
             }
             return productsList;
         }
