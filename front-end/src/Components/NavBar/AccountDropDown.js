@@ -1,15 +1,16 @@
-import React, { useState } from "react";
+import React, { useContext } from "react";
+import { UserContext } from "../App";
 
 export default function AccountDropDown() {
-  const [loggedin, setLoggedin] = useState(false);
+  const { user, handleUser } = useContext(UserContext);
 
   const displayAccount = (
     <>
       <h3>Logged in</h3>
-      <h4>Sebastian daulalopata</h4>
+      <h4>{(user !== undefined && user !== null) ? user.username : null}</h4>
 
       <div className="DropwDown-link-container">
-        <button className="Page-link logout_btn">Log out</button>
+        <button onClick={() => handleUser(null)} className="Page-link logout_btn">Log out</button>
       </div>
     </>
   );
@@ -32,5 +33,5 @@ export default function AccountDropDown() {
       <div className="DropDown-title-container">
         <h2>Your Account</h2>
       </div>
-      {loggedin ? displayAccount : displayNoAccount}</div>;
+      {(user === undefined || user === null) ? displayNoAccount : displayAccount}</div>;
 }
