@@ -49,6 +49,14 @@ namespace Proiect_II.Controllers
             return this.productServices.RecommandatedProducts(productsList);
         }
 
-       
+        [HttpGet]
+        public List<Product> SortProducts(string order, string orderType, int productTypeId)
+        {
+            List<Product> productsList = _context.Product.Include(n => n.ProductType).ToList();
+            List<Review> reviewsList = _context.Review.ToList();
+
+            return productsList;
+        }
+
     }
 }
