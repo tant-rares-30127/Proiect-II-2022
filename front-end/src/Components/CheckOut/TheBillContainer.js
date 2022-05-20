@@ -14,6 +14,7 @@ export default function TheBillContainer() {
   const handleLastNameInputChange = (event) => {
     setValues({ ...values, lastName: event.target.value });
   };
+
   return (
     <div className="theBill">
       <div>1. The Bill</div>

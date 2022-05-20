@@ -6,6 +6,7 @@ import TheOrderLocation from "./TheOrderLocation";
 export default function CheckoutPage() {
   return (
     <div className="checkoutPage">
+      <ClientType></ClientType>
       <div className="line">.</div>
       <CheckoutContainer></CheckoutContainer>
     </div>

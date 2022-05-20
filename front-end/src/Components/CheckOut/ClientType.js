@@ -1,10 +1,11 @@
 import React, { Component } from "react";
 import "./Styles/ClientType.css";
 class ClientType extends Component {
-  constructor() {
+  constructor(props) {
     super();
     this.state = {
-      name: "React",
+      selectedOption: "",
+      errors: "",
     };
     this.onValueChange = this.onValueChange.bind(this);
     this.formSubmit = this.formSubmit.bind(this);
@@ -19,6 +20,30 @@ class ClientType extends Component {
   formSubmit(event) {
     event.preventDefault();
     console.log(this.state.selectedOption);
+    if (this.validate()) {
+      let errors = "";
+      this.setState({ errors: errors });
+      alert("The comand is submitted");
+    }
+  }
+
+  validate() {
+    let selectedOption = this.state.selectedOption;
+    let errors = {};
+    let isValid = true;
+
+    if (selectedOption !== "Already_Client" && selectedOption != "New_Client") {
+      errors = "Please select a type";
+      isValid = false;
+    } else if (selectedOption == "New_Client") {
+      errors = "Please create an acount";
+      isValid = false;
+    }
+
+    this.setState({
+      errors: errors,
+    });
+    return isValid;
   }
 
   render() {
@@ -47,6 +72,8 @@ class ClientType extends Component {
               Already Client
             </label>
           </span>
+          <div className="text-danger">{this.state.errors}</div>
+          <input type="submit" value="Submit" className="btn btn-success" />
         </form>
       </div>
     );

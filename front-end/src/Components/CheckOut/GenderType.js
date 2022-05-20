@@ -4,7 +4,8 @@ class GenderType extends Component {
   constructor() {
     super();
     this.state = {
-      name: "React",
+      selectedOption: "",
+      errors: "",
     };
     this.onValueChange = this.onValueChange.bind(this);
     this.formSubmit = this.formSubmit.bind(this);
@@ -19,6 +20,26 @@ class GenderType extends Component {
   formSubmit(event) {
     event.preventDefault();
     console.log(this.state.selectedOption);
+    if (this.validate()) {
+      let errors = "";
+      this.setState({ errors: errors });
+      alert("gender ok");
+    }
+  }
+
+  validate() {
+    let selectedOption = this.state.selectedOption;
+    let errors = {};
+    let isValid = true;
+    if (selectedOption != "Mr." && selectedOption != "Mrs.") {
+      errors = "Please select a gender";
+      isValid = false;
+    }
+
+    this.setState({
+      errors: errors,
+    });
+    return isValid;
   }
 
   render() {
@@ -29,8 +50,8 @@ class GenderType extends Component {
             <label>
               <input
                 type="radio"
-                value="Mr"
-                checked={this.state.selectedOption === "Mr"}
+                value="Mr."
+                checked={this.state.selectedOption === "Mr."}
                 onChange={this.onValueChange}
               />
               Mr.
@@ -47,6 +68,8 @@ class GenderType extends Component {
               Mrs.
             </label>
           </span>
+          <div className="text-danger">{this.state.errors}</div>
+          <input type="submit" value="Submit" className="btn btn-success" />
         </form>
       </div>
     );
