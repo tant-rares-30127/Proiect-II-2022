@@ -62,6 +62,21 @@ namespace Proiect_II.Services
             return products;
         }
 
+        public List<Product> SortProducts(string order, string orderType, List<Product> productsList, List<Review> reviewsList)
+        {
+            foreach (Product p in productsList)
+            {
+
+            }
+            if (order.Equals("ascending"))
+            {
+                if (orderType.Equals("stock")) productsList.OrderBy(n => n.Stock);
+                else if (orderType.Equals("price")) productsList.OrderBy(n => n.Price);
+                else
+            }
+            return productsList;
+        }
+
         public List<Product> TopProducts(List<Product> productsList)
         {
             List<Product> products = new List<Product>();
