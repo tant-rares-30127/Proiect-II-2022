@@ -10,7 +10,6 @@ export default function ProductDetails() {
     axios.get("https://localhost:5001/Products/ReturnProduct?productName=Laptop MacBook")
     .then((response) => response.data)
     .then((data) => {
-      console.log(data)
       setProduct(data)
     })
     .catch((error) => console.log(error))

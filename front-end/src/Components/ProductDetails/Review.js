@@ -6,6 +6,9 @@ import { v4 as uuidv4 } from "uuid";
 const maxMark = 5;
 
 export default function Review({ review }) {
+  console.log("review")
+  console.log(review)
+
   function manageReviewStars(mark) {
     if (mark > maxMark || mark <= 0) {
       console.log("Invalid mark passed to function");
