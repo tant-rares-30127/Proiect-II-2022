@@ -40,6 +40,9 @@ body{
 }
 .radio2{
     padding-bottom: 3%;
+    display: flex;
+    gap: 1rem;
+    align-items: center;
 }
 .checkoutContainer{
     padding: 3%;
@@ -72,6 +75,10 @@ body{
 .adress{
     padding-top: 5%;
     padding-left: 4.8%;
+}
+
+.phone{
+    padding-left: 7.1%;
 }
 .fill{
     border-radius: 20px;
@@ -109,4 +116,13 @@ input[type=text] {
     border-radius: 3px;
     width: 250px;
     font-size: 18px;
+  }
+  .imagePay {
+    border: 3px solid rgba(252, 252, 252, 0.4);
+    background-color: rgba(252, 252, 252, 0.2);
+    border-radius: 10px;
+    display: inline-block;
+    padding-left: 3%;
+    padding-top: 3%;
+    padding-bottom: 3%;
   }

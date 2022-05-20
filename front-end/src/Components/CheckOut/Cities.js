@@ -5,18 +5,6 @@ class Cities extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      cities: [],
-      places: [],
-      selectedCity: "City",
-      // selectedPlace: "Place",
-    };
-    this.changeCity = this.changeCity.bind(this);
-    //this.changePlace = this.changePlace.bind(this);
-  }
-
-  componentDidMount() {
-    //https://reactjs.org/docs/react-component.html#componentdidmount
-    this.setState({
       cities: [
         { name: "Bucuresti", places: ["domnesti", "jilava", "moara vlasiei"] },
         {
@@ -31,8 +19,14 @@ class Cities extends React.Component {
           ],
         },
       ],
-    });
+      places: [],
+      selectedCity: "City",
+      // selectedPlace: "Place",
+    };
+    this.changeCity = this.changeCity.bind(this);
+    //this.changePlace = this.changePlace.bind(this);
   }
+
   changeCity(event) {
     this.setState({ selectedCity: event.target.value });
     this.setState({
@@ -40,7 +34,9 @@ class Cities extends React.Component {
         (entry) => entry.name == event.target.value
       ).places,
     });
+    //setTimeout(() => console.log(this.state), 1000);
   }
+
   //changePlace(event) {
   //  this.setState({ selectedPlace: event.target.value });
   // }
@@ -60,7 +56,7 @@ class Cities extends React.Component {
               >
                 <option>City</option>
                 {this.state.cities.map((e, key) => {
-                  return <option key={key}> {e.nume}</option>;
+                  return <option key={key}> {e.name}</option>;
                 })}
               </select>
             </div>
@@ -91,4 +87,5 @@ const styles = {
     marginBotton: 5,
   },
 };
+
 export default Cities;

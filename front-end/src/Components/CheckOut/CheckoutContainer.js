@@ -14,9 +14,6 @@ export default function CheckoutContainer() {
   function handle_change(event) {
     setName(event.target.value);
     console.log(event.target.value);
-    // console.log(event);
-    // console.log(event.target.type);
-    // console.log(event.target.placeholder);
   }
 
   function handleMouseOver() {

@@ -28,10 +28,8 @@ class DemoForm extends React.Component {
       console.log(this.state);
 
       let input = {};
-      input["name"] = "";
       input["email"] = "";
       input["phone"] = "";
-      input["comment"] = "";
       this.setState({ input: input });
 
       alert("Demo Form is submited");
@@ -41,11 +39,6 @@ class DemoForm extends React.Component {
     let input = this.state.input;
     let errors = {};
     let isValid = true;
-
-    if (!input["name"]) {
-      isValid = false;
-      errors["name"] = "Please enter your name.";
-    }
 
     if (!input["email"]) {
       isValid = false;
@@ -78,11 +71,6 @@ class DemoForm extends React.Component {
       }
     }
 
-    if (!input["comment"]) {
-      isValid = false;
-      errors["comment"] = "Please enter your comment.";
-    }
-
     this.setState({
       errors: errors,
     });
@@ -93,9 +81,10 @@ class DemoForm extends React.Component {
   render() {
     return (
       <div className="theBill">
+        <div>4. Other Information</div>
         <form onSubmit={this.handleSubmit}>
-          <div class="form-group">
-            <label for="email">Email Address:</label>
+          <div className="form-group">
+            <label>Email Address:</label>
             <input
               type="text"
               name="email"
@@ -109,8 +98,8 @@ class DemoForm extends React.Component {
           </div>
 
           <div>
-            <spam className="phone">Phone:</spam>
-            <spam className="phone">
+            <span>Phone:</span>
+            <span className="phone">
               <input
                 type="text"
                 name="phone"
@@ -119,12 +108,12 @@ class DemoForm extends React.Component {
                 placeholder="Enter phone"
                 id="email"
               />
-            </spam>
+            </span>
 
             <div className="text-danger">{this.state.errors.phone}</div>
           </div>
 
-          <input type="submit" value="Submit" class="btn btn-success" />
+          <input type="submit" value="Submit" className="btn btn-success" />
         </form>
       </div>
     );
