@@ -2,7 +2,7 @@
 
 namespace Proiect_II.Migrations
 {
-    public partial class ShoppingCartProductupdate : Migration
+    public partial class Makingsomeidsnullable : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

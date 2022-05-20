@@ -10,15 +10,15 @@ using Proiect_II.Data;
 namespace Proiect_II.Migrations
 {
     [DbContext(typeof(Proiect_IIContext))]
-    [Migration("20220512202118_Nullable-id-shopping-cart")]
-    partial class Nullableidshoppingcart
+    [Migration("20220520205341_Order-History")]
+    partial class OrderHistory
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
-                .HasAnnotation("ProductVersion", "5.0.12")
+                .HasAnnotation("ProductVersion", "5.0.17")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
             modelBuilder.Entity("Proiect_II.Models.Address", b =>
@@ -42,9 +42,56 @@ namespace Proiect_II.Migrations
                     b.ToTable("Address");
                 });
 
-            modelBuilder.Entity("Proiect_II.Models.Product", b =>
+            modelBuilder.Entity("Proiect_II.Models.OrderHistory", b =>
                 {
                     b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Address")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("City")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("County")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Email")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("FirstName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("LastName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("OrderDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("PaymentMethod")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Phone")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("PostalCode")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("ShoppingCartId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ShoppingCartId");
+
+                    b.ToTable("OrderHistory");
+                });
+
+            modelBuilder.Entity("Proiect_II.Models.Product", b =>
+                {
+                    b.Property<int?>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
@@ -63,6 +110,9 @@ namespace Proiect_II.Migrations
 
                     b.Property<int?>("ProductTypeId")
                         .HasColumnType("int");
+
+                    b.Property<double>("Rating")
+                        .HasColumnType("float");
 
                     b.Property<int>("Stock")
                         .HasColumnType("int");
@@ -99,7 +149,7 @@ namespace Proiect_II.Migrations
 
             modelBuilder.Entity("Proiect_II.Models.Review", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int?>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
@@ -213,6 +263,15 @@ namespace Proiect_II.Migrations
                     b.HasIndex("AddressId");
 
                     b.ToTable("User");
+                });
+
+            modelBuilder.Entity("Proiect_II.Models.OrderHistory", b =>
+                {
+                    b.HasOne("Proiect_II.Models.ShoppingCart", "ShoppingCart")
+                        .WithMany()
+                        .HasForeignKey("ShoppingCartId");
+
+                    b.Navigation("ShoppingCart");
                 });
 
             modelBuilder.Entity("Proiect_II.Models.Product", b =>

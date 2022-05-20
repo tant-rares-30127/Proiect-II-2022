@@ -10,8 +10,8 @@ using Proiect_II.Data;
 namespace Proiect_II.Migrations
 {
     [DbContext(typeof(Proiect_IIContext))]
-    [Migration("20220512204347_User-update")]
-    partial class Userupdate
+    [Migration("20220520194411_Total-Rating-Product")]
+    partial class TotalRatingProduct
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -63,6 +63,9 @@ namespace Proiect_II.Migrations
 
                     b.Property<int?>("ProductTypeId")
                         .HasColumnType("int");
+
+                    b.Property<double>("Rating")
+                        .HasColumnType("float");
 
                     b.Property<int>("Stock")
                         .HasColumnType("int");

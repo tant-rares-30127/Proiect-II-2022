@@ -7,42 +7,25 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Proiect_II.Data;
 using Proiect_II.Models;
-using Proiect_II.Services;
 
 namespace Proiect_II.Controllers
 {
-    public class ProductTypesController : Controller
+    public class OrderHistoriesController : Controller
     {
         private readonly Proiect_IIContext _context;
-        ProductTypeServices productTypeServices;
 
-        public ProductTypesController(Proiect_IIContext context)
+        public OrderHistoriesController(Proiect_IIContext context)
         {
             _context = context;
-            this.productTypeServices = new ProductTypeServices();
         }
 
-        [HttpGet]
-        public List<ProductType> ProductsType()
-        {
-            List<ProductType> productTypesList = _context.ProductType.ToList();
-            return productTypesList;
-        }
-
-        [HttpGet]
-        public List<Product> ProductsForProductType(string text)
-        {
-            List<Product> productsList = _context.Product.Include(n => n.ProductType).ToList();
-            return this.productTypeServices.ListOfProducts(productsList, text);
-        }
-
-        // GET: ProductTypes
+        // GET: OrderHistories
         public async Task<IActionResult> Index()
         {
-            return View(await _context.ProductType.ToListAsync());
+            return View(await _context.OrderHistory.ToListAsync());
         }
 
-        // GET: ProductTypes/Details/5
+        // GET: OrderHistories/Details/5
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -50,39 +33,39 @@ namespace Proiect_II.Controllers
                 return NotFound();
             }
 
-            var productType = await _context.ProductType
+            var orderHistory = await _context.OrderHistory
                 .FirstOrDefaultAsync(m => m.Id == id);
-            if (productType == null)
+            if (orderHistory == null)
             {
                 return NotFound();
             }
 
-            return View(productType);
+            return View(orderHistory);
         }
 
-        // GET: ProductTypes/Create
+        // GET: OrderHistories/Create
         public IActionResult Create()
         {
             return View();
         }
 
-        // POST: ProductTypes/Create
+        // POST: OrderHistories/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Name")] ProductType productType)
+        public async Task<IActionResult> Create([Bind("Id,FirstName,LastName,Email,Phone,City,County,Address,PostalCode,PaymentMethod,OrderDate")] OrderHistory orderHistory)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(productType);
+                _context.Add(orderHistory);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(productType);
+            return View(orderHistory);
         }
 
-        // GET: ProductTypes/Edit/5
+        // GET: OrderHistories/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -90,22 +73,22 @@ namespace Proiect_II.Controllers
                 return NotFound();
             }
 
-            var productType = await _context.ProductType.FindAsync(id);
-            if (productType == null)
+            var orderHistory = await _context.OrderHistory.FindAsync(id);
+            if (orderHistory == null)
             {
                 return NotFound();
             }
-            return View(productType);
+            return View(orderHistory);
         }
 
-        // POST: ProductTypes/Edit/5
+        // POST: OrderHistories/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Name")] ProductType productType)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,FirstName,LastName,Email,Phone,City,County,Address,PostalCode,PaymentMethod,OrderDate")] OrderHistory orderHistory)
         {
-            if (id != productType.Id)
+            if (id != orderHistory.Id)
             {
                 return NotFound();
             }
@@ -114,12 +97,12 @@ namespace Proiect_II.Controllers
             {
                 try
                 {
-                    _context.Update(productType);
+                    _context.Update(orderHistory);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!ProductTypeExists(productType.Id))
+                    if (!OrderHistoryExists(orderHistory.Id))
                     {
                         return NotFound();
                     }
@@ -130,10 +113,10 @@ namespace Proiect_II.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(productType);
+            return View(orderHistory);
         }
 
-        // GET: ProductTypes/Delete/5
+        // GET: OrderHistories/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -141,30 +124,30 @@ namespace Proiect_II.Controllers
                 return NotFound();
             }
 
-            var productType = await _context.ProductType
+            var orderHistory = await _context.OrderHistory
                 .FirstOrDefaultAsync(m => m.Id == id);
-            if (productType == null)
+            if (orderHistory == null)
             {
                 return NotFound();
             }
 
-            return View(productType);
+            return View(orderHistory);
         }
 
-        // POST: ProductTypes/Delete/5
+        // POST: OrderHistories/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var productType = await _context.ProductType.FindAsync(id);
-            _context.ProductType.Remove(productType);
+            var orderHistory = await _context.OrderHistory.FindAsync(id);
+            _context.OrderHistory.Remove(orderHistory);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
-        private bool ProductTypeExists(int id)
+        private bool OrderHistoryExists(int id)
         {
-            return _context.ProductType.Any(e => e.Id == id);
+            return _context.OrderHistory.Any(e => e.Id == id);
         }
     }
 }

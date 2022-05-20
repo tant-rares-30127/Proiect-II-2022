@@ -10,8 +10,8 @@ using Proiect_II.Data;
 namespace Proiect_II.Migrations
 {
     [DbContext(typeof(Proiect_IIContext))]
-    [Migration("20220507151413_Database remake")]
-    partial class Databaseremake
+    [Migration("20220520191109_Migrations merge")]
+    partial class Migrationsmerge
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -130,7 +130,7 @@ namespace Proiect_II.Migrations
 
             modelBuilder.Entity("Proiect_II.Models.ShoppingCart", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int?>("Id")
                         .HasColumnType("int");
 
                     b.Property<DateTime>("DateTime")
