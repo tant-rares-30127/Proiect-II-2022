@@ -13,6 +13,7 @@ import SpaceContainer from "./Space/SpaceContainer";
 import ProductDetails from "./ProductDetails/ProductDetails";
 import ProductCart from "./ProductCart/ProductCart";
 import Recomandations from "./Recomandation/Recomandations";
+import ProductsPage from "./Products_Page/ProductsPage";
 
 function App() {
   return (
@@ -27,8 +28,8 @@ function App() {
             </>
           }
         />
-        <Route path="/dummy2" element={<Dummy2 />} />
-        <Route path="/dummy" element={<Dummy />} />
+        <Route path="/productsPage" element={<ProductsPage />} />
+        <Route path="/dummy" element={<Dummy2 />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/productDetails" element={<ProductDetails />} />

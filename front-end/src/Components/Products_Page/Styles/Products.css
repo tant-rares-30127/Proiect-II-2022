@@ -13,6 +13,11 @@
   background: rgba(255, 255, 255, 1) 100%;
 }
 
+.Card :hover{
+  cursor: pointer;
+  
+}
+
 .Wrapper .Card:hover{
  background: rgb(236, 180, 60) 100%;
  box-shadow: 13px 18px 42px -20px rgb(7, 4, 4, .75);
