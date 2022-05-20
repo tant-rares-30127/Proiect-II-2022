@@ -7,7 +7,7 @@ namespace Proiect_II.Models
 {
     public class Product
     {
-        public int Id { get; set; }
+        public int? Id { get; set; }
         public ProductType ProductType { get; set; }
         public Supplier Supplier { get; set; }
         public string Name { get; set; }
@@ -15,5 +15,6 @@ namespace Proiect_II.Models
         public int Stock { get; set; }
         public double Price { get; set; }
         public string ImageAdress { get; set; }
+        public double Rating { get; set; }
     }
 }

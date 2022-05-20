@@ -29,5 +29,7 @@ namespace Proiect_II.Data
         public DbSet<Proiect_II.Models.ShoppingCart> ShoppingCart { get; set; }
 
         public DbSet<Proiect_II.Models.ShoppingCartProduct> ShoppingCartProduct { get; set; }
+
+        public DbSet<Proiect_II.Models.OrderHistory> OrderHistory { get; set; }
     }
 }

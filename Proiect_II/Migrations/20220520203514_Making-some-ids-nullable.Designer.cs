@@ -10,8 +10,8 @@ using Proiect_II.Data;
 namespace Proiect_II.Migrations
 {
     [DbContext(typeof(Proiect_IIContext))]
-    [Migration("20220512205220_ShoppingCartProduct-update")]
-    partial class ShoppingCartProductupdate
+    [Migration("20220520203514_Making-some-ids-nullable")]
+    partial class Makingsomeidsnullable
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -44,7 +44,7 @@ namespace Proiect_II.Migrations
 
             modelBuilder.Entity("Proiect_II.Models.Product", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int?>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
@@ -63,6 +63,9 @@ namespace Proiect_II.Migrations
 
                     b.Property<int?>("ProductTypeId")
                         .HasColumnType("int");
+
+                    b.Property<double>("Rating")
+                        .HasColumnType("float");
 
                     b.Property<int>("Stock")
                         .HasColumnType("int");
@@ -99,7 +102,7 @@ namespace Proiect_II.Migrations
 
             modelBuilder.Entity("Proiect_II.Models.Review", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int?>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);

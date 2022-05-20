@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Proiect_II.Migrations
 {
-    public partial class Databaseremake : Migration
+    public partial class Migrationsmerge : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

@@ -23,7 +23,7 @@ namespace Proiect_II.Controllers
             this.usersServices = new UsersServices();
         }
 
-        [HttpGet]
+        [HttpPost]
         public User LoginAccess([FromBody] User user)
         {
             List<User> users = new List<User>();
