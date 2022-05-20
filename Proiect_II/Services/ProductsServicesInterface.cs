@@ -16,6 +16,6 @@ namespace Proiect_II.Services
 
         public Product SearchedProduct(List<Product> productsList, string text);
 
-        public List<Product> SortProducts(string order, string orderType, List<Product> productsList, List<Review> reviewsList);
+        public List<Product> SortProducts(string order, string orderType, List<Product> productsList);
     }
 }

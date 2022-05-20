@@ -52,10 +52,9 @@ namespace Proiect_II.Controllers
         [HttpGet]
         public List<Product> SortProducts(string order, string orderType, int productTypeId)
         {
-            List<Product> productsList = _context.Product.Include(n => n.ProductType).ToList();
-            List<Review> reviewsList = _context.Review.ToList();
+            List<Product> productsList = _context.Product.Include(n => n.ProductType).Where(n => n.ProductType.Id==productTypeId).ToList();
 
-            return productsList;
+            return this.productServices.SortProducts(order, orderType, productsList);
         }
 
     }
