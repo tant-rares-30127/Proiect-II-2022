@@ -21,7 +21,8 @@ export default function Login() {
       }
     }).then((response) => response.data)
     .then((data) => {
-    
+      console.log(data)
+      localStorage.setItem('user', JSON.stringify(data))   
     }).catch((err) => console.log(err))
     .catch((err) => console.log(err))
   }
