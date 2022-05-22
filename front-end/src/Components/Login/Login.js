@@ -2,8 +2,10 @@ import React from "react";
 import axios from "axios";
 import FormFieldsLogin from "./FormFieldsLogin";
 import logo from "../../Images/Logo_transparent.png"
+import { useNavigate } from "react-router-dom";
 
 export default function Login() {
+  const navigate = useNavigate()
 
   function handleLogIn(user) {
     console.log(user)
@@ -19,11 +21,14 @@ export default function Login() {
         email: user.email,
         password: user.password
       }
-    }).then((response) => response.data)
+    })
+    .then((response) => response.data)
     .then((data) => {
       console.log(data)
-      localStorage.setItem('user', JSON.stringify(data))   
-    }).catch((err) => console.log(err))
+      localStorage.setItem('user', JSON.stringify(data))  
+      navigate('/')
+    })
+    .catch((err) => console.log(err))
     .catch((err) => console.log(err))
   }
 
