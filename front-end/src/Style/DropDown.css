@@ -23,12 +23,9 @@
 
 .Options-container {
     position: absolute;
-    display: flex;
-    flex-direction: row-reverse;
-    justify-content: flex-end;
-    flex-direction: column;
     background-color: rgb(0, 0, 0, 0);
     padding-top: 1rem;
+    z-index: 1;
 }
 
 .MenuOption-container {
