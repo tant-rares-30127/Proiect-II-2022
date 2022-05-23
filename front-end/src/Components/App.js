@@ -11,6 +11,7 @@ import Register from "./Register/Register";
 import ProductDetails from "./ProductDetails/ProductDetails";
 import ProductCart from "./ProductCart/ProductCart";
 import Recomandations from "./Recomandation/Recomandations";
+import ProductsPage from "./Products_Page/ProductsPage";
 
 export const UserContext = React.createContext();
 
@@ -19,20 +20,19 @@ function App() {
   const UserContextValue = {
     user: user,
     handleUser: handleUser,
-  }
+  };
 
   useEffect(() => {
-    let savedUser = JSON.parse(localStorage.getItem('user'))
-    setUser(savedUser)
-
-  }, [])
+    let savedUser = JSON.parse(localStorage.getItem("user"));
+    setUser(savedUser);
+  }, []);
 
   useEffect(() => {
-    localStorage.setItem('user', JSON.stringify(user))
-  }, [user])
+    localStorage.setItem("user", JSON.stringify(user));
+  }, [user]);
 
   function handleUser(user) {
-    setUser(user)
+    setUser(user);
   }
 
   return (
@@ -49,8 +49,8 @@ function App() {
               </>
             }
           />
-          <Route path="/dummy1" element={<Dummy2 />} />
-          <Route path="/dummy2" element={<Dummy />} />
+          <Route path="/productsPage" element={<ProductsPage />} />
+          <Route path="/dummy" element={<Dummy2 />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
           <Route path="/productDetails" element={<ProductDetails />} />
