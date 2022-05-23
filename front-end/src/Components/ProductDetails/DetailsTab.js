@@ -10,13 +10,15 @@ export default function DetailsTab({ description }) {
   let details = {}
 
   useEffect(() => {
+    //Get curent product id from local storage
     axios
       .get("https://localhost:5001/Reviews/ReturnReviews?id=1")
       .then((response) => {
         return response.data;
       })
       .then(data => {
-        console.log("-----")
+        console.log("====")
+        console.log(data)
         let newReviews = data.map(d => {
           return {name: "Sebastian Daulalopata", mark: d.rating, message: d.comment }
         })
@@ -65,11 +67,19 @@ export default function DetailsTab({ description }) {
     setCurrentTab(id);
   }
 
+  function handleAddNewReview(review) {
+    console.log("No ce naiba")
+    console.log(review)
+    console.log("No ce naiba")
+    let newReviews = reviews.map(r => r)
+    setReviews([review, ...newReviews])
+  }
+
   return (
     <div className="Tab-main-container">
       <div className="Tab-aux-container">
         <div className="Product-tab-container">{tab}</div>
-        {curentTab === 0 ? null : <Details details={details} />}
+        {curentTab === 0 ? null : <Details details={details} handleAddNewReview={handleAddNewReview} />}
       </div>
     </div>
   );

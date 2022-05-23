@@ -4,7 +4,7 @@ import emptyStartIcon from "../../Images/emptyStar.png";
 import { v4 as uuidv4 } from "uuid";
 import ReviewStar from "./ReviewStar";
 
-export default function ReviewStars() {
+export default function ReviewStars({ handleNewMark }) {
   const [mark, setMark] = useState([0, 0, 0, 0, 0]);
   const [confirm, setConfirm] = useState(false);
   let k = -1;
@@ -38,15 +38,18 @@ export default function ReviewStars() {
   });
 
   function handleMark(id) {
+    let aux = 0;
     let newMark = mark.map((s) => s);
     for (let i = 0; i < mark.length; i++) {
       if (id >= i) {
         newMark[i] = 1;
+        aux = aux + 1;
       } else {
         newMark[i] = 0;
       }
     }
     setMark(newMark);
+    handleNewMark(aux);
   }
 
   function handleConfirm() {

@@ -2,8 +2,11 @@ import React from "react";
 import axios from "axios";
 import FormFields from "./FormFields";
 import logo from "../../Images/Logo_transparent.png";
+import { useNavigate } from "react-router-dom";
 
 export default function RegisterForm() {
+  const navigate = useNavigate()
+
   function handleRegister(user) {
     console.log(user);
     axios({
@@ -27,6 +30,7 @@ export default function RegisterForm() {
       .then((response) => response.data)
       .then((data) => {
         alert(data);
+        navigate('/login')
       });
   }
 
