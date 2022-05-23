@@ -3,6 +3,7 @@ import CheckoutContainer from "./CheckoutContainer";
 import ClientType from "./ClientType";
 import "./Styles/ClientType.css";
 import TheOrderLocation from "./TheOrderLocation";
+//dummy
 export default function CheckoutPage() {
   return (
     <div className="checkoutPage">
