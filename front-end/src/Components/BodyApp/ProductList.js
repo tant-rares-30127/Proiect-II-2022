@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { v4 as uuidv4 } from "uuid";
 import h2ProductsIcon from "../../Images/List.png";
+import { useNavigate } from "react-router-dom";
 
 export default function ProductList() {
   const [products, setProducts] = useState();
@@ -20,13 +21,20 @@ export default function ProductList() {
         newProducts = data;
 
         const productsToDisplay = newProducts.map((p) => {
-          let name = null
+          let name = null;
           if (newProducts.indexOf(p) === newProducts.length - 1) {
-            name = "Lastlink"
+            name = "Lastlink";
           }
-          
+
           return (
-            <a id={name} key={uuidv4()} href="../../dummy2">
+            <a
+              id={name}
+              key={uuidv4()}
+              href="../../productsPage"
+              onClick={() => {
+                localStorage.setItem("productType", p.name);
+              }}
+            >
               <li key={uuidv4()}>
                 <img
                   className="Product-Icon"
