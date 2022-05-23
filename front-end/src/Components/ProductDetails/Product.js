@@ -4,13 +4,13 @@ import starIcon from "../../Images/fullStar.png";
 import { useNavigate } from "react-router-dom";
 
 export default function Product({ product }) {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   function handleButNowBtnClick() {
     // TODO: api call to add product to cart
-    const user = JSON.parse(localStorage.getItem('user'))
+    const user = JSON.parse(localStorage.getItem("user"));
     if (user === null || user === undefined) {
-      navigate('/login')
+      navigate("/login");
     }
   }
 
@@ -36,7 +36,9 @@ export default function Product({ product }) {
           </div>
           <p>&emsp;{product === undefined ? null : product.description}</p>
           <div className="Details-buttons-container">
-            <button onClick={handleButNowBtnClick} className="Buy-product-btn">Buy now</button>
+            <button onClick={handleButNowBtnClick} className="Buy-product-btn">
+              Buy now
+            </button>
             <button className="Fav-product-btn">
               <img className="NavBar-Icon" src={heartIcon} alt="Heart Icon" />
               Add to Favorites
