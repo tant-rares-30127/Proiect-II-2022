@@ -1,0 +1,128 @@
+*{
+    
+    font-family: sans-serif;
+}
+
+body{
+    background:  #fcfcfc;
+}
+
+.checkoutPage{
+    padding-left: 15%;
+    padding-right: 15%;
+
+}
+
+.line{
+    width: 100%;
+    height: 0%;
+    align-self: center;
+    border-radius: 5px;
+    background-color: rgb(177, 176, 176);
+    
+}
+
+.radio{
+    padding-left: 5%;
+
+}
+.radio1{
+    padding-left: 14%;
+
+}
+.demo2{
+    padding-top: 3%;
+    padding-bottom: 3%;
+}
+
+.demo3{
+    padding-top: 3%;
+}
+.radio2{
+    padding-bottom: 3%;
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+.checkoutContainer{
+    padding: 3%;
+    align-self: right;
+    padding-left: 10%;
+}
+
+.theBill{
+    padding: 3%;
+    padding-left: 8%;
+    align-self: center;
+    border-radius: 10px;
+    background-color: rgb(209, 208, 208);
+}
+
+.theOrderLocation{
+    padding: 3%;
+    align-self: center;
+    border-radius: 10px;
+    background-color: rgb(183, 180, 180);
+}
+
+.thePaymant{
+    padding: 3%;
+    align-self: center;
+    border-radius: 10px;
+    background-color: rgb(183, 180, 180);
+}
+
+.adress{
+    padding-top: 5%;
+    padding-left: 4.8%;
+}
+
+.phone{
+    padding-left: 7.1%;
+}
+.fill{
+    border-radius: 20px;
+    box-shadow: #4d0803;
+}
+
+input[type=text],select {
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+  
+input[type=text] {
+    border: 3px solid rgba(252, 252, 252, 0.4);
+    background-color: rgba(252, 252, 252, 0.2);
+    border-radius: 10px;
+    font-family: "Source Sans Pro", sans-serif;
+
+    display: inline-block;
+    text-align: center;
+    font-size: 19px;
+    color: white;
+    font-weight: 300;
+  }
+  
+  button {
+    appearance: none;
+    outline: 0;
+    background-color: white;
+    border: 0;
+    padding: 10px 15px;
+    color: #4d0803;
+    border-radius: 3px;
+    width: 250px;
+    font-size: 18px;
+  }
+  .imagePay {
+    border: 3px solid rgba(252, 252, 252, 0.4);
+    background-color: rgba(252, 252, 252, 0.2);
+    border-radius: 10px;
+    display: inline-block;
+    padding-left: 3%;
+    padding-top: 3%;
+    padding-bottom: 3%;
+  }
