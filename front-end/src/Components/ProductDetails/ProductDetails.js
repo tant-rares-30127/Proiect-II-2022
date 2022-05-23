@@ -7,7 +7,7 @@ export default function ProductDetails() {
   const [product, setProduct] = useState()
 
   useEffect(() => {
-    axios.get("https://localhost:5001/Products/ReturnProduct?productName=Asus")
+    axios.get("https://localhost:5001/Products/ReturnProduct?productName=Laptop Gaming Acer")
     .then((response) => response.data)
     .then((data) => {
       setProduct(data)
@@ -15,8 +15,6 @@ export default function ProductDetails() {
     .catch((error) => console.log(error))
     .catch((error) => console.log(error))
   }, [])
-
-  console.log(product)
 
   return (
     <div className="Product-details-body-container">

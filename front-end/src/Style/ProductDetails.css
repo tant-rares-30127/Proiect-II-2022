@@ -42,11 +42,12 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    padding-left: 1rem;
 }
 
 .Product-image-container img {
-    aspect-ratio: 3/2;
-    width: 30rem;
+    aspect-ratio: 2/2;
+    width: 29rem;
 }
 
 .Product-elemnents-container {

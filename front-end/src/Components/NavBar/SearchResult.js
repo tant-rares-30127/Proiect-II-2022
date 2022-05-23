@@ -4,7 +4,7 @@ import { v4 as uuidv4 } from "uuid";
 export default function SearchResult({ data, handleHideResults }) {
   const dataToDisplay = data.map((d) => {
     return (
-      <a key={uuidv4()} href="../../dummy1" rel="noreferrer">
+      <a onClick={() => handleSearchClick(d)} key={uuidv4()} href="../../productDetails" rel="noreferrer">
         {d}
       </a>
     );
@@ -16,6 +16,10 @@ export default function SearchResult({ data, handleHideResults }) {
     return () =>
       document.body.removeEventListener("click", handleHideResults);
   });
+
+  function handleSearchClick(productName) {
+    localStorage.setItem('productName', productName)
+  }
 
   return <div className="SearchResult-container">{dataToDisplay}</div>;
 }

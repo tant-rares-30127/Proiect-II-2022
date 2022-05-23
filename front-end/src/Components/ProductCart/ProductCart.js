@@ -1,14 +1,13 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
+import axios from "axios";
 import CartBody from "./CartBody";
-import { v4 as uuidv4 } from "uuid";
-import img1 from "../../Images/products/telefon_mobil.png";
-import img2 from "../../Images/products/telefon_mobil_apple.png";
-import img3 from "../../Images/products/telefon_mobil_samsung.png";
+import { UserContext } from "../App";
 
 export const ProductCartContext = React.createContext();
 
 export default function ProductCart() {
   const [products, setProducts] = useState([]);
+  const { user } = useContext(UserContext);
 
   const productCartContextValue = {
     handleAmountVariation: handleAmountVariation,
@@ -16,29 +15,59 @@ export default function ProductCart() {
   };
 
   useEffect(() => {
-    setProducts(productsData);
-  }, []);
+    if (user !== undefined && user !== null) {
+      axios({
+        method: "post",
+        url: "https://localhost:5001/ShoppingCarts/ProductsCart",
+        headers: {},
+        data: user,
+      })
+        .then((response) => response.data)
+        .then((data) => {
+          setProducts(data);
+        })
+        .catch((err) => console.log(err))
+        .catch((err) => console.log(err));
+    }
+  }, [user]);
 
-  function handleRemoveProduct(id) {
+  function handleRemoveProduct(shoppingCart) {
+    axios({
+      method: "delete",
+      url: "https://localhost:5001/ShoppingCarts/RemoveProductShoppingCart",
+      headers: {},
+      data: shoppingCart,
+    }).catch((err) => console.log(err));
     const newProducts = products.filter((p) => {
-      return p.id !== id;
+      return p.id !== shoppingCart.id;
     });
+    console.log(newProducts);
 
     setProducts(newProducts);
   }
 
-  function handleAmountVariation(id, increment) {
+  function handleAmountVariation(increment, shoppingCart) {
+    if (shoppingCart.quantity + increment < 1) return;
+    if (increment > 0) {
+      axios({
+        method: "post",
+        url: "https://localhost:5001/ShoppingCarts/RaiseProductQuantity",
+        headers: {},
+        data: shoppingCart,
+      }).catch((err) => console.log(err));
+    } else {
+      axios({
+        method: "post",
+        url: "https://localhost:5001/ShoppingCarts/DecreaseProductQuantity",
+        headers: {},
+        data: shoppingCart,
+      }).catch((err) => console.log(err));
+    }
+    shoppingCart.quantity = shoppingCart.quantity + increment;
     let newProducts = products.map((p) => p);
-    newProducts.map((p) => {
-      if (p.id === id && p.amount + increment >= 1 && p.amount < 98) {
-        p.amount = p.amount + increment;
-      }
-    });
 
     setProducts(newProducts);
   }
-
-  console.log(products.length);
 
   return (
     <ProductCartContext.Provider value={productCartContextValue}>
@@ -48,7 +77,8 @@ export default function ProductCart() {
             <div className="Cart-header">
               <h2>Your bin</h2>
               <h2 className="Cart-products-number">
-                {products.length} products
+                {products.length}{" "}
+                {products.length === 1 ? "product" : "products"}
               </h2>
             </div>
             <hr></hr>
@@ -67,29 +97,21 @@ export default function ProductCart() {
   );
 }
 
-const productsData = [
-  {
-    id: uuidv4(),
-    name: "Telefon mobul Apple",
-    description: "iPhone 11, 64 GB, Black",
-    price: 2.689,
-    amount: 2,
-    image: img1,
-  },
-  {
-    id: uuidv4(),
-    name: "Telefon mobul Apple",
-    description: "iPhone 11, 64 GB, Black",
-    price: 1.0,
-    amount: 1,
-    image: img2,
-  },
-  {
-    id: uuidv4(),
-    name: "Telefon mobul Apple",
-    description: "iPhone 11, 64 GB, Black",
-    price: 2.689,
-    amount: 1,
-    image: img3,
-  },
-];
+// const user = {
+//   id: 1,
+//   address: {
+//     id: 1,
+//     country: "Romania",
+//     city: "Sighisoara",
+//     details: "La sefi",
+//   },
+//   username: "Rares",
+//   password: "Rares",
+//   email: "rares",
+//   phone: "rares",
+//   shoppingCart: {
+//     id: 1,
+//     dateTime: "2022-05-01T00:00:00",
+//     user: null,
+//   },
+// };
