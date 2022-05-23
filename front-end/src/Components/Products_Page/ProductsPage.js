@@ -3,7 +3,6 @@ import Dropdown from "./Dropdown";
 import Products from "./Products";
 import "./Styles/ProductsPage.css";
 import axios from "axios";
-//dummy
 
 export default function ProductsPage() {
   const [selected, setIsSelected] = useState("");
