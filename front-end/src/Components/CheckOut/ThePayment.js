@@ -1,5 +1,5 @@
 import React from "react";
-import PaymentType from "./PaymentType";
+import PaymentType from "./PaymentType2";
 import "./Styles/ClientType.css";
 
 export default function ThePayment() {
