@@ -19,6 +19,13 @@ namespace Proiect_II.Controllers
             _context = context;
         }
 
-
+        [HttpPost]
+        public void AddOrder([FromBody] OrderHistory order)
+        {
+            order.Id = null;
+            order.OrderDate = DateTime.Now;
+            _context.OrderHistory.Add(order);
+            _context.SaveChanges();
+        }
     }
 }
