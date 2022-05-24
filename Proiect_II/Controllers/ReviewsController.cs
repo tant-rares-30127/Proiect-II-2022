@@ -26,7 +26,7 @@ namespace Proiect_II.Controllers
             return reviews;
         }
 
-        [HttpGet]
+        [HttpPost]
         public void AddReview([FromBody] Review review)
         {
             review.Id = null;
