@@ -25,5 +25,14 @@ namespace Proiect_II.Controllers
             List<Review> reviews = _context.Review.Include(n => n.User).Where(n => n.Product.Id == id).ToList();
             return reviews;
         }
+
+        [HttpGet]
+        public void AddReview([FromBody] Review review)
+        {
+            review.Id = null;
+            review.Date = DateTime.Now;
+            _context.Review.Add(review);
+            _context.SaveChanges();
+        }
     }
 }
