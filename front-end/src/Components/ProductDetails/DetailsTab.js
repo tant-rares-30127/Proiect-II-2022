@@ -73,6 +73,11 @@ export default function DetailsTab({ description, productId }) {
       comment: review.message,
       rating: review.mark
     })
+    console.log(review.mark)
+    if (review.message === undefined || review.mark === undefined) {
+      alert("Cannot add a empty review")
+      return
+    }
     axios({
       method: "post",
       url: "https://localhost:5001/Reviews/AddReview",
@@ -97,19 +102,6 @@ export default function DetailsTab({ description, productId }) {
     </div>
   );
 }
-
-// const reviews = [
-//   {
-//     name: "Sebastian Daulalopata",
-//     mark: 1,
-//     message: "I sold my house so that I could afford to buy this phone."
-//   },
-//   {
-//     name: "Dragos Lovescu",
-//     mark: 4,
-//     message: "Great product to leave on the shelf"
-//   }
-// ]
 
 
 
