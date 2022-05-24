@@ -1,15 +1,19 @@
 import React, { useState, useContext, useEffect } from "react";
 import ReviewStars from "./ReviewStars";
 import { UserContext } from "../App";
+import { useNavigate } from "react-router-dom";
 
 export default function AddReview({ handleAddReview }) {
   const [newReview, setNewReview] = useState();
   const { user } = useContext(UserContext)
+  const navigate = useNavigate()
 
   useEffect(() => {
-    setNewReview(prev => {
-      return { ...prev, name: user.username}
-    })
+    if (user !== null && user !== undefined) {
+      setNewReview(prev => {
+        return { ...prev, ...{name: user.username, userId: user.id}}
+      })
+    }
   }, [user])
 
   function handleMark(mark) {
@@ -18,7 +22,13 @@ export default function AddReview({ handleAddReview }) {
     })
   }
 
-  console.log(newReview)
+  function handleSubmitReview() {
+    if (user === null || user === undefined) {
+      navigate("/login");
+      return
+    }
+    handleAddReview(newReview)
+  }
 
   return (
     <div>
@@ -35,7 +45,7 @@ export default function AddReview({ handleAddReview }) {
           }
         />
       </div>
-      <button onClick={() => handleAddReview(newReview)} className="Submit-review-btn">
+      <button onClick={handleSubmitReview} className="Submit-review-btn">
         Submit
       </button>
     </div>

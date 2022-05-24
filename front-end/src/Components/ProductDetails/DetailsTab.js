@@ -3,28 +3,24 @@ import axios from "axios";
 import TabButton from "./TabButton";
 import Details from "./Details";
 
-export default function DetailsTab({ description }) {
+export default function DetailsTab({ description, productId }) {
   const [curentTab, setCurrentTab] = useState(1)
   const [isSameTab, setIsSameTab] = useState(false)
   const [reviews, setReviews] = useState([])
   let details = {}
-
   useEffect(() => {
-    //Get curent product id from local storage
     axios
-      .get("https://localhost:5001/Reviews/ReturnReviews?id=1")
+      .get("https://localhost:5001/Reviews/ReturnReviews?id="+productId)
       .then((response) => {
         return response.data;
       })
       .then(data => {
-        console.log("====")
-        console.log(data)
         let newReviews = data.map(d => {
-          return {name: "Sebastian Daulalopata", mark: d.rating, message: d.comment }
+          return {name: d.user.username, mark: d.rating, message: d.comment }
         })
         setReviews(newReviews)
       })
-  }, [])
+  }, [productId])
 
   const tabInfo = [
     {
@@ -70,7 +66,24 @@ export default function DetailsTab({ description }) {
   function handleAddNewReview(review) {
     console.log("No ce naiba")
     console.log(review)
-    console.log("No ce naiba")
+    console.log({
+      id: 3,
+      userId: review.userId,
+      productId: productId,
+      comment: review.message,
+      rating: review.mark
+    })
+    axios({
+      method: "post",
+      url: "https://localhost:5001/Reviews/AddReview",
+      data: {
+        id: 3,
+        userId: review.userId,
+        productId: productId,
+        comment: review.message,
+        rating: review.mark
+      }
+    })
     let newReviews = reviews.map(r => r)
     setReviews([review, ...newReviews])
   }
