@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import GenderType from "./GenderType";
+import GenderType from "./GenderType2";
 import "./Styles/ClientType.css";
 //import TheBill from "./TheBillIndex";
 //import submitted from "./CheckoutContainer";
