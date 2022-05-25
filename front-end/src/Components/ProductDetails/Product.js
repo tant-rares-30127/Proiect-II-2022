@@ -34,7 +34,6 @@ export default function Product({ product }) {
               <div>Lei</div>
             </div>
           </div>
-          <p>&emsp;{product === undefined ? null : product.description}</p>
           <div className="Details-buttons-container">
             <button onClick={handleButNowBtnClick} className="Buy-product-btn">
               Buy now

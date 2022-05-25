@@ -5,10 +5,8 @@ import DetailsTab from "./DetailsTab";
 
 export default function ProductDetails() {
   const [product, setProduct] = useState();
-
   useEffect(() => {
     let product_name = localStorage.getItem("productName");
-    console.log(product_name);
     axios
       .get(
         "https://localhost:5001/Products/ReturnProduct?productName=" +
@@ -16,7 +14,6 @@ export default function ProductDetails() {
       )
       .then((response) => response.data)
       .then((data) => {
-        console.log(data);
         setProduct(data);
       })
       .catch((error) => console.log(error))
@@ -33,6 +30,7 @@ export default function ProductDetails() {
         description={
           product === undefined ? "No description" : product.description
         }
+        productId={product === undefined ? null : product.id}
       />
     </div>
   );
