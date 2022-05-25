@@ -1,8 +1,8 @@
 import React from "react";
 import "./Styles/ClientType.css";
 class DemoForm extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       input: {},
       errors: {},
@@ -10,6 +10,7 @@ class DemoForm extends React.Component {
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    //this.props.updateData
   }
 
   handleChange(event) {
@@ -19,6 +20,9 @@ class DemoForm extends React.Component {
     this.setState({
       input,
     });
+    if (event.target.name === "email") {
+      this.props.updateData({ email: event.target.value });
+    } else this.props.updateData({ phone: event.target.value });
   }
 
   handleSubmit(event) {

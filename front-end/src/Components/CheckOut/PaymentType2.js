@@ -8,11 +8,12 @@ import Maestro from "../../Images/Pay/Maestro.png";
 import MaestroCard from "../../Images/Pay/MasterCard.png";
 import Visa from "../../Images/Pay/Visa.png";
 
-export default function PaymentType() {
+export default function PaymentType(props) {
   const [paymentData, setPaymentData] = useState();
 
   const onValueChange = (event) => {
     setPaymentData(event.target.value);
+    this.props.updateData({ typePay: event.target.value });
   };
 
   const formSubmit = (event) => {

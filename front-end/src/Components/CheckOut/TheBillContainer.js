@@ -1,26 +1,25 @@
 import React, { useState } from "react";
-import GenderType from "./GenderType2";
 import "./Styles/ClientType.css";
 //import TheBill from "./TheBillIndex";
 //import submitted from "./CheckoutContainer";
-export default function TheBillContainer() {
+export default function TheBillContainer(props) {
   const [values, setValues] = useState({
     firstName: "",
     lastName: "",
   });
+
   const handleFirstNameInputChange = (event) => {
     setValues({ ...values, firstName: event.target.value });
+    props.updateData({ firstName: event.target.value });
   };
   const handleLastNameInputChange = (event) => {
     setValues({ ...values, lastName: event.target.value });
+    props.updateData({ lastName: event.target.value });
   };
 
   return (
     <div className="theBill">
       <div>1. The Bill</div>
-      <div>
-        <GenderType></GenderType>
-      </div>
       <div>
         <span>First Name </span>
         <span>

@@ -7,38 +7,35 @@ import OtherInformation from "./OtherInformation";
 import { useState } from "react";
 
 export default function CheckoutContainer() {
-  const [name, setName] = useState("");
-  const [h1_Text, setHeading] = useState("");
-  const [isMousedOver, setMouseOver] = useState(false);
+  const [data, setData] = useState({
+    firstName: "",
+    lastName: "",
+    city: "",
+    place: "",
+    adress: "",
+    postalCode: "",
+    typePay: "",
+    email: "",
+    phone: "",
+  });
 
-  function handle_change(event) {
-    setName(event.target.value);
-    console.log(event.target.value);
-  }
-
-  function handleMouseOver() {
-    setMouseOver(!isMousedOver);
+  function updateData(newData) {
+    console.log({ ...data, ...newData });
+    setData({ ...data, ...newData });
   }
 
   return (
     <div className="checkoutContainer">
-      <>
-        <TheBillContainer></TheBillContainer>
+      <form>
+        <TheBillContainer updateData={updateData}></TheBillContainer>
         <div> .</div>
-        <TheOrderLocation></TheOrderLocation>
+        <TheOrderLocation updateData={updateData}></TheOrderLocation>
         <div> .</div>
-        <ThePayment></ThePayment>
+        <ThePayment updateData={updateData}></ThePayment>
         <div> .</div>
-        <OtherInformation></OtherInformation>
-        <button
-          style={{ backgroundColor: isMousedOver ? "Yellow" : "white" }}
-          type="submit"
-          onMouseOver={handleMouseOver}
-          onMouseOut={handleMouseOver}
-        >
-          submit
-        </button>
-      </>
+        <OtherInformation updateData={updateData}></OtherInformation>
+        <button>submit</button>
+      </form>
     </div>
   );
 }
