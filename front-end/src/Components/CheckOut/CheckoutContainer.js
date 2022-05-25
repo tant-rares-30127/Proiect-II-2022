@@ -5,6 +5,7 @@ import TheOrderLocation from "./TheOrderLocation";
 import ThePayment from "./ThePayment";
 import OtherInformation from "./OtherInformation";
 import { useState } from "react";
+import axios from "axios";
 
 export default function CheckoutContainer() {
   const [data, setData] = useState({
@@ -31,8 +32,7 @@ export default function CheckoutContainer() {
     if (!corectData === true) {
       event.preventDefault();
       console.log("fals");
-    }
-    if (
+    } else if (
       !data.firstName ||
       !data.city ||
       !data.place ||
@@ -43,6 +43,30 @@ export default function CheckoutContainer() {
     ) {
       event.preventDefault();
       alert("Complete corect all the fils");
+    } else {
+      axios({
+        method: "post",
+        url: "https://localhost:5001/OrderHistories/AddOrder",
+        headers: {},
+        data: {
+          id: 1,
+          FirstName: "Rares",
+          LastName: "Tant",
+          Email: "tantrares@yahoo.com",
+          Phone: "0753485033",
+          City: "Sighisoara",
+          County: "Mures",
+          Address: "Strada Romana 117",
+          PostalCode: "545400",
+          PaymentMethod: "GPay",
+          DateTime: null,
+          ShoppingCart: null,
+        },
+      })
+        .then((response) => response.data)
+        .then((data) => {
+          console.log(data);
+        });
     }
   };
 
