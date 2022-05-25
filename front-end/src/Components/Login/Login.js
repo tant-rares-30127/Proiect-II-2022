@@ -25,8 +25,12 @@ export default function Login() {
     .then((response) => response.data)
     .then((data) => {
       console.log(data)
+      if (data.id === null) {
+        alert("Wrong email or password")
+        return
+      }
       localStorage.setItem('user', JSON.stringify(data))  
-      navigate('/')
+      window.location.href = "http://localhost:3000"
     })
     .catch((err) => console.log(err))
     .catch((err) => console.log(err))
@@ -71,3 +75,4 @@ export default function Login() {
     </div>
   );
 }
+
