@@ -8,12 +8,12 @@ export default function TheOrderLocation(props) {
     postalCode: "",
   });
   const handleAdressInputChange = (event) => {
-    setValues({ ...values, adress: event.target.value });
+    setValues({ ...values, adress: event.target.value }, true);
     props.updateData({ adress: event.target.value });
   };
   const handlePostalCodeInputChange = (event) => {
     setValues({ ...values, postalCode: event.target.value });
-    props.updateData({ postalCode: event.target.value });
+    props.updateData({ postalCode: event.target.value }, true);
   };
   return (
     <>

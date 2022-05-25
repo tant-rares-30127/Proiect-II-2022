@@ -22,7 +22,7 @@ class PaymentType extends Component {
     this.setState({
       selectedOption: event.target.value,
     });
-    this.props.updateData({ typePay: event.target.value });
+    this.props.updateData({ typePay: event.target.value }, true);
   }
 
   formSubmit(event) {

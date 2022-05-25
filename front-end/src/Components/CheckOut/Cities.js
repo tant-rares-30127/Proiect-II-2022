@@ -30,15 +30,16 @@ class Cities extends React.Component {
     this.setState({ selectedCity: event.target.value });
     this.setState({
       places: this.state.cities.find(
-        (entry) => entry.name == event.target.value
+        (entry) => entry.name === event.target.value
       ).places,
     });
-    this.props.updateData({ city: event.target.value });
+    this.props.updateData({ city: event.target.value }, true);
     //setTimeout(() => console.log(this.state), 1000);
   }
 
   changePlace(event) {
-    this.props.updateData({ place: event.target.value });
+    this.setState({ selectedPlace: event.target.value });
+    this.props.updateData({ place: event.target.value }, true);
     //setTimeout(() => console.log(this.state), 1000);
   }
   //changePlace(event) {
