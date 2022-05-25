@@ -5,7 +5,7 @@ import logo from "../../Images/Logo_transparent.png";
 import { useNavigate } from "react-router-dom";
 
 export default function RegisterForm() {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   function handleRegister(user) {
     console.log(user);
@@ -30,7 +30,7 @@ export default function RegisterForm() {
       .then((response) => response.data)
       .then((data) => {
         alert(data);
-        navigate('/login')
+        navigate("/login");
       });
   }
 
@@ -44,11 +44,6 @@ export default function RegisterForm() {
         Get professional advice, news, strategies about out products and also
         see other people's opinion about them.
       </p>
-      <div className="UsersNumber-container Form-important-text">
-        <span>We are already -</span>
-        <span className="UsersNumber">55574</span>
-        <span>people(s)</span>
-      </div>
       <FormFields handleRegister={handleRegister} />
     </div>
   );
