@@ -2,22 +2,24 @@ import React, { useState } from "react";
 import Cities from "./Cities";
 import "./Styles/ClientType.css";
 
-export default function TheOrderLocation() {
+export default function TheOrderLocation(props) {
   const [values, setValues] = useState({
     adress: "",
     postalCode: "",
   });
   const handleAdressInputChange = (event) => {
-    setValues({ ...values, adress: event.target.value });
+    setValues({ ...values, adress: event.target.value }, true);
+    props.updateData({ adress: event.target.value });
   };
   const handlePostalCodeInputChange = (event) => {
     setValues({ ...values, postalCode: event.target.value });
+    props.updateData({ postalCode: event.target.value }, true);
   };
   return (
     <>
       <div className="theBill">
         2. The Order Location
-        <Cities></Cities>
+        <Cities updateData={props.updateData}></Cities>
         <div>
           <span>Adress </span>
           <span className="adress">

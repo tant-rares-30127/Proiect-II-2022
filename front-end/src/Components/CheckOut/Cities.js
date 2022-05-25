@@ -1,5 +1,4 @@
 import React from "react";
-//import "bootstrap/dist/css/bootstrap.min.css";
 
 class Cities extends React.Component {
   constructor(props) {
@@ -21,22 +20,28 @@ class Cities extends React.Component {
       ],
       places: [],
       selectedCity: "City",
-      // selectedPlace: "Place",
+      selectedPlace: "Place",
     };
     this.changeCity = this.changeCity.bind(this);
-    //this.changePlace = this.changePlace.bind(this);
+    this.changePlace = this.changePlace.bind(this);
   }
 
   changeCity(event) {
     this.setState({ selectedCity: event.target.value });
     this.setState({
       places: this.state.cities.find(
-        (entry) => entry.name == event.target.value
+        (entry) => entry.name === event.target.value
       ).places,
     });
+    this.props.updateData({ city: event.target.value }, true);
     //setTimeout(() => console.log(this.state), 1000);
   }
 
+  changePlace(event) {
+    this.setState({ selectedPlace: event.target.value });
+    this.props.updateData({ place: event.target.value }, true);
+    //setTimeout(() => console.log(this.state), 1000);
+  }
   //changePlace(event) {
   //  this.setState({ selectedPlace: event.target.value });
   // }
@@ -65,8 +70,8 @@ class Cities extends React.Component {
               <select
                 className="form-select"
                 placeholder="Place"
-                //value={this.state.selectedPlace}
-                //onChange={this.changePlace}
+                value={this.state.selectedPlace}
+                onChange={this.changePlace}
               >
                 <option>Place</option>
                 {this.state.places.map((e, key) => {

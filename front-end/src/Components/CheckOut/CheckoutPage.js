@@ -1,13 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 import CheckoutContainer from "./CheckoutContainer";
-import ClientType from "./ClientType";
 import "./Styles/ClientType.css";
 import TheOrderLocation from "./TheOrderLocation";
 export default function CheckoutPage() {
+  const [clientType, setClientType] = useState("");
+  const [checkoutContainer, setCheckoutContainer] = useState({});
+
   return (
     <div className="checkoutPage">
-      <ClientType></ClientType>
-      <div className="line">.</div>
       <CheckoutContainer></CheckoutContainer>
     </div>
   );

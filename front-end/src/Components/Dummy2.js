@@ -1,7 +1,6 @@
 import React from "react";
 import CheckoutPage from "./CheckOut/CheckoutPage";
-import ClientType from "./CheckOut/ClientType";
-import NameForm from "./CheckOut/NameForm";
+//import ClientType from "./CheckOut/ClientType";
 
 export default function Dummy2() {
   return <div>Dummy2</div>;

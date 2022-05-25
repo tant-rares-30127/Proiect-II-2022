@@ -1,8 +1,8 @@
 import React from "react";
 import "./Styles/ClientType.css";
 class DemoForm extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       input: {},
       errors: {},
@@ -10,6 +10,7 @@ class DemoForm extends React.Component {
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    //this.props.updateData
   }
 
   handleChange(event) {
@@ -19,6 +20,11 @@ class DemoForm extends React.Component {
     this.setState({
       input,
     });
+    this.validate();
+    if (event.target.name === "email") {
+      this.props.updateData({ email: event.target.value }, this.validate());
+    } else
+      this.props.updateData({ phone: event.target.value }, this.validate());
   }
 
   handleSubmit(event) {
@@ -82,39 +88,36 @@ class DemoForm extends React.Component {
     return (
       <div className="theBill">
         <div>4. Other Information</div>
-        <form onSubmit={this.handleSubmit}>
-          <div className="form-group">
-            <label>Email Address:</label>
+
+        <div className="form-group">
+          <label>E-mail Address:</label>
+          <input
+            type="text"
+            name="email"
+            value={this.state.input.email}
+            onChange={this.handleChange}
+            placeholder="Enter e-mail"
+            id="email"
+          />
+
+          <div className="text-danger">{this.state.errors.email}</div>
+        </div>
+
+        <div>
+          <span>Phone:</span>
+          <span className="phone">
             <input
               type="text"
-              name="email"
-              value={this.state.input.email}
+              name="phone"
+              value={this.state.input.phone}
               onChange={this.handleChange}
-              placeholder="Enter email"
-              id="email"
+              placeholder="Enter phone"
+              id="phone"
             />
+          </span>
 
-            <div className="text-danger">{this.state.errors.email}</div>
-          </div>
-
-          <div>
-            <span>Phone:</span>
-            <span className="phone">
-              <input
-                type="text"
-                name="phone"
-                value={this.state.input.phone}
-                onChange={this.handleChange}
-                placeholder="Enter phone"
-                id="email"
-              />
-            </span>
-
-            <div className="text-danger">{this.state.errors.phone}</div>
-          </div>
-
-          <input type="submit" value="Submit" className="btn btn-success" />
-        </form>
+          <div className="text-danger">{this.state.errors.phone}</div>
+        </div>
       </div>
     );
   }

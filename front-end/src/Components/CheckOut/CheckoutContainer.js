@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Children, useRef } from "react";
 import TheBillContainer from "./TheBillContainer";
 import "./Styles/ClientType.css";
 import TheOrderLocation from "./TheOrderLocation";
@@ -7,38 +7,66 @@ import OtherInformation from "./OtherInformation";
 import { useState } from "react";
 
 export default function CheckoutContainer() {
-  const [name, setName] = useState("");
-  const [h1_Text, setHeading] = useState("");
-  const [isMousedOver, setMouseOver] = useState(false);
+  const [data, setData] = useState({
+    firstName: "",
+    lastName: "",
+    city: "",
+    place: "",
+    adress: "",
+    postalCode: "",
+    typePay: "",
+    email: "",
+    phone: "",
+  });
+  const [corectData, setCorectData] = useState(false);
+  //const email = "Enter e-mail";
 
-  function handle_change(event) {
-    setName(event.target.value);
-    console.log(event.target.value);
+  function updateData(newData, isCorect) {
+    console.log({ ...data, ...newData } + isCorect);
+    setData({ ...data, ...newData });
+    setCorectData(isCorect);
   }
 
+  const formSubmit = (event) => {
+    if (!corectData === true) {
+      event.preventDefault();
+      console.log("fals");
+    }
+    if (
+      !data.firstName ||
+      !data.city ||
+      !data.place ||
+      !data.adress ||
+      !data.postalCode ||
+      !data.adress ||
+      !data.email
+    ) {
+      event.preventDefault();
+      alert("Complete corect all the fils");
+    }
+  };
+
+  const [isMousedOver, setMouseOver] = useState(false);
   function handleMouseOver() {
     setMouseOver(!isMousedOver);
   }
 
+  //const handleSubmit = (event) => {
+  // this.child.handleSubmit(event);
+  // };
+
   return (
     <div className="checkoutContainer">
-      <>
-        <TheBillContainer></TheBillContainer>
+      <form onSubmit={formSubmit}>
+        <TheBillContainer updateData={updateData}></TheBillContainer>
         <div> .</div>
-        <TheOrderLocation></TheOrderLocation>
+        <TheOrderLocation updateData={updateData}></TheOrderLocation>
         <div> .</div>
-        <ThePayment></ThePayment>
+        <ThePayment updateData={updateData}></ThePayment>
         <div> .</div>
-        <OtherInformation></OtherInformation>
-        <button
-          style={{ backgroundColor: isMousedOver ? "Yellow" : "white" }}
-          type="submit"
-          onMouseOver={handleMouseOver}
-          onMouseOut={handleMouseOver}
-        >
-          submit
-        </button>
-      </>
+        <OtherInformation updateData={updateData}></OtherInformation>
+        <input type="submit" value="Submit" className="btn btn-success" />
+      </form>
     </div>
   );
 }
