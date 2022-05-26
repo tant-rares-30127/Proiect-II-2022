@@ -4,8 +4,6 @@ export default function FormField(props) {
   const { placeholder, data, error, type, handleInput, name, regex } = props;
   const [isValid, setIsValid] = useState(true);
 
-  console.log(name + " " + regex);
-
   function checkIfValid(input) {
     if (input.match(regex) === null) {
       setIsValid(false);
