@@ -3,13 +3,12 @@ import React from "react";
 import { useState } from "react";
 import "./Styles/Dropdown.css";
 import img1 from "../../Images/Arrow_down.png";
-export default function Dropdown({ selected, setSelected, handleSort }) {
+export default function Dropdown2({ selected, setSelected, handleSort }) {
   const [isActive, setIsActive] = useState(false);
-  const options = ["Stock", "Price", "Rating"];
+  const options = ["Ascending", "Descening"];
 
-  function handleSelectOption(e, option) {
-    //setSelected(e.target.textContent)
-    handleSort({orderType: option.toLowerCase()})
+  function hanldeSortingOption(e, option) {
+    handleSort({order: option.toLowerCase()})
   }
   return (
     <div className="dropdown">
@@ -23,7 +22,7 @@ export default function Dropdown({ selected, setSelected, handleSort }) {
         <div className="dropdown_content">
           {options.map((option) => (
             <div
-              onClick={(e) => handleSelectOption(e, option)}
+              onClick={(e) => hanldeSortingOption(e, option)}
               className="dropdown_item"
             >
               {option}

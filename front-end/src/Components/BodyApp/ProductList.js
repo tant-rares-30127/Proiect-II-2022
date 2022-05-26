@@ -32,7 +32,10 @@ export default function ProductList() {
               key={uuidv4()}
               href="../../productsPage"
               onClick={() => {
-                localStorage.setItem("productType", p.name);
+                localStorage.setItem(
+                  "productType",
+                  JSON.stringify({ name: p.name, id: p.id })
+                );
               }}
             >
               <li key={uuidv4()}>
