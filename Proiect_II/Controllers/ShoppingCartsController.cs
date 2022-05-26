@@ -26,7 +26,7 @@ namespace Proiect_II.Controllers
         public void AddProductToCart(int id, [FromBody] User user)
         {
             List <ShoppingCartProduct> shoppingCartProductList = _context.ShoppingCartProduct.Include(n => n.Product).ToList();
-            ShoppingCartProduct shoppingCartProductExistent = shoppingCartProductList.Where(n => n.Product.Id == id).First();
+            ShoppingCartProduct shoppingCartProductExistent = shoppingCartProductList.Where(n => n.Product.Id == id).FirstOrDefault();
             if (shoppingCartProductExistent != null)
             {
                 shoppingCartProductExistent.Quantity++;
