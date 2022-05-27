@@ -58,7 +58,7 @@ export default function TheBillContainer(props) {
       <div>1. The Bill</div>
       <div>
         <span>First Name </span>
-        <span>
+        <span className="spacebetween">
           <input
             onChange={handleFirstNameInputChange}
             value={values.firstName}

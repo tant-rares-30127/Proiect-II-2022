@@ -1,5 +1,5 @@
 import React from "react";
-
+import "./Styles/ClientType.css";
 class Cities extends React.Component {
   constructor(props) {
     super(props);
@@ -51,10 +51,9 @@ class Cities extends React.Component {
       <>
         <div className="container">
           <div className="row">
-            <div className="form-group">
+            <div>
               <label style={styles.lbl}>City</label>
               <select
-                className="form-select"
                 placeholder="City"
                 value={this.state.selectedCity}
                 onChange={this.changeCity}
@@ -68,14 +67,19 @@ class Cities extends React.Component {
             <div className="form-group">
               <label style={styles.lbl}>Place</label>
               <select
-                className="form-select"
+                className="dropdown_btn"
                 placeholder="Place"
                 value={this.state.selectedPlace}
                 onChange={this.changePlace}
               >
-                <option>Place </option>
+                <option className="dropdown_content">Place </option>
                 {this.state.places.map((e, key) => {
-                  return <option key={key}> {e}</option>;
+                  return (
+                    <option className="dropdown_item" key={key}>
+                      {" "}
+                      {e}
+                    </option>
+                  );
                 })}
               </select>
             </div>
