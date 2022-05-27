@@ -108,5 +108,78 @@ body{
     padding-bottom: 1%;
 }
 
+.button{
+    display: flex;
+    justify-content: center;
+    padding-top: 5%;
+}
 
+input[type=submit] {
+    margin-bottom: 1%;
+    width: 30%;
+    height: 100%;
+    border: 0.2rem solid   rgb(5, 2, 1) ;
+    text-align: center;
+    border-radius: 10px;
+    background: rgba(229, 82, 65, 1) 100% ;
+    font-weight: bold;
+    color:rgba(255, 255, 255, 1);
+  
+  } 
+  input[type=submit]:hover {
+      text-transform: uppercase;
+      height: 100%;
+ }
 
+select{
+    padding: 1% 1%;
+    width: 25%;
+    background: rgb(230, 227, 227);
+    box-shadow: 3px 3px 10px 6px rgba(0, 0, 0, 0.06 );
+    font-weight: bold;
+    color: #333;
+    align-items: center;
+    cursor: pointer;
+    justify-content:center;
+    border-radius: 9px;
+
+}
+
+select option{
+    padding: 9% 9%;
+    background: rgb(71, 69, 69);
+    box-shadow: 3px 3px 10px 6px rgba(0, 0, 0, 0.06);
+    font-weight: bold;
+    color: rgb(31, 30, 30);
+    align-items: left;
+    cursor: pointer;
+    justify-content:center;
+    border-radius: 15px;
+}
+
+.dropdown .dropdown_content{
+    top: 80%;
+    left: 0;
+    padding: 2.4%;
+    background: #fff;
+    box-shadow: 3px 3px 10px 6px rgba(0, 0, 0, 0.06 );
+    font-weight: 500;
+    color: rgb(179, 174, 174);
+    width: 95% ;
+    border-radius: 4px;
+}
+.dropdown .dropdown_content .dropdown_item{
+    position: relative;
+    padding: 10px;
+    cursor: pointer;
+    transition: all 1s ;
+}
+.dropdown .dropdown_content .dropdown_item:hover{
+    background: #f4f4f4;
+}
+.egal{
+    padding-right: 6.5%;
+}
+.egal2{
+    padding-right: 7.9%;
+}

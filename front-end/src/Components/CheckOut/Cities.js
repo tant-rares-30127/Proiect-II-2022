@@ -49,10 +49,10 @@ class Cities extends React.Component {
   render() {
     return (
       <>
-        <div className="container">
+        <div>
           <div className="row">
             <div>
-              <label style={styles.lbl}>City</label>
+              <label className="egal2">City</label>
               <select
                 placeholder="City"
                 value={this.state.selectedCity}
@@ -65,21 +65,15 @@ class Cities extends React.Component {
               </select>
             </div>
             <div className="form-group">
-              <label style={styles.lbl}>Place</label>
+              <label className="egal">Place</label>
               <select
-                className="dropdown_btn"
                 placeholder="Place"
                 value={this.state.selectedPlace}
                 onChange={this.changePlace}
               >
-                <option className="dropdown_content">Place </option>
+                <option>Place </option>
                 {this.state.places.map((e, key) => {
-                  return (
-                    <option className="dropdown_item" key={key}>
-                      {" "}
-                      {e}
-                    </option>
-                  );
+                  return <option key={key}> {e}</option>;
                 })}
               </select>
             </div>
@@ -89,12 +83,5 @@ class Cities extends React.Component {
     );
   }
 }
-
-const styles = {
-  lbl: {
-    marginTop: 5,
-    marginBotton: 5,
-  },
-};
 
 export default Cities;

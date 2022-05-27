@@ -89,7 +89,9 @@ export default function CheckoutContainer() {
         <ThePayment updateData={updateData}></ThePayment>
         <div> .</div>
         <OtherInformation updateData={updateData}></OtherInformation>
-        <input type="submit" value="Submit" className="btn btn-success" />
+        <div className="button">
+          <input type="submit" value="Submit" />
+        </div>
       </form>
     </div>
   );

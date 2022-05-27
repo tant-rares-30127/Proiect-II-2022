@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Recomandation from "./RecomandationIndex";
+import { useNavigate } from "react-router-dom";
 
 export default function List() {
   const [recomandationData, setRecomandationData] = useState([]);
@@ -19,8 +20,18 @@ export default function List() {
       });
   }, []);
 
+  const navigate = useNavigate();
+  const handleProduct = (product_name) => {
+    localStorage.setItem("productName", product_name);
+    let path = "/productDetails";
+    navigate(path);
+  };
+
   let productData = recomandationData.map((item) => (
-    <Recomandation.Column key={item.id}>
+    <Recomandation.Column
+      key={item.id}
+      onClick={() => handleProduct(item.name)}
+    >
       <Recomandation.Card>
         <div className="card_img">
           <img id="object-position" src={item.imageAdress}></img>
