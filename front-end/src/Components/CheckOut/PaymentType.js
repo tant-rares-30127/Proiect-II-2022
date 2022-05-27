@@ -41,7 +41,7 @@ class PaymentType extends Component {
               checked={this.state.selectedOption === "option1"}
               onChange={this.onValueChange}
             />
-            <span className="imagePay">
+            <span className="inputText">
               <div>By Payment Systems</div>
               <span>
                 <img src={Apple} />
@@ -57,7 +57,7 @@ class PaymentType extends Component {
               checked={this.state.selectedOption === "option2"}
               onChange={this.onValueChange}
             />
-            <span className="imagePay">
+            <span className="inputText">
               <div>By Payment Systems</div>
               <span>
                 <img src={MaestroCard} />
@@ -74,7 +74,7 @@ class PaymentType extends Component {
               checked={this.state.selectedOption === "option3"}
               onChange={this.onValueChange}
             />
-            <span className="imagePay">Reimbursment</span>
+            <span className="inputText">Reimbursment</span>
           </div>
         </form>
       </div>

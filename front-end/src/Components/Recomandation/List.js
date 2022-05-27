@@ -27,13 +27,30 @@ export default function List() {
     navigate(path);
   };
 
+  function handleButNowBtnClick(productId) {
+    // TODO: api call to add product to cart
+    const user = JSON.parse(localStorage.getItem("user"));
+    if (user === null || user === undefined) {
+      navigate("/login");
+    }
+    axios({
+      method: "post",
+      url:
+        "https://localhost:5001/ShoppingCarts/AddProductToCart?id=" + productId,
+      data: user,
+    })
+      .then((response) => response.data)
+      .then((data) => {
+        console.log(data);
+      })
+      .catch((err) => console.log(err))
+      .catch((err) => console.log(err));
+  }
+
   let productData = recomandationData.map((item) => (
-    <Recomandation.Column
-      key={item.id}
-      onClick={() => handleProduct(item.name)}
-    >
+    <Recomandation.Column key={item.id}>
       <Recomandation.Card>
-        <div className="card_img">
+        <div className="card_img" onClick={() => handleProduct(item.name)}>
           <img id="object-position" src={item.imageAdress}></img>
         </div>
         <Recomandation.Card_body>
@@ -44,7 +61,7 @@ export default function List() {
               <h1>{item.price} lei</h1>
             </div>
           </Recomandation.Price_section>
-          <Recomandation.Button>
+          <Recomandation.Button onClick={() => handleButNowBtnClick(item.id)}>
             <div>Buy now</div>
           </Recomandation.Button>
         </Recomandation.Card_body>

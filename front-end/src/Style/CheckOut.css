@@ -1,0 +1,8 @@
+.inputText{
+    border: 3px solid rgba(252, 252, 252, 0.4);
+    background-color: rgba(252, 252, 252, 0.2);
+    border-radius: 10px;
+    padding-left: 3%;
+    padding-top: 1%;
+    padding-bottom: 1%;
+}

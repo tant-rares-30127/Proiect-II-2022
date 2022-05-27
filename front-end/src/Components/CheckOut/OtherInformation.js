@@ -92,6 +92,7 @@ class DemoForm extends React.Component {
         <div className="form-group">
           <label>E-mail Address:</label>
           <input
+            className="inputText"
             type="text"
             name="email"
             value={this.state.input.email}
@@ -107,6 +108,7 @@ class DemoForm extends React.Component {
           <span>Phone:</span>
           <span className="phone">
             <input
+              className="inputText"
               type="text"
               name="phone"
               value={this.state.input.phone}

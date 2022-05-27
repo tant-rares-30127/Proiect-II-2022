@@ -4,8 +4,7 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import "../Style/App.css";
 import NavBar from "./NavBar/NavBar";
 import Body from "./BodyApp/Body";
-import Dummy from "./Dummy";
-import Dummy2 from "./Dummy2";
+import CheckoutPage from "./CheckOut/CheckoutPage";
 import Login from "./Login/Login";
 import Register from "./Register/Register";
 import ProductDetails from "./ProductDetails/ProductDetails";
@@ -50,7 +49,7 @@ function App() {
             }
           />
           <Route path="/productsPage" element={<ProductsPage />} />
-          <Route path="/dummy" element={<Dummy2 />} />
+          <Route path="/checkOut" element={<CheckoutPage />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
           <Route path="/productDetails" element={<ProductDetails />} />

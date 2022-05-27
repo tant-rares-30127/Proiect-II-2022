@@ -24,6 +24,7 @@ export default function TheOrderLocation(props) {
           <span>Adress </span>
           <span className="adress">
             <input
+              className="inputText"
               onChange={handleAdressInputChange}
               value={values.adress}
               type="text"
@@ -36,6 +37,7 @@ export default function TheOrderLocation(props) {
           <span>Postal Code </span>
           <span>
             <input
+              className="inputText"
               onChange={handlePostalCodeInputChange}
               value={values.postalCode}
               type="text"
