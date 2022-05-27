@@ -26,6 +26,8 @@ export default function Product({ product }) {
     .catch((err) => console.log(err))
   }
 
+  
+
   return (
     <div className="Main-details-container">
       <div className="Product-details-container">
