@@ -2,11 +2,8 @@ import React from "react";
 import axios from "axios";
 import FormFieldsLogin from "./FormFieldsLogin";
 import logo from "../../Images/Logo_transparent.png";
-import { useNavigate } from "react-router-dom";
 
 export default function Login() {
-  const navigate = useNavigate();
-
   function handleLogIn(user) {
     if (user.email === "" || user.password === "") {
       alert("Invalid credentials");
@@ -24,7 +21,7 @@ export default function Login() {
       .then((response) => response.data)
       .then((data) => {
         if (data.id != null) localStorage.setItem("user", JSON.stringify(data));
-        navigate("/");
+        window.location.href = "http://localhost:3000/"
       })
       .catch((err) => console.log(err))
       .catch((err) => console.log(err));
