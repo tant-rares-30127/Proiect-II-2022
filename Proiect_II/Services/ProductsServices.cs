@@ -45,6 +45,7 @@ namespace Proiect_II.Services
 
         public List<Product> SearchedProducts(List<Product> productsList, string text)
         {
+            text = text.ToLower();
             List<Product> products = new List<Product>();
             int i = 1;
             foreach (Product p in productsList)
