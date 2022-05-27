@@ -69,6 +69,10 @@ export default function ProductCart() {
     setProducts(newProducts);
   }
 
+  function handlePlaceOrder() {
+    window.location.href = "http://localhost:3000/checkOut"
+  }
+
   return (
     <ProductCartContext.Provider value={productCartContextValue}>
       <div className="Cart-container-border">
@@ -89,29 +93,10 @@ export default function ProductCart() {
             <CartBody data={products} />
           )}
           {products.length === 0 ? null : (
-            <button className="Send-order-btn">Send the order</button>
+            <button onClick={handlePlaceOrder} className="Send-order-btn">Send the order</button>
           )}
         </div>
       </div>
     </ProductCartContext.Provider>
   );
 }
-
-// const user = {
-//   id: 1,
-//   address: {
-//     id: 1,
-//     country: "Romania",
-//     city: "Sighisoara",
-//     details: "La sefi",
-//   },
-//   username: "Rares",
-//   password: "Rares",
-//   email: "rares",
-//   phone: "rares",
-//   shoppingCart: {
-//     id: 1,
-//     dateTime: "2022-05-01T00:00:00",
-//     user: null,
-//   },
-// };
