@@ -50,10 +50,6 @@ export default function Product({ product }) {
             <button onClick={handleButNowBtnClick} className="Buy-product-btn">
               Buy now
             </button>
-            <button className="Fav-product-btn">
-              <img className="NavBar-Icon" src={heartIcon} alt="Heart Icon" />
-              Add to Favorites
-            </button>
           </div>
         </div>
       </div>
