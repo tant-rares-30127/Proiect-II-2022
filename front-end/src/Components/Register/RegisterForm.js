@@ -29,7 +29,7 @@ export default function RegisterForm() {
     })
       .then((response) => response.data)
       .then((data) => {
-        alert(data);
+        alert("Your account has been created!");
         navigate("/login");
       });
   }
