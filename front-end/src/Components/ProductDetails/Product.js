@@ -2,6 +2,7 @@ import React from "react";
 import heartIcon from "../../Images/Heart.png";
 import starIcon from "../../Images/fullStar.png";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
 export default function Product({ product }) {
   const navigate = useNavigate();
@@ -12,6 +13,17 @@ export default function Product({ product }) {
     if (user === null || user === undefined) {
       navigate("/login");
     }
+    axios({
+      method: "post",
+      url: "https://localhost:5001/ShoppingCarts/AddProductToCart?id="+product.id,
+      data: user
+    })
+    .then((response) => response.data)
+    .then((data) => {
+      console.log(data)
+    })
+    .catch((err) => console.log(err))
+    .catch((err) => console.log(err))
   }
 
   return (
