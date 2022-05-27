@@ -34,6 +34,7 @@ namespace Proiect_II.Controllers
             review.Id = null;
             review.Date = DateTime.Now;
             _context.Review.Add(review);
+            _context.SaveChanges();
             List<Review> reviews = _context.Review.Where(n => n.ProductId == review.ProductId).ToList();
             Product product = _context.Product.Where(n => n.Id == review.ProductId).FirstOrDefault();
             product = reviewsServices.RecalculateRating(reviews, product);

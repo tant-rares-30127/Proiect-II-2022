@@ -11,6 +11,7 @@ export default function SearchBar() {
       setSearch(undefined)
       return
     }
+    console.log("https://localhost:5001/Products/SearchBarType?text=" + value)
     axios
       .get("https://localhost:5001/Products/SearchBarType?text=" + value)
       .then((response) => {
@@ -23,12 +24,7 @@ export default function SearchBar() {
         const dataFromApi = data.map((d) => {
           return d.name;
         });
-        const newSearch = dataFromApi.filter((d) => d.includes(value));
-        if (value === "" || newSearch.length === 0) {
-          setSearch(undefined);
-        } else {
-          setSearch(newSearch);
-        }
+        setSearch(dataFromApi)
       })
       .catch((error) => console.log(error));
   }

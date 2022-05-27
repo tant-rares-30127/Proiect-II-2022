@@ -19,7 +19,7 @@ export default function Reviews({ details, handleAddNewReview }) {
 
   return (
     <>
-      {reviews}
+      {reviews.length > 0 ? reviews : (<div>Be the first to add a review for this product!</div>)}
       {addReview ? (
         <AddReview handleAddReview={handleAddReview} />
       ) : (

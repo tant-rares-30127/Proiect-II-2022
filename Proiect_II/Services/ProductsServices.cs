@@ -34,7 +34,7 @@ namespace Proiect_II.Services
             Product product = new Product();
             foreach (Product p in productsList)
             {
-                if (p.Name.Equals(text))
+                if (p.Name.ToLower().Equals(text.ToLower()))
                 {
                     product = p;
                     break;
@@ -45,13 +45,14 @@ namespace Proiect_II.Services
 
         public List<Product> SearchedProducts(List<Product> productsList, string text)
         {
+            text = text.ToLower();
             List<Product> products = new List<Product>();
             int i = 1;
             foreach (Product p in productsList)
             {
                 if (i <= 4)
                 {
-                    if (p.Name.Contains(text))
+                    if (p.Name.ToLower().Contains(text))
                     {
                         products.Add(p);
                         i++;

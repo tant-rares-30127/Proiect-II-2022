@@ -12,7 +12,6 @@ export default function FormFields({ handleRegister }) {
   });
   const [isAgreementChecked, setIsAgreementChecked] = useState(false);
   const [agreementErr, setAgreementErr] = useState(false);
-
   const formFields = formInputs.map((i) => {
     return (
       <FormField
@@ -29,7 +28,6 @@ export default function FormFields({ handleRegister }) {
   });
 
   function handleInput(input) {
-    console.log(user);
     setUser((prevUser) => {
       return { ...prevUser, ...input };
     });
@@ -37,18 +35,17 @@ export default function FormFields({ handleRegister }) {
 
   function handlePreRegister() {
     if (isAgreementChecked === false) {
-      setAgreementErr(true)
-      alert("Required fields! You must complete all the fileds!")
+      setAgreementErr(true);
+      alert("Required fields! You must complete all the fileds!");
       return;
     }
     if (
       user.email === "" ||
       user.username === "" ||
       user.password === "" ||
-      user.phone === "" 
+      user.phone === ""
     ) {
-      console.log("Nasol frate");
-      alert("Required fields! You must complete all the fileds!")
+      alert("Required fields! You must complete all the fileds!");
       return;
     }
     handleRegister(user);
@@ -67,8 +64,8 @@ export default function FormFields({ handleRegister }) {
           <input
             onChange={(e) => {
               setIsAgreementChecked(e.target.checked);
-              if (e.target.checked === true) setAgreementErr(false)
-              else setAgreementErr(true)
+              if (e.target.checked === true) setAgreementErr(false);
+              else setAgreementErr(true);
             }}
             type="checkbox"
           />

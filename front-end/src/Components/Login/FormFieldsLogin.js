@@ -10,7 +10,6 @@ export default function FormFieldsLogin({ handleLogIn }) {
   });
 
   function handleEmailChange(email) {
-    console.log(email);
     if (email.match(regex.emailRegex) === null) {
       setEmailErr(true);
       setUser((prev) => {

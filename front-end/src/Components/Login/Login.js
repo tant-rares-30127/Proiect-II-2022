@@ -1,50 +1,45 @@
 import React from "react";
 import axios from "axios";
 import FormFieldsLogin from "./FormFieldsLogin";
-import logo from "../../Images/Logo_transparent.png"
-import { useNavigate } from "react-router-dom";
+import logo from "../../Images/Logo_transparent.png";
 
 export default function Login() {
-  const navigate = useNavigate()
-
   function handleLogIn(user) {
-    console.log(user)
-    if (user.email === '' || user.password === '') {
-      alert("Invalid credentials")
-      return
+    if (user.email === "" || user.password === "") {
+      alert("Invalid credentials");
+      return;
     }
     axios({
-      method: 'post',
+      method: "post",
       url: "https://localhost:5001/Users/LoginAccess",
-      headers: {}, 
+      headers: {},
       data: {
         email: user.email,
-        password: user.password
-      }
+        password: user.password,
+      },
     })
-    .then((response) => response.data)
-    .then((data) => {
-      console.log(data)
-      localStorage.setItem('user', JSON.stringify(data))  
-      navigate('/')
-    })
-    .catch((err) => console.log(err))
-    .catch((err) => console.log(err))
+      .then((response) => response.data)
+      .then((data) => {
+        if (data.id != null) localStorage.setItem("user", JSON.stringify(data));
+        window.location.href = "http://localhost:3000/"
+      })
+      .catch((err) => console.log(err))
+      .catch((err) => console.log(err));
   }
 
   return (
     <div className="Login-body-container-main">
       <div className="Login-header-container">
-      <div className="Register-title-form-container">
-        <img className="Logo" src={logo} alt="Logo"/>
-        <h2>iShop</h2>
-      </div>
+        <div className="Register-title-form-container">
+          <img className="Logo" src={logo} alt="Logo" />
+          <h2>iShop</h2>
+        </div>
         <span>
           <h3>Log in and go shopping!</h3>
         </span>
       </div>
       <div className="Login-body-container">
-        <FormFieldsLogin handleLogIn={handleLogIn}/>
+        <FormFieldsLogin handleLogIn={handleLogIn} />
         <span className="Forget-pass">
           <a href="/register">Forgot the password?</a>
         </span>
