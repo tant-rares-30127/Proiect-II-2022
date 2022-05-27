@@ -45,11 +45,6 @@ export default function MenuOptions() {
 
 const menuOptions = [
   {
-    name: "Favorites",
-    icon: favoritesIcon,
-    isActive: false,
-  },
-  {
     name: "My Products",
     icon: productsIcon,
     isActive: false,
