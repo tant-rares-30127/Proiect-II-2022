@@ -20,7 +20,7 @@ export default function AccountDropDown() {
 
   const displayNoAccount = (
     <>
-      <h3>Log in or register to begin shopping!</h3>
+      <h3 className="DropDown-header">Log in or register to begin shopping!</h3>
       <div className="DropwDown-link-container">
         <a href="/login" className="Page-link">
           Login
