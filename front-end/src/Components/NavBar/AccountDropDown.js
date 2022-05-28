@@ -6,11 +6,14 @@ export default function AccountDropDown() {
 
   const displayAccount = (
     <>
-      <h3>Logged in</h3>
-      <h4>{(user !== undefined && user !== null) ? user.username : null}</h4>
+      <h3 className="DropDown-header">Logged in as</h3>
+      <h4 className="DropDown-username">{(user !== undefined && user !== null) ? user.username : null}</h4>
 
       <div className="DropwDown-link-container">
-        <button onClick={() => handleUser(null)} className="Page-link logout_btn">Log out</button>
+        <button onClick={() => {
+          handleUser(null)
+          window.location.href = "http://localhost:3000/"
+        }} className="Page-link logout_btn">Log out</button>
       </div>
     </>
   );

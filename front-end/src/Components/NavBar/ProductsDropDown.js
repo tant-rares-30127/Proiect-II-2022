@@ -18,8 +18,11 @@ export default function ProductsDropDown() {
     })
       .then((response) => response.data)
       .then((data) => {
+        if (data.length == 0) {
+          setProducts(null)
+          return
+        }
         setProducts(data);
-        console.log(data);
       })
       .catch((err) => console.log(err))
       .catch((err) => console.log(err));
@@ -38,13 +41,14 @@ export default function ProductsDropDown() {
       );
     });
   }
+  console.log(dropDownElements)
 
   return (
     <>
       <div className="DropDown-title-container">
         <h2>Your cart</h2>
       </div>
-      {dropDownElements === null ? <div>Your cart is empty!</div> : dropDownElements}
+      {dropDownElements === null ? <h3 className="DropDown-header">Your cart is empty!</h3> : dropDownElements}
       <div className="DropwDown-link-container">
         <a href="/productCart" className="Page-link">
           Go to your cart

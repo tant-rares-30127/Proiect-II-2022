@@ -117,3 +117,13 @@
 .logout_btn {
     border: none;
 }
+
+.DropDown-header {
+    text-align: center;
+}
+
+.DropDown-username {
+    text-align: center;
+    color: #F69852;
+    text-transform:uppercase;
+}
