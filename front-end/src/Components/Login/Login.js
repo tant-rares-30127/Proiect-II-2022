@@ -20,8 +20,13 @@ export default function Login() {
     })
       .then((response) => response.data)
       .then((data) => {
-        if (data.id != null) localStorage.setItem("user", JSON.stringify(data));
-        window.location.href = "http://localhost:3000/"
+        console.log(data)
+        if (data.id != null) {
+          localStorage.setItem("user", JSON.stringify(data));
+          window.location.href = "http://localhost:3000/"
+        } else {
+          alert("Wrong email or password. Try again!")
+        }
       })
       .catch((err) => console.log(err))
       .catch((err) => console.log(err));

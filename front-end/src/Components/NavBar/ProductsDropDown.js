@@ -18,7 +18,7 @@ export default function ProductsDropDown() {
     })
       .then((response) => response.data)
       .then((data) => {
-        if (data.length == 0) {
+        if (data.length === 0) {
           setProducts(null)
           return
         }
