@@ -41,7 +41,7 @@ export default function Product({ product }) {
           <div className="Product-name-container">
             <h2>{product === undefined ? null : product.name}</h2>
             <div>
-              4.6 <img className="NavBar-Icon" src={starIcon} alt="starIcon" />
+              {product === undefined ? null : product.rating.toFixed(2)} <img className="NavBar-Icon" src={starIcon} alt="starIcon" />
             </div>
             <div className="Price-detail-container">
               <div>{product === undefined ? null : product.price}</div>
