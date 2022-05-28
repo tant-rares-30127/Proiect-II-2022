@@ -1,14 +1,6 @@
-import React, { useEffect, useContext } from "react";
-import { MenuOptionsContext } from "./MenuOptions";
+import React from "react";
 
 export default function DropDownElement({ product }) {
-  //const handleHideAll = useContext(MenuOptionsContext)
-
-  // useEffect(()=> {
-  //   document.body.addEventListener("click", handleHideAll)
-
-  //   return () => {document.body.removeEventListener("click", handleHideAll)}
-  // }, [])
   function handleRedirectToProductDetails(productName) {
     localStorage.setItem("productName", productName);
   }

@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { v4 as uuidv4 } from "uuid";
 import MenuOption from "./MenuOption";
-import favoritesIcon from "../../Images/Heart.png";
 import productsIcon from "../../Images/Shop.png";
 import accountIcon from "../../Images/UserCircle.png";
 

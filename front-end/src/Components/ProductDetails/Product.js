@@ -1,5 +1,4 @@
 import React from "react";
-import heartIcon from "../../Images/Heart.png";
 import starIcon from "../../Images/fullStar.png";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
@@ -8,7 +7,6 @@ export default function Product({ product }) {
   const navigate = useNavigate();
 
   function handleButNowBtnClick() {
-    // TODO: api call to add product to cart
     const user = JSON.parse(localStorage.getItem("user"));
     if (user === null || user === undefined) {
       navigate("/login");
@@ -25,8 +23,6 @@ export default function Product({ product }) {
     .catch((err) => console.log(err))
     .catch((err) => console.log(err))
   }
-
-  
 
   return (
     <div className="Main-details-container">

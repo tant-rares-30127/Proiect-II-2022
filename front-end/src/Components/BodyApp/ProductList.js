@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { v4 as uuidv4 } from "uuid";
 import h2ProductsIcon from "../../Images/List.png";
-import { useNavigate } from "react-router-dom";
 
 export default function ProductList() {
   const [products, setProducts] = useState();
