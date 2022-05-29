@@ -10,11 +10,11 @@ export default function ProductsPage() {
   const [selectedProducts, setIsSelectedProducts] = useState();
   const [sortingOptions, setSortingOptions] = useState({
     order: "ascending",
-    orderType: "price"
+    orderType: "price",
   });
 
   useEffect(() => {
-    let productType = JSON.parse(localStorage.getItem("productType")).name
+    let productType = JSON.parse(localStorage.getItem("productType")).name;
     axios
       .get(
         "https://localhost:5001/ProductTypes/ProductsForProductType?text=" +
@@ -33,15 +33,17 @@ export default function ProductsPage() {
   }, []);
 
   function handleSort(newOptions) {
-    const options = {...sortingOptions, ...newOptions}
-    let productType = JSON.parse(localStorage.getItem("productType")).id
-    console.log(options)
-    console.log("https://localhost:5001/Products/SortProducts?order=" +
-    options.order +
-    "&orderType=" +
-    options.orderType +
-    "&productTypeId=" +
-    productType)
+    const options = { ...sortingOptions, ...newOptions };
+    let productType = JSON.parse(localStorage.getItem("productType")).id;
+    console.log(options);
+    console.log(
+      "https://localhost:5001/Products/SortProducts?order=" +
+        options.order +
+        "&orderType=" +
+        options.orderType +
+        "&productTypeId=" +
+        productType
+    );
     axios
       .get(
         "https://localhost:5001/Products/SortProducts?order=" +
@@ -54,26 +56,29 @@ export default function ProductsPage() {
       .then((response) => response.data)
       .then((data) => {
         console.log(data);
-        setIsSelectedProducts(data)
-        setSortingOptions(options)
+        setIsSelectedProducts(data);
+        setSortingOptions(options);
       })
       .catch((err) => console.log(err))
       .catch((err) => console.log(err));
-      
   }
 
   return (
     <div className="products_container">
       <div className="dropdown_filters">
-        <div className="name">Options</div>
-        <Dropdown handleSort={handleSort} selected={selected} setIsSelected={setIsSelected} />
-        <Dropdown2 handleSort={handleSort} selected={selected} setIsSelected={setIsSelected} />
+        <div className="name">Product Type</div>
+        <Dropdown
+          handleSort={handleSort}
+          selected={selected}
+          setIsSelected={setIsSelected}
+        />
+        <Dropdown2
+          handleSort={handleSort}
+          selected={selected}
+          setIsSelected={setIsSelected}
+        />
       </div>
       <div className="list_products">
-        <div className="title">
-          <div className="name">Phones</div>
-          <div className="results">(134 results)</div>
-        </div>
         <Products selectedProducts={selectedProducts}></Products>
       </div>
     </div>

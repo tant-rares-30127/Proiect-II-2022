@@ -9,12 +9,12 @@ export default function Dropdown({ selected, setSelected, handleSort }) {
 
   function handleSelectOption(e, option) {
     //setSelected(e.target.textContent)
-    handleSort({orderType: option.toLowerCase()})
+    handleSort({ orderType: option.toLowerCase() });
   }
   return (
     <div className="dropdown">
       <div className="dropdown_btn" onClick={(e) => setIsActive(!isActive)}>
-        Choose option
+        Sort by
         <span>
           <img src={img1}></img>
         </span>

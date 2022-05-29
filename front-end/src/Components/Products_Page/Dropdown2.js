@@ -8,12 +8,12 @@ export default function Dropdown2({ selected, setSelected, handleSort }) {
   const options = ["Ascending", "Descening"];
 
   function hanldeSortingOption(e, option) {
-    handleSort({order: option.toLowerCase()})
+    handleSort({ order: option.toLowerCase() });
   }
   return (
     <div className="dropdown">
       <div className="dropdown_btn" onClick={(e) => setIsActive(!isActive)}>
-        Choose option
+        Oreder by
         <span>
           <img src={img1}></img>
         </span>
